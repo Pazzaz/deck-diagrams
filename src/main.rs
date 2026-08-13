@@ -2,10 +2,55 @@ use colorous::VIRIDIS;
 use serde::Deserialize;
 use std::{collections::HashMap, fs, io, path::Path};
 use svg::{
-    Document, Node as _, node::element::{self, FilterEffectMorphology, Rectangle},
+    Document, Node as _, node::element::{self, Rectangle},
 };
 
 use base64::prelude::*;
+
+#[derive(Deserialize)]
+enum Color {
+    #[serde(rename = "w")]
+    White,
+    #[serde(rename = "u")]
+    Blue,
+    #[serde(rename = "b")]
+    Black,
+    #[serde(rename = "r")]
+    Red,
+    #[serde(rename = "g")]
+    Green,
+    #[serde(rename = "c")]
+    Colorless,
+}
+
+impl std::fmt::Display for Color {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let x = match self {
+            Color::White => "rgb(255.0, 251.0, 213.0)",
+            Color::Blue => "rgb(170.0, 224.0, 250.0)",
+            Color::Black => "rgb(19.0, 12.0, 14.0)",
+            Color::Red => "rgb(249.0, 170.0, 143.0)",
+            Color::Green => "rgb(155.0, 211.0, 174.0)",
+            Color::Colorless => "rgb(204.0, 194.0, 192.0)",
+        };
+        f.write_str(x)
+    }
+}
+
+#[derive(Deserialize)]
+struct Value {
+    name: String,
+    short: Option<String>,
+    companions: Option<Vec<(String, usize)>>,
+    offset_y: Option<f64>,
+    id: Option<Color>,
+}
+
+#[derive(Deserialize)]
+struct Data {
+    x_values: Vec<Value>,
+    y_values: Vec<Value>,
+}
 
 struct DrawData {
     x_names: Vec<Value>,
@@ -17,7 +62,7 @@ struct DrawData {
 
 fn create_svg(data: &DrawData) -> impl svg::Node {
     let box_width: f64 = 1.4;
-    let scale = 40.0;
+    let scale = 30.0;
     let x_len = data.x_names.len();
     let y_len = data.y_names.len();
     let mut min = usize::MAX;
@@ -35,7 +80,7 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
     }
 
     let margin_top = 2.0;
-    let margin_left = 8.5;
+    let margin_left = 8.0;
 
     let width = x_len as f64 * box_width + margin_left;
     let height = y_len as f64 + margin_top;
@@ -97,11 +142,23 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
         definitions.append(clip_path);
     }
 
-    for (i, image) in data.y_images.iter().enumerate() {
-        let id = format!("y-{}", i);
+    let color_width = 0.2;
+
+    for (j, image) in data.y_images.iter().enumerate() {
+        let info = &data.y_names[j];
+        let id = format!("y-{}", j);
+
+        let inner_y = margin_top + j as f64;
+        let mut outer_y = margin_top + j as f64 - 3.0;
+
+        if let Some(y_offset) = info.offset_y {
+            outer_y += y_offset;
+        }
+
+        assert!(outer_y <= inner_y);
 
         let rect = Rectangle::new()
-            .set("y", margin_top + i as f64)
+            .set("y", inner_y)
             .set("x", 0)
             .set("height", 1.01)
             .set("width", margin_left + 0.01)
@@ -109,7 +166,7 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
         let clip_path = element::ClipPath::new().set("id", id.as_str()).add(rect);
 
         let img = element::Image::new()
-            .set("y", margin_top + i as f64 - 3.0)
+            .set("y", outer_y)
             .set("x", -0.5)
             .set("width", margin_left + 0.1 + 1.0)
             .set("href", format!("data:image/jpeg;base64,{}", image))
@@ -117,6 +174,17 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
 
         document.append(img);
         definitions.append(clip_path);
+
+        // Add color
+        if let Some(color) = &info.id {
+            let rect = Rectangle::new()
+                .set("y", inner_y)
+                .set("x", margin_left - color_width)
+                .set("height", 1.01)
+                .set("width", color_width + 0.01)
+                .set("fill", color.to_string());
+            document.append(rect);
+        }
     }
 
     document.append(definitions);
@@ -211,23 +279,13 @@ fn outlined_text(
         .set("style", format!("font-family:{};", font_family));
 
     let text_inner = text.clone().set("fill", "white");
-    let text_outer = text.clone().set("fill", "black")
+    let text_outer1 = text.clone().set("fill", "black")
         .set("style", format!("font-family:{};paint-order: stroke fill;stroke: #000000;stroke-width: 0.2;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;", font_family));
-    output.append(text_outer);
+    let text_outer2 = text.clone().set("fill", "black")
+        .set("style", format!("font-family:{};paint-order: stroke fill;stroke: #000000;stroke-width: 0.1;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;", font_family));
+    output.append(text_outer1);
+    output.append(text_outer2);
     output.append(text_inner);
-}
-
-#[derive(Deserialize)]
-struct Value {
-    name: String,
-    short: Option<String>,
-    companions: Option<Vec<(String, usize)>>,
-}
-
-#[derive(Deserialize)]
-struct Data {
-    x_values: Vec<Value>,
-    y_values: Vec<Value>,
 }
 
 fn main() {
