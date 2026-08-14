@@ -1,27 +1,30 @@
 use colorous::VIRIDIS;
-use serde::Deserialize;
-use std::{collections::HashMap, fs, io, path::Path};
+use regex::Regex;
+use reqwest::StatusCode;
+use serde::{Deserialize, Serialize};
+use std::{collections::HashMap, fs, io, path::{Path, PathBuf}, str::FromStr};
 use svg::{
-    Document, Node as _, node::element::{self, Rectangle},
+    Document, Node as _,
+    node::element::{self, Rectangle},
 };
 
 use base64::prelude::*;
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize, Clone, Copy)]
 enum Color {
-    #[serde(rename = "w")]
+    #[serde(rename = "W")]
     White,
-    #[serde(rename = "u")]
+    #[serde(rename = "U")]
     Blue,
-    #[serde(rename = "b")]
+    #[serde(rename = "B")]
     Black,
-    #[serde(rename = "r")]
+    #[serde(rename = "R")]
     Red,
-    #[serde(rename = "g")]
+    #[serde(rename = "G")]
     Green,
-    #[serde(rename = "c")]
-    Colorless,
 }
+
+const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
 
 impl std::fmt::Display for Color {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -31,30 +34,32 @@ impl std::fmt::Display for Color {
             Color::Black => "rgb(60, 55, 52)",
             Color::Red => "rgb(229, 65, 43)",
             Color::Green => "rgb(0, 108, 71)",
-            Color::Colorless => "rgb(204.0, 194.0, 192.0)",
         };
         f.write_str(x)
     }
 }
 
-#[derive(Deserialize)]
-struct Value {
+#[derive(Deserialize, Serialize)]
+struct PartnerInfo {
     name: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
     short: Option<String>,
-    companions: Option<Vec<(String, usize)>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     offset_y: Option<f64>,
-    id: Option<Color>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    id: Option<Vec<Color>>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 struct Data {
-    x_values: Vec<Value>,
-    y_values: Vec<Value>,
+    x_values: Vec<PartnerInfo>,
+    y_values: Vec<PartnerInfo>,
+    companions: Vec<(String, String, usize)>,
 }
 
 struct DrawData {
-    x_names: Vec<Value>,
-    y_names: Vec<Value>,
+    x_names: Vec<PartnerInfo>,
+    y_names: Vec<PartnerInfo>,
     x_images: Vec<String>,
     y_images: Vec<String>,
     numbers: HashMap<(usize, usize), usize>,
@@ -99,15 +104,13 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
         .set("in", "SourceAlpha")
         .set("result", "thicken");
 
-    let fe_flood = element::FilterEffectFlood::new()
-        .set("flood-color", "#000000");
+    let fe_flood = element::FilterEffectFlood::new().set("flood-color", "#000000");
 
     let fe_composite_in = element::FilterEffectComposite::new()
         .set("in2", "thicken")
         .set("operator", "in");
 
-    let fe_composite_source = element::FilterEffectComposite::new()
-        .set("in", "SourceGraphic");
+    let fe_composite_source = element::FilterEffectComposite::new().set("in", "SourceGraphic");
 
     let filter = element::Filter::new()
         .set("id", "outline")
@@ -115,7 +118,6 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
         .add(fe_flood)
         .add(fe_composite_in)
         .add(fe_composite_source);
-    
 
     definitions.append(filter);
 
@@ -177,12 +179,17 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
 
         // Add color
         if let Some(color) = &info.id {
+            let color_str = match &color[..] {
+                [] => COLORLESS_COLOR,
+                [single_color] => &single_color.to_string(),
+                _ => panic!(),
+            };
             let rect = Rectangle::new()
                 .set("y", inner_y)
                 .set("x", margin_left - color_width)
                 .set("height", 1.01)
                 .set("width", color_width + 0.01)
-                .set("fill", color.to_string());
+                .set("fill", color_str);
             document.append(rect);
         }
     }
@@ -289,13 +296,37 @@ fn outlined_text(
 }
 
 fn main() {
-    let f = fs::File::open("./data/doctor_who/data.json").unwrap();
+    let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
+    let download_counts: bool = false;
+    let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let data: Data = serde_json::from_reader(f).unwrap();
 
     let x_positions = positions(&data.x_values);
     let y_positions = positions(&data.y_values);
 
-    let numbers = get_counts(&x_positions, &y_positions, &data);
+    let mut numbers = get_counts(&x_positions, &y_positions, &data);
+
+    let client = reqwest::blocking::Client::new();
+
+    if download_counts {
+        for (i, x) in data.x_values.iter().enumerate() {
+            for (j, y) in data.y_values.iter().enumerate() {
+                if let Some(&c) = numbers.get(&(i, j)) {
+                    if let Some(new_c) = get_deck_count(&x.name, &y.name, &client).unwrap() {
+                        if new_c != c {
+                            let a = slugify(&x.name);
+                            let b = slugify(&y.name);
+                            let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
+                            println!("Updated {}->{}: {}", c, new_c, url);
+                            numbers.insert((i, j), new_c);
+                        }
+                    } else {
+                        eprintln!("Parsing failed");
+                    }
+                }
+            }
+        }
+    }
 
     let x_images = get_images(Path::new("./data/doctor_who/images"), &data.x_values);
     let y_images = get_images(Path::new("./data/doctor_who/images"), &data.y_values);
@@ -311,20 +342,59 @@ fn main() {
     let svg = create_svg(&data);
 
     svg::save("./out2.svg", &svg).unwrap();
-
-    // let top: String = iter::once("".to_string()).chain(ALL_DOCTORS.iter().map(|x| x.to_string())).join("\t");
-    // println!("{}", top);
-    // for i in 0..companion_names.len() {
-    //     print!(r#"{}"#, companion_names[i]);
-    //     for doctor in ALL_DOCTORS {
-    //         let count = counts.get(&(doctor, i)).unwrap_or(&0);
-    //         print!("\t{}", count);
-    //     }
-    //     println!();
-    // }
 }
 
-fn get_images(folder: &Path, labels: &[Value]) -> Vec<String> {
+fn slugify(s: &str) -> String {
+    s.to_lowercase()
+        .replace(char::is_whitespace, "-")
+        .replace(',', "")
+        .replace('\'', "")
+}
+
+struct ParseData {
+    deck_count: u64,
+    color_0: Vec<Color>,
+    color_1: Vec<Color>,
+}
+
+fn get_deck_count(
+    partner1: &str,
+    partner2: &str,
+    client: &reqwest::blocking::Client,
+) -> reqwest::Result<Option<usize>> {
+    let a = slugify(partner1);
+    let b = slugify(partner2);
+    let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
+    let mut resp = client.get(&url).send()?;
+    if resp.status() != StatusCode::OK {
+        // Try switching the two partners in the URL
+        let url = format!("https://edhrec.com/commanders/{}-{}", b, a);
+        resp = client.get(&url).send()?;
+        if resp.status() != StatusCode::OK {
+            return Ok(None);
+        }
+    }
+
+    let content = resp.text()?;
+
+    // Extract 
+    let re = Regex::new(r#"<script id="__NEXT_DATA__" type="application/json">(.+)</script>"#).unwrap();
+
+    if let Some(capture) = re.captures(&content) {
+        let block = capture.get(1).unwrap().as_str();
+        let v: serde_json::Value = serde_json::from_str(block).unwrap();
+        let json_dict = &v["props"]["pageProps"]["data"]["container"]["json_dict"];
+        let cards = json_dict["card"]["cards"].as_array().unwrap();
+        assert!(cards.len() == 2);
+        let color_0 = &cards[0]["color_identity"];
+        let n = json_dict["card"]["num_decks"].as_u64().unwrap();
+        Ok(Some(n as usize))
+    } else {
+        Ok(None)
+    }
+}
+
+fn get_images(folder: &Path, labels: &[PartnerInfo]) -> Vec<String> {
     let mut out = Vec::new();
     let mut new = folder.to_path_buf();
     for label in labels {
@@ -350,32 +420,19 @@ fn get_counts(
     data: &Data,
 ) -> HashMap<(usize, usize), usize> {
     let mut out = HashMap::new();
-    for label in &data.x_values {
-        let x_position = x_positions.get(&label.name).unwrap();
-        for (partner_name, count) in label.companions.as_ref().unwrap() {
-            let partner_i = y_positions.get(partner_name).unwrap();
-            out.insert((*x_position, *partner_i), *count);
-        }
+    for (x_name, y_name, count) in &data.companions {
+        let x_position = x_positions.get(x_name).unwrap();
+        let y_position = y_positions.get(y_name).unwrap();
+        out.insert((*x_position, *y_position), *count);
     }
 
     out
 }
 
-fn positions(v: &[Value]) -> HashMap<String, usize> {
+fn positions(v: &[PartnerInfo]) -> HashMap<String, usize> {
     let mut out = HashMap::new();
     for (i, label) in v.iter().enumerate() {
         out.insert(label.name.clone(), i);
     }
     out
 }
-
-// use regex::Regex;
-// fn parse_html(html: &str) -> Vec<(&str, usize)> {
-//     let re = Regex::new(r#">([^<(]+) \(([^)]+)\)<"#).unwrap();
-//     let mut out = Vec::new();
-
-//     for (_, [name, count]) in re.captures_iter(html).map(|c| c.extract()) {
-//         out.push((name, count.parse::<usize>().unwrap()));
-//     }
-//     out
-// }
