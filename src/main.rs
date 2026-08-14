@@ -26,11 +26,11 @@ enum Color {
 impl std::fmt::Display for Color {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let x = match self {
-            Color::White => "rgb(255.0, 251.0, 213.0)",
-            Color::Blue => "rgb(170.0, 224.0, 250.0)",
-            Color::Black => "rgb(19.0, 12.0, 14.0)",
-            Color::Red => "rgb(249.0, 170.0, 143.0)",
-            Color::Green => "rgb(155.0, 211.0, 174.0)",
+            Color::White => "rgb(245, 241, 237)",
+            Color::Blue => "rgb(0, 107, 167)",
+            Color::Black => "rgb(60, 55, 52)",
+            Color::Red => "rgb(229, 65, 43)",
+            Color::Green => "rgb(0, 108, 71)",
             Color::Colorless => "rgb(204.0, 194.0, 192.0)",
         };
         f.write_str(x)
