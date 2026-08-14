@@ -261,13 +261,28 @@
     "companions": [
         [
             "The First Doctor",
-            "Susan Foreman",
-            346
+            "Ace, Fearless Rebel",
+            7
         ],
         [
             "The First Doctor",
-            "Ryan Sinclair",
-            90
+            "Adric, Mathematical Genius",
+            12
+        ],
+        [
+            "The First Doctor",
+            "Amy Pond",
+            33
+        ],
+        [
+            "The First Doctor",
+            "Barbara Wright",
+            9
+        ],
+        [
+            "The First Doctor",
+            "Bill Potts",
+            12
         ],
         [
             "The First Doctor",
@@ -281,33 +296,18 @@
         ],
         [
             "The First Doctor",
-            "Graham O'Brien",
-            34
-        ],
-        [
-            "The First Doctor",
-            "Amy Pond",
-            33
-        ],
-        [
-            "The First Doctor",
-            "Vislor Turlough",
-            31
-        ],
-        [
-            "The First Doctor",
             "Donna Noble",
             26
         ],
         [
             "The First Doctor",
-            "Yasmin Khan",
-            26
+            "Graham O'Brien",
+            34
         ],
         [
             "The First Doctor",
-            "Nardole, Resourceful Cyborg",
-            18
+            "Ian Chesterton",
+            4
         ],
         [
             "The First Doctor",
@@ -316,32 +316,7 @@
         ],
         [
             "The First Doctor",
-            "Adric, Mathematical Genius",
-            12
-        ],
-        [
-            "The First Doctor",
-            "Bill Potts",
-            12
-        ],
-        [
-            "The First Doctor",
-            "Sarah Jane Smith",
-            10
-        ],
-        [
-            "The First Doctor",
-            "Leela, Sevateem Warrior",
-            10
-        ],
-        [
-            "The First Doctor",
             "Jo Grant",
-            9
-        ],
-        [
-            "The First Doctor",
-            "Barbara Wright",
             9
         ],
         [
@@ -351,8 +326,18 @@
         ],
         [
             "The First Doctor",
-            "Ace, Fearless Rebel",
-            7
+            "Leela, Sevateem Warrior",
+            10
+        ],
+        [
+            "The First Doctor",
+            "Nardole, Resourceful Cyborg",
+            18
+        ],
+        [
+            "The First Doctor",
+            "Peri Brown",
+            3
         ],
         [
             "The First Doctor",
@@ -361,17 +346,157 @@
         ],
         [
             "The First Doctor",
+            "Ryan Sinclair",
+            90
+        ],
+        [
+            "The First Doctor",
+            "Sarah Jane Smith",
+            10
+        ],
+        [
+            "The First Doctor",
+            "Susan Foreman",
+            346
+        ],
+        [
+            "The First Doctor",
             "Tegan Jovanka",
             5
         ],
         [
             "The First Doctor",
-            "Ian Chesterton",
-            4
+            "Vislor Turlough",
+            31
         ],
         [
             "The First Doctor",
+            "Yasmin Khan",
+            26
+        ],
+        [
+            "The Second Doctor",
+            "Ace, Fearless Rebel",
+            3
+        ],
+        [
+            "The Second Doctor",
+            "Adric, Mathematical Genius",
+            56
+        ],
+        [
+            "The Second Doctor",
+            "Amy Pond",
+            6
+        ],
+        [
+            "The Second Doctor",
+            "Barbara Wright",
+            5
+        ],
+        [
+            "The Second Doctor",
+            "Bill Potts",
+            4
+        ],
+        [
+            "The Second Doctor",
+            "Clara Oswald",
+            505
+        ],
+        [
+            "The Second Doctor",
+            "Dan Lewis",
+            126
+        ],
+        [
+            "The Second Doctor",
+            "Donna Noble",
+            341
+        ],
+        [
+            "The Second Doctor",
+            "Graham O'Brien",
+            4
+        ],
+        [
+            "The Second Doctor",
+            "Ian Chesterton",
+            3
+        ],
+        [
+            "The Second Doctor",
+            "Jamie McCrimmon",
+            85
+        ],
+        [
+            "The Second Doctor",
+            "Jo Grant",
+            10
+        ],
+        [
+            "The Second Doctor",
+            "K-9, Mark I",
+            33
+        ],
+        [
+            "The Second Doctor",
+            "Leela, Sevateem Warrior",
+            749
+        ],
+        [
+            "The Second Doctor",
+            "Martha Jones",
+            4
+        ],
+        [
+            "The Second Doctor",
+            "Nardole, Resourceful Cyborg",
+            7
+        ],
+        [
+            "The Second Doctor",
+            "Nyssa of Traken",
+            8
+        ],
+        [
+            "The Second Doctor",
             "Peri Brown",
+            3
+        ],
+        [
+            "The Second Doctor",
+            "Romana II",
+            11
+        ],
+        [
+            "The Second Doctor",
+            "Rose Noble",
+            3
+        ],
+        [
+            "The Second Doctor",
+            "Rose Tyler",
+            2
+        ],
+        [
+            "The Second Doctor",
+            "Ryan Sinclair",
+            224
+        ],
+        [
+            "The Second Doctor",
+            "Sarah Jane Smith",
+            22
+        ],
+        [
+            "The Second Doctor",
+            "Susan Foreman",
+            264
+        ],
+        [
+            "The Second Doctor",
+            "Tegan Jovanka",
             3
         ],
         [
@@ -381,148 +506,33 @@
         ],
         [
             "The Second Doctor",
-            "Leela, Sevateem Warrior",
-            749
-        ],
-        [
-            "The Second Doctor",
-            "Clara Oswald",
-            505
-        ],
-        [
-            "The Second Doctor",
-            "Donna Noble",
-            341
-        ],
-        [
-            "The Second Doctor",
-            "Susan Foreman",
-            264
-        ],
-        [
-            "The Second Doctor",
-            "Ryan Sinclair",
-            224
-        ],
-        [
-            "The Second Doctor",
-            "Dan Lewis",
-            126
-        ],
-        [
-            "The Second Doctor",
-            "Jamie McCrimmon",
-            85
-        ],
-        [
-            "The Second Doctor",
-            "Adric, Mathematical Genius",
-            56
-        ],
-        [
-            "The Second Doctor",
             "Yasmin Khan",
             46
         ],
         [
-            "The Second Doctor",
-            "K-9, Mark I",
-            33
-        ],
-        [
-            "The Second Doctor",
-            "Sarah Jane Smith",
-            22
-        ],
-        [
-            "The Second Doctor",
-            "Romana II",
-            11
-        ],
-        [
-            "The Second Doctor",
-            "Jo Grant",
-            10
-        ],
-        [
-            "The Second Doctor",
-            "Nyssa of Traken",
-            8
-        ],
-        [
-            "The Second Doctor",
-            "Nardole, Resourceful Cyborg",
+            "The Third Doctor",
+            "Ace, Fearless Rebel",
             7
         ],
         [
-            "The Second Doctor",
+            "The Third Doctor",
+            "Adric, Mathematical Genius",
+            7
+        ],
+        [
+            "The Third Doctor",
             "Amy Pond",
-            6
+            3
         ],
         [
-            "The Second Doctor",
+            "The Third Doctor",
             "Barbara Wright",
-            5
-        ],
-        [
-            "The Second Doctor",
-            "Graham O'Brien",
-            4
-        ],
-        [
-            "The Second Doctor",
-            "Bill Potts",
-            4
-        ],
-        [
-            "The Second Doctor",
-            "Martha Jones",
-            4
-        ],
-        [
-            "The Second Doctor",
-            "Peri Brown",
-            3
-        ],
-        [
-            "The Second Doctor",
-            "Rose Noble",
-            3
-        ],
-        [
-            "The Second Doctor",
-            "Ian Chesterton",
-            3
-        ],
-        [
-            "The Second Doctor",
-            "Ace, Fearless Rebel",
-            3
-        ],
-        [
-            "The Second Doctor",
-            "Tegan Jovanka",
-            3
-        ],
-        [
-            "The Second Doctor",
-            "Rose Tyler",
             2
         ],
         [
             "The Third Doctor",
-            "Sarah Jane Smith",
-            690
-        ],
-        [
-            "The Third Doctor",
-            "Dan Lewis",
-            339
-        ],
-        [
-            "The Third Doctor",
-            "Tegan Jovanka",
-            80
+            "Bill Potts",
+            7
         ],
         [
             "The Third Doctor",
@@ -531,23 +541,8 @@
         ],
         [
             "The Third Doctor",
-            "Romana II",
-            44
-        ],
-        [
-            "The Third Doctor",
-            "Martha Jones",
-            41
-        ],
-        [
-            "The Third Doctor",
-            "Ian Chesterton",
-            33
-        ],
-        [
-            "The Third Doctor",
-            "Vislor Turlough",
-            30
+            "Dan Lewis",
+            339
         ],
         [
             "The Third Doctor",
@@ -556,33 +551,13 @@
         ],
         [
             "The Third Doctor",
-            "Susan Foreman",
-            15
+            "Graham O'Brien",
+            6
         ],
         [
             "The Third Doctor",
-            "K-9, Mark I",
-            15
-        ],
-        [
-            "The Third Doctor",
-            "Ryan Sinclair",
-            14
-        ],
-        [
-            "The Third Doctor",
-            "Jo Grant",
-            13
-        ],
-        [
-            "The Third Doctor",
-            "Ace, Fearless Rebel",
-            7
-        ],
-        [
-            "The Third Doctor",
-            "Bill Potts",
-            7
+            "Ian Chesterton",
+            33
         ],
         [
             "The Third Doctor",
@@ -591,28 +566,18 @@
         ],
         [
             "The Third Doctor",
-            "Yasmin Khan",
-            7
+            "Jo Grant",
+            13
         ],
         [
             "The Third Doctor",
-            "Adric, Mathematical Genius",
-            7
+            "K-9, Mark I",
+            15
         ],
         [
             "The Third Doctor",
-            "Nyssa of Traken",
-            7
-        ],
-        [
-            "The Third Doctor",
-            "Graham O'Brien",
-            6
-        ],
-        [
-            "The Third Doctor",
-            "Rose Noble",
-            5
+            "Martha Jones",
+            41
         ],
         [
             "The Third Doctor",
@@ -621,13 +586,23 @@
         ],
         [
             "The Third Doctor",
+            "Nyssa of Traken",
+            7
+        ],
+        [
+            "The Third Doctor",
             "Peri Brown",
             4
         ],
         [
             "The Third Doctor",
-            "Amy Pond",
-            3
+            "Romana II",
+            44
+        ],
+        [
+            "The Third Doctor",
+            "Rose Noble",
+            5
         ],
         [
             "The Third Doctor",
@@ -636,43 +611,48 @@
         ],
         [
             "The Third Doctor",
-            "Barbara Wright",
-            2
+            "Ryan Sinclair",
+            14
         ],
         [
-            "The Fourth Doctor",
+            "The Third Doctor",
             "Sarah Jane Smith",
-            1129
+            690
         ],
         [
-            "The Fourth Doctor",
-            "Dan Lewis",
-            60
+            "The Third Doctor",
+            "Susan Foreman",
+            15
         ],
         [
-            "The Fourth Doctor",
-            "Ian Chesterton",
-            51
+            "The Third Doctor",
+            "Tegan Jovanka",
+            80
         ],
         [
-            "The Fourth Doctor",
-            "Graham O'Brien",
-            48
+            "The Third Doctor",
+            "Vislor Turlough",
+            30
         ],
         [
-            "The Fourth Doctor",
-            "Peri Brown",
-            43
-        ],
-        [
-            "The Fourth Doctor",
-            "Clara Oswald",
-            38
-        ],
-        [
-            "The Fourth Doctor",
+            "The Third Doctor",
             "Yasmin Khan",
-            33
+            7
+        ],
+        [
+            "The Fourth Doctor",
+            "Ace, Fearless Rebel",
+            10
+        ],
+        [
+            "The Fourth Doctor",
+            "Adric, Mathematical Genius",
+            10
+        ],
+        [
+            "The Fourth Doctor",
+            "Amy Pond",
+            2
         ],
         [
             "The Fourth Doctor",
@@ -681,8 +661,38 @@
         ],
         [
             "The Fourth Doctor",
-            "Vislor Turlough",
-            28
+            "Bill Potts",
+            3
+        ],
+        [
+            "The Fourth Doctor",
+            "Clara Oswald",
+            38
+        ],
+        [
+            "The Fourth Doctor",
+            "Dan Lewis",
+            60
+        ],
+        [
+            "The Fourth Doctor",
+            "Donna Noble",
+            7
+        ],
+        [
+            "The Fourth Doctor",
+            "Graham O'Brien",
+            48
+        ],
+        [
+            "The Fourth Doctor",
+            "Ian Chesterton",
+            51
+        ],
+        [
+            "The Fourth Doctor",
+            "Jamie McCrimmon",
+            17
         ],
         [
             "The Fourth Doctor",
@@ -696,48 +706,8 @@
         ],
         [
             "The Fourth Doctor",
-            "Tegan Jovanka",
-            20
-        ],
-        [
-            "The Fourth Doctor",
-            "Nyssa of Traken",
-            17
-        ],
-        [
-            "The Fourth Doctor",
-            "Romana II",
-            17
-        ],
-        [
-            "The Fourth Doctor",
-            "Jamie McCrimmon",
-            17
-        ],
-        [
-            "The Fourth Doctor",
-            "Susan Foreman",
-            12
-        ],
-        [
-            "The Fourth Doctor",
-            "Ryan Sinclair",
-            12
-        ],
-        [
-            "The Fourth Doctor",
-            "Adric, Mathematical Genius",
-            10
-        ],
-        [
-            "The Fourth Doctor",
-            "Ace, Fearless Rebel",
-            10
-        ],
-        [
-            "The Fourth Doctor",
-            "Donna Noble",
-            7
+            "Leela, Sevateem Warrior",
+            5
         ],
         [
             "The Fourth Doctor",
@@ -746,8 +716,23 @@
         ],
         [
             "The Fourth Doctor",
-            "Leela, Sevateem Warrior",
-            5
+            "Nyssa of Traken",
+            17
+        ],
+        [
+            "The Fourth Doctor",
+            "Peri Brown",
+            43
+        ],
+        [
+            "The Fourth Doctor",
+            "Romana II",
+            17
+        ],
+        [
+            "The Fourth Doctor",
+            "Rose Noble",
+            1
         ],
         [
             "The Fourth Doctor",
@@ -756,28 +741,38 @@
         ],
         [
             "The Fourth Doctor",
-            "Bill Potts",
-            3
+            "Ryan Sinclair",
+            12
         ],
         [
             "The Fourth Doctor",
-            "Amy Pond",
-            2
+            "Sarah Jane Smith",
+            1129
         ],
         [
             "The Fourth Doctor",
-            "Rose Noble",
-            1
-        ],
-        [
-            "The Fifth Doctor",
             "Susan Foreman",
-            348
+            12
+        ],
+        [
+            "The Fourth Doctor",
+            "Tegan Jovanka",
+            20
+        ],
+        [
+            "The Fourth Doctor",
+            "Vislor Turlough",
+            28
+        ],
+        [
+            "The Fourth Doctor",
+            "Yasmin Khan",
+            33
         ],
         [
             "The Fifth Doctor",
-            "Clara Oswald",
-            202
+            "Ace, Fearless Rebel",
+            6
         ],
         [
             "The Fifth Doctor",
@@ -786,78 +781,13 @@
         ],
         [
             "The Fifth Doctor",
-            "Donna Noble",
-            85
+            "Amy Pond",
+            3
         ],
         [
             "The Fifth Doctor",
-            "Nardole, Resourceful Cyborg",
-            66
-        ],
-        [
-            "The Fifth Doctor",
-            "Yasmin Khan",
-            53
-        ],
-        [
-            "The Fifth Doctor",
-            "Peri Brown",
-            42
-        ],
-        [
-            "The Fifth Doctor",
-            "Vislor Turlough",
-            25
-        ],
-        [
-            "The Fifth Doctor",
-            "Jamie McCrimmon",
-            23
-        ],
-        [
-            "The Fifth Doctor",
-            "Leela, Sevateem Warrior",
-            22
-        ],
-        [
-            "The Fifth Doctor",
-            "Ryan Sinclair",
-            11
-        ],
-        [
-            "The Fifth Doctor",
-            "K-9, Mark I",
-            9
-        ],
-        [
-            "The Fifth Doctor",
-            "Tegan Jovanka",
-            9
-        ],
-        [
-            "The Fifth Doctor",
-            "Dan Lewis",
-            8
-        ],
-        [
-            "The Fifth Doctor",
-            "Ace, Fearless Rebel",
-            6
-        ],
-        [
-            "The Fifth Doctor",
-            "Sarah Jane Smith",
-            5
-        ],
-        [
-            "The Fifth Doctor",
-            "Nyssa of Traken",
-            5
-        ],
-        [
-            "The Fifth Doctor",
-            "Romana II",
-            4
+            "Barbara Wright",
+            1
         ],
         [
             "The Fifth Doctor",
@@ -866,13 +796,18 @@
         ],
         [
             "The Fifth Doctor",
-            "Amy Pond",
-            3
+            "Clara Oswald",
+            202
         ],
         [
             "The Fifth Doctor",
-            "Rose Tyler",
-            2
+            "Dan Lewis",
+            8
+        ],
+        [
+            "The Fifth Doctor",
+            "Donna Noble",
+            85
         ],
         [
             "The Fifth Doctor",
@@ -881,13 +816,13 @@
         ],
         [
             "The Fifth Doctor",
-            "Martha Jones",
+            "Ian Chesterton",
             2
         ],
         [
             "The Fifth Doctor",
-            "Ian Chesterton",
-            2
+            "Jamie McCrimmon",
+            23
         ],
         [
             "The Fifth Doctor",
@@ -896,23 +831,103 @@
         ],
         [
             "The Fifth Doctor",
+            "K-9, Mark I",
+            9
+        ],
+        [
+            "The Fifth Doctor",
+            "Leela, Sevateem Warrior",
+            22
+        ],
+        [
+            "The Fifth Doctor",
+            "Martha Jones",
+            2
+        ],
+        [
+            "The Fifth Doctor",
+            "Nardole, Resourceful Cyborg",
+            66
+        ],
+        [
+            "The Fifth Doctor",
+            "Nyssa of Traken",
+            5
+        ],
+        [
+            "The Fifth Doctor",
+            "Peri Brown",
+            42
+        ],
+        [
+            "The Fifth Doctor",
+            "Romana II",
+            4
+        ],
+        [
+            "The Fifth Doctor",
             "Rose Noble",
             1
         ],
         [
             "The Fifth Doctor",
+            "Rose Tyler",
+            2
+        ],
+        [
+            "The Fifth Doctor",
+            "Ryan Sinclair",
+            11
+        ],
+        [
+            "The Fifth Doctor",
+            "Sarah Jane Smith",
+            5
+        ],
+        [
+            "The Fifth Doctor",
+            "Susan Foreman",
+            348
+        ],
+        [
+            "The Fifth Doctor",
+            "Tegan Jovanka",
+            9
+        ],
+        [
+            "The Fifth Doctor",
+            "Vislor Turlough",
+            25
+        ],
+        [
+            "The Fifth Doctor",
+            "Yasmin Khan",
+            53
+        ],
+        [
+            "The Sixth Doctor",
+            "Ace, Fearless Rebel",
+            7
+        ],
+        [
+            "The Sixth Doctor",
+            "Adric, Mathematical Genius",
+            49
+        ],
+        [
+            "The Sixth Doctor",
+            "Amy Pond",
+            7
+        ],
+        [
+            "The Sixth Doctor",
             "Barbara Wright",
-            1
+            152
         ],
         [
             "The Sixth Doctor",
-            "Romana II",
-            1209
-        ],
-        [
-            "The Sixth Doctor",
-            "Peri Brown",
-            549
+            "Bill Potts",
+            15
         ],
         [
             "The Sixth Doctor",
@@ -921,8 +936,73 @@
         ],
         [
             "The Sixth Doctor",
+            "Dan Lewis",
+            29
+        ],
+        [
+            "The Sixth Doctor",
+            "Donna Noble",
+            44
+        ],
+        [
+            "The Sixth Doctor",
             "Ian Chesterton",
             180
+        ],
+        [
+            "The Sixth Doctor",
+            "Jamie McCrimmon",
+            28
+        ],
+        [
+            "The Sixth Doctor",
+            "Jo Grant",
+            23
+        ],
+        [
+            "The Sixth Doctor",
+            "K-9, Mark I",
+            10
+        ],
+        [
+            "The Sixth Doctor",
+            "Martha Jones",
+            1
+        ],
+        [
+            "The Sixth Doctor",
+            "Nardole, Resourceful Cyborg",
+            7
+        ],
+        [
+            "The Sixth Doctor",
+            "Nyssa of Traken",
+            5
+        ],
+        [
+            "The Sixth Doctor",
+            "Peri Brown",
+            549
+        ],
+        [
+            "The Sixth Doctor",
+            "Romana II",
+            1209
+        ],
+        [
+            "The Sixth Doctor",
+            "Rose Noble",
+            1
+        ],
+        [
+            "The Sixth Doctor",
+            "Rose Tyler",
+            4
+        ],
+        [
+            "The Sixth Doctor",
+            "Ryan Sinclair",
+            39
         ],
         [
             "The Sixth Doctor",
@@ -936,8 +1016,8 @@
         ],
         [
             "The Sixth Doctor",
-            "Barbara Wright",
-            152
+            "Tegan Jovanka",
+            21
         ],
         [
             "The Sixth Doctor",
@@ -950,84 +1030,24 @@
             52
         ],
         [
-            "The Sixth Doctor",
-            "Adric, Mathematical Genius",
-            49
-        ],
-        [
-            "The Sixth Doctor",
-            "Donna Noble",
-            44
-        ],
-        [
-            "The Sixth Doctor",
-            "Ryan Sinclair",
-            39
-        ],
-        [
-            "The Sixth Doctor",
-            "Dan Lewis",
-            29
-        ],
-        [
-            "The Sixth Doctor",
-            "Jamie McCrimmon",
-            28
-        ],
-        [
-            "The Sixth Doctor",
-            "Jo Grant",
-            23
-        ],
-        [
-            "The Sixth Doctor",
-            "Tegan Jovanka",
-            21
-        ],
-        [
-            "The Sixth Doctor",
-            "Bill Potts",
-            15
-        ],
-        [
-            "The Sixth Doctor",
-            "K-9, Mark I",
-            10
-        ],
-        [
-            "The Sixth Doctor",
-            "Nardole, Resourceful Cyborg",
-            7
-        ],
-        [
-            "The Sixth Doctor",
+            "The Seventh Doctor",
             "Ace, Fearless Rebel",
-            7
+            146
         ],
         [
-            "The Sixth Doctor",
+            "The Seventh Doctor",
+            "Adric, Mathematical Genius",
+            6
+        ],
+        [
+            "The Seventh Doctor",
             "Amy Pond",
-            7
+            3
         ],
         [
-            "The Sixth Doctor",
-            "Nyssa of Traken",
-            5
-        ],
-        [
-            "The Sixth Doctor",
-            "Rose Tyler",
-            4
-        ],
-        [
-            "The Sixth Doctor",
-            "Martha Jones",
-            1
-        ],
-        [
-            "The Sixth Doctor",
-            "Rose Noble",
-            1
+            "The Seventh Doctor",
+            "Bill Potts",
+            2
         ],
         [
             "The Seventh Doctor",
@@ -1036,53 +1056,8 @@
         ],
         [
             "The Seventh Doctor",
-            "Ace, Fearless Rebel",
-            146
-        ],
-        [
-            "The Seventh Doctor",
             "Dan Lewis",
             98
-        ],
-        [
-            "The Seventh Doctor",
-            "Jamie McCrimmon",
-            63
-        ],
-        [
-            "The Seventh Doctor",
-            "Nyssa of Traken",
-            62
-        ],
-        [
-            "The Seventh Doctor",
-            "Martha Jones",
-            33
-        ],
-        [
-            "The Seventh Doctor",
-            "Sarah Jane Smith",
-            32
-        ],
-        [
-            "The Seventh Doctor",
-            "Susan Foreman",
-            31
-        ],
-        [
-            "The Seventh Doctor",
-            "K-9, Mark I",
-            19
-        ],
-        [
-            "The Seventh Doctor",
-            "Vislor Turlough",
-            14
-        ],
-        [
-            "The Seventh Doctor",
-            "Tegan Jovanka",
-            14
         ],
         [
             "The Seventh Doctor",
@@ -1091,28 +1066,13 @@
         ],
         [
             "The Seventh Doctor",
-            "Ryan Sinclair",
-            9
-        ],
-        [
-            "The Seventh Doctor",
-            "Leela, Sevateem Warrior",
-            8
-        ],
-        [
-            "The Seventh Doctor",
             "Graham O'Brien",
             7
         ],
         [
             "The Seventh Doctor",
-            "Adric, Mathematical Genius",
-            6
-        ],
-        [
-            "The Seventh Doctor",
-            "Yasmin Khan",
-            6
+            "Jamie McCrimmon",
+            63
         ],
         [
             "The Seventh Doctor",
@@ -1121,8 +1081,33 @@
         ],
         [
             "The Seventh Doctor",
-            "Amy Pond",
-            3
+            "K-9, Mark I",
+            19
+        ],
+        [
+            "The Seventh Doctor",
+            "Leela, Sevateem Warrior",
+            8
+        ],
+        [
+            "The Seventh Doctor",
+            "Martha Jones",
+            33
+        ],
+        [
+            "The Seventh Doctor",
+            "Nardole, Resourceful Cyborg",
+            1
+        ],
+        [
+            "The Seventh Doctor",
+            "Nyssa of Traken",
+            62
+        ],
+        [
+            "The Seventh Doctor",
+            "Peri Brown",
+            1
         ],
         [
             "The Seventh Doctor",
@@ -1136,83 +1121,33 @@
         ],
         [
             "The Seventh Doctor",
-            "Bill Potts",
-            2
-        ],
-        [
-            "The Seventh Doctor",
-            "Nardole, Resourceful Cyborg",
-            1
-        ],
-        [
-            "The Seventh Doctor",
-            "Peri Brown",
-            1
-        ],
-        [
-            "The Eighth Doctor",
-            "Jo Grant",
-            79
-        ],
-        [
-            "The Eighth Doctor",
-            "Susan Foreman",
-            57
-        ],
-        [
-            "The Eighth Doctor",
-            "Dan Lewis",
-            37
-        ],
-        [
-            "The Eighth Doctor",
-            "Vislor Turlough",
-            34
-        ],
-        [
-            "The Eighth Doctor",
-            "Jamie McCrimmon",
-            27
-        ],
-        [
-            "The Eighth Doctor",
-            "Ian Chesterton",
-            18
-        ],
-        [
-            "The Eighth Doctor",
-            "Clara Oswald",
-            14
-        ],
-        [
-            "The Eighth Doctor",
-            "Sarah Jane Smith",
-            12
-        ],
-        [
-            "The Eighth Doctor",
-            "Barbara Wright",
-            12
-        ],
-        [
-            "The Eighth Doctor",
-            "Donna Noble",
-            10
-        ],
-        [
-            "The Eighth Doctor",
-            "Adric, Mathematical Genius",
+            "Ryan Sinclair",
             9
         ],
         [
-            "The Eighth Doctor",
-            "Peri Brown",
-            8
+            "The Seventh Doctor",
+            "Sarah Jane Smith",
+            32
         ],
         [
-            "The Eighth Doctor",
-            "Nyssa of Traken",
-            8
+            "The Seventh Doctor",
+            "Susan Foreman",
+            31
+        ],
+        [
+            "The Seventh Doctor",
+            "Tegan Jovanka",
+            14
+        ],
+        [
+            "The Seventh Doctor",
+            "Vislor Turlough",
+            14
+        ],
+        [
+            "The Seventh Doctor",
+            "Yasmin Khan",
+            6
         ],
         [
             "The Eighth Doctor",
@@ -1221,23 +1156,8 @@
         ],
         [
             "The Eighth Doctor",
-            "Leela, Sevateem Warrior",
-            7
-        ],
-        [
-            "The Eighth Doctor",
-            "Graham O'Brien",
-            5
-        ],
-        [
-            "The Eighth Doctor",
-            "K-9, Mark I",
-            4
-        ],
-        [
-            "The Eighth Doctor",
-            "Ryan Sinclair",
-            4
+            "Adric, Mathematical Genius",
+            9
         ],
         [
             "The Eighth Doctor",
@@ -1246,8 +1166,8 @@
         ],
         [
             "The Eighth Doctor",
-            "Rose Noble",
-            2
+            "Barbara Wright",
+            12
         ],
         [
             "The Eighth Doctor",
@@ -1256,13 +1176,113 @@
         ],
         [
             "The Eighth Doctor",
+            "Clara Oswald",
+            14
+        ],
+        [
+            "The Eighth Doctor",
+            "Dan Lewis",
+            37
+        ],
+        [
+            "The Eighth Doctor",
+            "Donna Noble",
+            10
+        ],
+        [
+            "The Eighth Doctor",
+            "Graham O'Brien",
+            5
+        ],
+        [
+            "The Eighth Doctor",
+            "Ian Chesterton",
+            18
+        ],
+        [
+            "The Eighth Doctor",
+            "Jamie McCrimmon",
+            27
+        ],
+        [
+            "The Eighth Doctor",
+            "Jo Grant",
+            79
+        ],
+        [
+            "The Eighth Doctor",
+            "K-9, Mark I",
+            4
+        ],
+        [
+            "The Eighth Doctor",
+            "Leela, Sevateem Warrior",
+            7
+        ],
+        [
+            "The Eighth Doctor",
             "Nardole, Resourceful Cyborg",
             1
         ],
         [
             "The Eighth Doctor",
+            "Nyssa of Traken",
+            8
+        ],
+        [
+            "The Eighth Doctor",
+            "Peri Brown",
+            8
+        ],
+        [
+            "The Eighth Doctor",
+            "Rose Noble",
+            2
+        ],
+        [
+            "The Eighth Doctor",
+            "Ryan Sinclair",
+            4
+        ],
+        [
+            "The Eighth Doctor",
+            "Sarah Jane Smith",
+            12
+        ],
+        [
+            "The Eighth Doctor",
+            "Susan Foreman",
+            57
+        ],
+        [
+            "The Eighth Doctor",
             "Tegan Jovanka",
             1
+        ],
+        [
+            "The Eighth Doctor",
+            "Vislor Turlough",
+            34
+        ],
+        [
+            "The Ninth Doctor",
+            "Ace, Fearless Rebel",
+            3
+        ],
+        [
+            "The Ninth Doctor",
+            "Adric, Mathematical Genius",
+            24
+        ],
+        [
+            "The Ninth Doctor",
+            "Amy Pond",
+            4
+        ],
+        [
+            "The Ninth Doctor",
+            "Barbara Wright",
+            7
         ],
         [
             "The Ninth Doctor",
@@ -1271,8 +1291,83 @@
         ],
         [
             "The Ninth Doctor",
+            "Dan Lewis",
+            1
+        ],
+        [
+            "The Ninth Doctor",
+            "Donna Noble",
+            5
+        ],
+        [
+            "The Ninth Doctor",
+            "Graham O'Brien",
+            10
+        ],
+        [
+            "The Ninth Doctor",
+            "Ian Chesterton",
+            6
+        ],
+        [
+            "The Ninth Doctor",
+            "Jamie McCrimmon",
+            5
+        ],
+        [
+            "The Ninth Doctor",
+            "Jo Grant",
+            17
+        ],
+        [
+            "The Ninth Doctor",
+            "K-9, Mark I",
+            26
+        ],
+        [
+            "The Ninth Doctor",
+            "Leela, Sevateem Warrior",
+            10
+        ],
+        [
+            "The Ninth Doctor",
+            "Martha Jones",
+            1
+        ],
+        [
+            "The Ninth Doctor",
+            "Nardole, Resourceful Cyborg",
+            4
+        ],
+        [
+            "The Ninth Doctor",
+            "Peri Brown",
+            23
+        ],
+        [
+            "The Ninth Doctor",
+            "Romana II",
+            11
+        ],
+        [
+            "The Ninth Doctor",
+            "Rose Noble",
+            2
+        ],
+        [
+            "The Ninth Doctor",
             "Rose Tyler",
             126
+        ],
+        [
+            "The Ninth Doctor",
+            "Ryan Sinclair",
+            1
+        ],
+        [
+            "The Ninth Doctor",
+            "Sarah Jane Smith",
+            9
         ],
         [
             "The Ninth Doctor",
@@ -1286,83 +1381,8 @@
         ],
         [
             "The Ninth Doctor",
-            "K-9, Mark I",
-            26
-        ],
-        [
-            "The Ninth Doctor",
-            "Adric, Mathematical Genius",
-            24
-        ],
-        [
-            "The Ninth Doctor",
-            "Peri Brown",
-            23
-        ],
-        [
-            "The Ninth Doctor",
             "Vislor Turlough",
             21
-        ],
-        [
-            "The Ninth Doctor",
-            "Jo Grant",
-            17
-        ],
-        [
-            "The Ninth Doctor",
-            "Romana II",
-            11
-        ],
-        [
-            "The Ninth Doctor",
-            "Leela, Sevateem Warrior",
-            10
-        ],
-        [
-            "The Ninth Doctor",
-            "Graham O'Brien",
-            10
-        ],
-        [
-            "The Ninth Doctor",
-            "Sarah Jane Smith",
-            9
-        ],
-        [
-            "The Ninth Doctor",
-            "Barbara Wright",
-            7
-        ],
-        [
-            "The Ninth Doctor",
-            "Ian Chesterton",
-            6
-        ],
-        [
-            "The Ninth Doctor",
-            "Jamie McCrimmon",
-            5
-        ],
-        [
-            "The Ninth Doctor",
-            "Donna Noble",
-            5
-        ],
-        [
-            "The Ninth Doctor",
-            "Amy Pond",
-            4
-        ],
-        [
-            "The Ninth Doctor",
-            "Nardole, Resourceful Cyborg",
-            4
-        ],
-        [
-            "The Ninth Doctor",
-            "Ace, Fearless Rebel",
-            3
         ],
         [
             "The Ninth Doctor",
@@ -1370,59 +1390,9 @@
             3
         ],
         [
-            "The Ninth Doctor",
-            "Rose Noble",
-            2
-        ],
-        [
-            "The Ninth Doctor",
-            "Dan Lewis",
-            1
-        ],
-        [
-            "The Ninth Doctor",
-            "Ryan Sinclair",
-            1
-        ],
-        [
-            "The Ninth Doctor",
-            "Martha Jones",
-            1
-        ],
-        [
             "The Tenth Doctor",
-            "Rose Tyler",
-            5569
-        ],
-        [
-            "The Tenth Doctor",
-            "Susan Foreman",
-            1076
-        ],
-        [
-            "The Tenth Doctor",
-            "Clara Oswald",
-            1041
-        ],
-        [
-            "The Tenth Doctor",
-            "Tegan Jovanka",
-            136
-        ],
-        [
-            "The Tenth Doctor",
-            "Amy Pond",
-            101
-        ],
-        [
-            "The Tenth Doctor",
-            "Graham O'Brien",
-            76
-        ],
-        [
-            "The Tenth Doctor",
-            "Jamie McCrimmon",
-            41
+            "Ace, Fearless Rebel",
+            5
         ],
         [
             "The Tenth Doctor",
@@ -1431,28 +1401,43 @@
         ],
         [
             "The Tenth Doctor",
+            "Amy Pond",
+            101
+        ],
+        [
+            "The Tenth Doctor",
+            "Barbara Wright",
+            2
+        ],
+        [
+            "The Tenth Doctor",
+            "Bill Potts",
+            2
+        ],
+        [
+            "The Tenth Doctor",
+            "Clara Oswald",
+            1041
+        ],
+        [
+            "The Tenth Doctor",
             "Donna Noble",
             28
         ],
         [
             "The Tenth Doctor",
-            "Sarah Jane Smith",
-            26
+            "Graham O'Brien",
+            76
         ],
         [
             "The Tenth Doctor",
-            "Vislor Turlough",
-            22
+            "Ian Chesterton",
+            6
         ],
         [
             "The Tenth Doctor",
-            "K-9, Mark I",
-            19
-        ],
-        [
-            "The Tenth Doctor",
-            "Romana II",
-            17
+            "Jamie McCrimmon",
+            41
         ],
         [
             "The Tenth Doctor",
@@ -1461,8 +1446,8 @@
         ],
         [
             "The Tenth Doctor",
-            "Peri Brown",
-            8
+            "K-9, Mark I",
+            19
         ],
         [
             "The Tenth Doctor",
@@ -1476,33 +1461,18 @@
         ],
         [
             "The Tenth Doctor",
-            "Ryan Sinclair",
-            8
-        ],
-        [
-            "The Tenth Doctor",
-            "Yasmin Khan",
-            6
-        ],
-        [
-            "The Tenth Doctor",
-            "Ian Chesterton",
-            6
-        ],
-        [
-            "The Tenth Doctor",
-            "Ace, Fearless Rebel",
-            5
-        ],
-        [
-            "The Tenth Doctor",
             "Nardole, Resourceful Cyborg",
             4
         ],
         [
             "The Tenth Doctor",
-            "Bill Potts",
-            2
+            "Peri Brown",
+            8
+        ],
+        [
+            "The Tenth Doctor",
+            "Romana II",
+            17
         ],
         [
             "The Tenth Doctor",
@@ -1511,13 +1481,58 @@
         ],
         [
             "The Tenth Doctor",
-            "Barbara Wright",
-            2
+            "Rose Tyler",
+            5569
+        ],
+        [
+            "The Tenth Doctor",
+            "Ryan Sinclair",
+            8
+        ],
+        [
+            "The Tenth Doctor",
+            "Sarah Jane Smith",
+            26
+        ],
+        [
+            "The Tenth Doctor",
+            "Susan Foreman",
+            1076
+        ],
+        [
+            "The Tenth Doctor",
+            "Tegan Jovanka",
+            136
+        ],
+        [
+            "The Tenth Doctor",
+            "Vislor Turlough",
+            22
+        ],
+        [
+            "The Tenth Doctor",
+            "Yasmin Khan",
+            6
+        ],
+        [
+            "The Eleventh Doctor",
+            "Ace, Fearless Rebel",
+            4
+        ],
+        [
+            "The Eleventh Doctor",
+            "Adric, Mathematical Genius",
+            3
         ],
         [
             "The Eleventh Doctor",
             "Amy Pond",
             961
+        ],
+        [
+            "The Eleventh Doctor",
+            "Bill Potts",
+            8
         ],
         [
             "The Eleventh Doctor",
@@ -1531,18 +1546,8 @@
         ],
         [
             "The Eleventh Doctor",
-            "Rose Tyler",
-            34
-        ],
-        [
-            "The Eleventh Doctor",
-            "Vislor Turlough",
-            24
-        ],
-        [
-            "The Eleventh Doctor",
-            "Jamie McCrimmon",
-            18
+            "Donna Noble",
+            14
         ],
         [
             "The Eleventh Doctor",
@@ -1551,58 +1556,18 @@
         ],
         [
             "The Eleventh Doctor",
-            "K-9, Mark I",
-            16
-        ],
-        [
-            "The Eleventh Doctor",
-            "Susan Foreman",
-            16
-        ],
-        [
-            "The Eleventh Doctor",
-            "Donna Noble",
-            14
-        ],
-        [
-            "The Eleventh Doctor",
-            "Ryan Sinclair",
-            10
-        ],
-        [
-            "The Eleventh Doctor",
-            "Bill Potts",
-            8
-        ],
-        [
-            "The Eleventh Doctor",
-            "Yasmin Khan",
-            8
-        ],
-        [
-            "The Eleventh Doctor",
-            "Sarah Jane Smith",
-            6
-        ],
-        [
-            "The Eleventh Doctor",
-            "Martha Jones",
-            6
-        ],
-        [
-            "The Eleventh Doctor",
             "Ian Chesterton",
             5
         ],
         [
             "The Eleventh Doctor",
-            "Ace, Fearless Rebel",
-            4
+            "Jamie McCrimmon",
+            18
         ],
         [
             "The Eleventh Doctor",
-            "Adric, Mathematical Genius",
-            3
+            "K-9, Mark I",
+            16
         ],
         [
             "The Eleventh Doctor",
@@ -1611,8 +1576,13 @@
         ],
         [
             "The Eleventh Doctor",
-            "Tegan Jovanka",
-            3
+            "Martha Jones",
+            6
+        ],
+        [
+            "The Eleventh Doctor",
+            "Nyssa of Traken",
+            1
         ],
         [
             "The Eleventh Doctor",
@@ -1621,43 +1591,43 @@
         ],
         [
             "The Eleventh Doctor",
-            "Nyssa of Traken",
-            1
+            "Rose Tyler",
+            34
         ],
         [
-            "The Twelfth Doctor",
-            "Clara Oswald",
-            1021
+            "The Eleventh Doctor",
+            "Ryan Sinclair",
+            10
         ],
         [
-            "The Twelfth Doctor",
+            "The Eleventh Doctor",
+            "Sarah Jane Smith",
+            6
+        ],
+        [
+            "The Eleventh Doctor",
             "Susan Foreman",
-            771
+            16
         ],
         [
-            "The Twelfth Doctor",
+            "The Eleventh Doctor",
+            "Tegan Jovanka",
+            3
+        ],
+        [
+            "The Eleventh Doctor",
             "Vislor Turlough",
-            635
+            24
         ],
         [
-            "The Twelfth Doctor",
-            "Romana II",
-            264
-        ],
-        [
-            "The Twelfth Doctor",
+            "The Eleventh Doctor",
             "Yasmin Khan",
-            216
+            8
         ],
         [
             "The Twelfth Doctor",
-            "Graham O'Brien",
-            173
-        ],
-        [
-            "The Twelfth Doctor",
-            "Bill Potts",
-            61
+            "Ace, Fearless Rebel",
+            9
         ],
         [
             "The Twelfth Doctor",
@@ -1666,18 +1636,38 @@
         ],
         [
             "The Twelfth Doctor",
-            "Peri Brown",
-            25
-        ],
-        [
-            "The Twelfth Doctor",
-            "Leela, Sevateem Warrior",
-            24
+            "Amy Pond",
+            1
         ],
         [
             "The Twelfth Doctor",
             "Barbara Wright",
             23
+        ],
+        [
+            "The Twelfth Doctor",
+            "Bill Potts",
+            61
+        ],
+        [
+            "The Twelfth Doctor",
+            "Clara Oswald",
+            1021
+        ],
+        [
+            "The Twelfth Doctor",
+            "Dan Lewis",
+            3
+        ],
+        [
+            "The Twelfth Doctor",
+            "Donna Noble",
+            10
+        ],
+        [
+            "The Twelfth Doctor",
+            "Graham O'Brien",
+            173
         ],
         [
             "The Twelfth Doctor",
@@ -1686,18 +1676,8 @@
         ],
         [
             "The Twelfth Doctor",
-            "K-9, Mark I",
-            19
-        ],
-        [
-            "The Twelfth Doctor",
-            "Rose Tyler",
-            18
-        ],
-        [
-            "The Twelfth Doctor",
-            "Sarah Jane Smith",
-            18
+            "Jamie McCrimmon",
+            5
         ],
         [
             "The Twelfth Doctor",
@@ -1706,43 +1686,13 @@
         ],
         [
             "The Twelfth Doctor",
-            "Ryan Sinclair",
-            14
+            "K-9, Mark I",
+            19
         ],
         [
             "The Twelfth Doctor",
-            "Nardole, Resourceful Cyborg",
-            13
-        ],
-        [
-            "The Twelfth Doctor",
-            "Tegan Jovanka",
-            13
-        ],
-        [
-            "The Twelfth Doctor",
-            "Donna Noble",
-            10
-        ],
-        [
-            "The Twelfth Doctor",
-            "Ace, Fearless Rebel",
-            9
-        ],
-        [
-            "The Twelfth Doctor",
-            "Jamie McCrimmon",
-            5
-        ],
-        [
-            "The Twelfth Doctor",
-            "Nyssa of Traken",
-            4
-        ],
-        [
-            "The Twelfth Doctor",
-            "Dan Lewis",
-            3
+            "Leela, Sevateem Warrior",
+            24
         ],
         [
             "The Twelfth Doctor",
@@ -1751,18 +1701,78 @@
         ],
         [
             "The Twelfth Doctor",
-            "Amy Pond",
-            1
+            "Nardole, Resourceful Cyborg",
+            13
         ],
         [
-            "The Thirteenth Doctor",
-            "Yasmin Khan",
-            1922
+            "The Twelfth Doctor",
+            "Nyssa of Traken",
+            4
         ],
         [
-            "The Thirteenth Doctor",
+            "The Twelfth Doctor",
+            "Peri Brown",
+            25
+        ],
+        [
+            "The Twelfth Doctor",
+            "Romana II",
+            264
+        ],
+        [
+            "The Twelfth Doctor",
+            "Rose Tyler",
+            18
+        ],
+        [
+            "The Twelfth Doctor",
             "Ryan Sinclair",
-            600
+            14
+        ],
+        [
+            "The Twelfth Doctor",
+            "Sarah Jane Smith",
+            18
+        ],
+        [
+            "The Twelfth Doctor",
+            "Susan Foreman",
+            771
+        ],
+        [
+            "The Twelfth Doctor",
+            "Tegan Jovanka",
+            13
+        ],
+        [
+            "The Twelfth Doctor",
+            "Vislor Turlough",
+            635
+        ],
+        [
+            "The Twelfth Doctor",
+            "Yasmin Khan",
+            216
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Ace, Fearless Rebel",
+            3
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Adric, Mathematical Genius",
+            11
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Amy Pond",
+            3
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Bill Potts",
+            15
         ],
         [
             "The Thirteenth Doctor",
@@ -1771,13 +1781,88 @@
         ],
         [
             "The Thirteenth Doctor",
+            "Dan Lewis",
+            10
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Donna Noble",
+            24
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Graham O'Brien",
+            10
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Ian Chesterton",
+            5
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Jamie McCrimmon",
+            2
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Jo Grant",
+            6
+        ],
+        [
+            "The Thirteenth Doctor",
+            "K-9, Mark I",
+            7
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Leela, Sevateem Warrior",
+            1
+        ],
+        [
+            "The Thirteenth Doctor",
             "Nardole, Resourceful Cyborg",
             42
         ],
         [
             "The Thirteenth Doctor",
+            "Peri Brown",
+            16
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Romana II",
+            10
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Rose Noble",
+            2
+        ],
+        [
+            "The Thirteenth Doctor",
             "Rose Tyler",
             27
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Ryan Sinclair",
+            600
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Sarah Jane Smith",
+            8
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Susan Foreman",
+            13
+        ],
+        [
+            "The Thirteenth Doctor",
+            "Tegan Jovanka",
+            6
         ],
         [
             "The Thirteenth Doctor",
@@ -1786,123 +1871,8 @@
         ],
         [
             "The Thirteenth Doctor",
-            "Donna Noble",
-            24
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Peri Brown",
-            16
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Bill Potts",
-            15
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Susan Foreman",
-            13
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Adric, Mathematical Genius",
-            11
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Graham O'Brien",
-            10
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Romana II",
-            10
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Dan Lewis",
-            10
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Sarah Jane Smith",
-            8
-        ],
-        [
-            "The Thirteenth Doctor",
-            "K-9, Mark I",
-            7
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Jo Grant",
-            6
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Tegan Jovanka",
-            6
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Ian Chesterton",
-            5
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Ace, Fearless Rebel",
-            3
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Amy Pond",
-            3
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Jamie McCrimmon",
-            2
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Rose Noble",
-            2
-        ],
-        [
-            "The Thirteenth Doctor",
-            "Leela, Sevateem Warrior",
-            1
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Clara Oswald",
-            1882
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Rose Noble",
-            1235
-        ],
-        [
-            "The Fourteenth Doctor",
-            "K-9, Mark I",
-            284
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Vislor Turlough",
-            203
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Susan Foreman",
-            176
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Dan Lewis",
-            111
+            "Yasmin Khan",
+            1922
         ],
         [
             "The Fourteenth Doctor",
@@ -1911,23 +1881,8 @@
         ],
         [
             "The Fourteenth Doctor",
-            "Sarah Jane Smith",
-            93
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Donna Noble",
-            82
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Rose Tyler",
-            46
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Jo Grant",
-            33
+            "Amy Pond",
+            15
         ],
         [
             "The Fourteenth Doctor",
@@ -1936,33 +1891,23 @@
         ],
         [
             "The Fourteenth Doctor",
-            "Nardole, Resourceful Cyborg",
-            21
+            "Bill Potts",
+            4
         ],
         [
             "The Fourteenth Doctor",
-            "Jamie McCrimmon",
-            19
+            "Clara Oswald",
+            1882
         ],
         [
             "The Fourteenth Doctor",
-            "Yasmin Khan",
-            18
+            "Dan Lewis",
+            111
         ],
         [
             "The Fourteenth Doctor",
-            "Ian Chesterton",
-            16
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Peri Brown",
-            15
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Amy Pond",
-            15
+            "Donna Noble",
+            82
         ],
         [
             "The Fourteenth Doctor",
@@ -1971,8 +1916,48 @@
         ],
         [
             "The Fourteenth Doctor",
-            "Ryan Sinclair",
-            13
+            "Ian Chesterton",
+            16
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Jamie McCrimmon",
+            19
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Jo Grant",
+            33
+        ],
+        [
+            "The Fourteenth Doctor",
+            "K-9, Mark I",
+            284
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Leela, Sevateem Warrior",
+            5
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Martha Jones",
+            3
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Nardole, Resourceful Cyborg",
+            21
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Nyssa of Traken",
+            11
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Peri Brown",
+            15
         ],
         [
             "The Fourteenth Doctor",
@@ -1981,8 +1966,28 @@
         ],
         [
             "The Fourteenth Doctor",
-            "Nyssa of Traken",
-            11
+            "Rose Noble",
+            1235
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Rose Tyler",
+            46
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Ryan Sinclair",
+            13
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Sarah Jane Smith",
+            93
+        ],
+        [
+            "The Fourteenth Doctor",
+            "Susan Foreman",
+            176
         ],
         [
             "The Fourteenth Doctor",
@@ -1991,88 +1996,18 @@
         ],
         [
             "The Fourteenth Doctor",
-            "Leela, Sevateem Warrior",
-            5
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Bill Potts",
-            4
-        ],
-        [
-            "The Fourteenth Doctor",
-            "Martha Jones",
-            3
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Sarah Jane Smith",
-            150
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Clara Oswald",
-            38
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Jo Grant",
-            34
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Tegan Jovanka",
-            24
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Susan Foreman",
-            21
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Graham O'Brien",
-            21
-        ],
-        [
-            "The Fifteenth Doctor",
             "Vislor Turlough",
-            18
+            203
         ],
         [
-            "The Fifteenth Doctor",
-            "K-9, Mark I",
+            "The Fourteenth Doctor",
+            "Yasmin Khan",
             18
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Jamie McCrimmon",
-            18
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Peri Brown",
-            17
         ],
         [
             "The Fifteenth Doctor",
             "Ace, Fearless Rebel",
             13
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Dan Lewis",
-            11
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Nyssa of Traken",
-            10
-        ],
-        [
-            "The Fifteenth Doctor",
-            "Ian Chesterton",
-            9
         ],
         [
             "The Fifteenth Doctor",
@@ -2081,43 +2016,53 @@
         ],
         [
             "The Fifteenth Doctor",
-            "Donna Noble",
-            6
-        ],
-        [
-            "The Fifteenth Doctor",
             "Barbara Wright",
             6
         ],
         [
             "The Fifteenth Doctor",
-            "Romana II",
+            "Bill Potts",
+            1
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Clara Oswald",
+            38
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Dan Lewis",
+            11
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Donna Noble",
             6
         ],
         [
             "The Fifteenth Doctor",
-            "Ryan Sinclair",
-            6
+            "Graham O'Brien",
+            21
         ],
         [
             "The Fifteenth Doctor",
-            "Nardole, Resourceful Cyborg",
-            6
+            "Ian Chesterton",
+            9
         ],
         [
             "The Fifteenth Doctor",
-            "Martha Jones",
-            5
+            "Jamie McCrimmon",
+            18
         ],
         [
             "The Fifteenth Doctor",
-            "Rose Tyler",
-            4
+            "Jo Grant",
+            34
         ],
         [
             "The Fifteenth Doctor",
-            "Yasmin Khan",
-            2
+            "K-9, Mark I",
+            18
         ],
         [
             "The Fifteenth Doctor",
@@ -2126,38 +2071,68 @@
         ],
         [
             "The Fifteenth Doctor",
-            "Bill Potts",
-            1
-        ],
-        [
-            "The Fugitive Doctor",
             "Martha Jones",
-            230
+            5
         ],
         [
-            "The Fugitive Doctor",
-            "Susan Foreman",
-            39
+            "The Fifteenth Doctor",
+            "Nardole, Resourceful Cyborg",
+            6
         ],
         [
-            "The Fugitive Doctor",
+            "The Fifteenth Doctor",
             "Nyssa of Traken",
-            31
+            10
         ],
         [
-            "The Fugitive Doctor",
-            "Vislor Turlough",
-            31
+            "The Fifteenth Doctor",
+            "Peri Brown",
+            17
         ],
         [
-            "The Fugitive Doctor",
+            "The Fifteenth Doctor",
+            "Romana II",
+            6
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Rose Tyler",
+            4
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Ryan Sinclair",
+            6
+        ],
+        [
+            "The Fifteenth Doctor",
             "Sarah Jane Smith",
-            30
+            150
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Susan Foreman",
+            21
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Tegan Jovanka",
+            24
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Vislor Turlough",
+            18
+        ],
+        [
+            "The Fifteenth Doctor",
+            "Yasmin Khan",
+            2
         ],
         [
             "The Fugitive Doctor",
-            "Clara Oswald",
-            27
+            "Ace, Fearless Rebel",
+            5
         ],
         [
             "The Fugitive Doctor",
@@ -2166,28 +2141,13 @@
         ],
         [
             "The Fugitive Doctor",
-            "K-9, Mark I",
-            16
+            "Amy Pond",
+            1
         ],
         [
             "The Fugitive Doctor",
-            "Tegan Jovanka",
-            13
-        ],
-        [
-            "The Fugitive Doctor",
-            "Jo Grant",
-            13
-        ],
-        [
-            "The Fugitive Doctor",
-            "Nardole, Resourceful Cyborg",
-            11
-        ],
-        [
-            "The Fugitive Doctor",
-            "Romana II",
-            9
+            "Barbara Wright",
+            2
         ],
         [
             "The Fugitive Doctor",
@@ -2196,12 +2156,17 @@
         ],
         [
             "The Fugitive Doctor",
-            "Donna Noble",
-            6
+            "Clara Oswald",
+            27
         ],
         [
             "The Fugitive Doctor",
             "Dan Lewis",
+            6
+        ],
+        [
+            "The Fugitive Doctor",
+            "Donna Noble",
             6
         ],
         [
@@ -2211,8 +2176,18 @@
         ],
         [
             "The Fugitive Doctor",
-            "Ace, Fearless Rebel",
-            5
+            "Jamie McCrimmon",
+            1
+        ],
+        [
+            "The Fugitive Doctor",
+            "Jo Grant",
+            13
+        ],
+        [
+            "The Fugitive Doctor",
+            "K-9, Mark I",
+            16
         ],
         [
             "The Fugitive Doctor",
@@ -2221,23 +2196,18 @@
         ],
         [
             "The Fugitive Doctor",
-            "Rose Tyler",
-            3
+            "Martha Jones",
+            230
         ],
         [
             "The Fugitive Doctor",
-            "Rose Noble",
-            3
+            "Nardole, Resourceful Cyborg",
+            11
         ],
         [
             "The Fugitive Doctor",
-            "Ryan Sinclair",
-            2
-        ],
-        [
-            "The Fugitive Doctor",
-            "Barbara Wright",
-            2
+            "Nyssa of Traken",
+            31
         ],
         [
             "The Fugitive Doctor",
@@ -2246,38 +2216,53 @@
         ],
         [
             "The Fugitive Doctor",
+            "Romana II",
+            9
+        ],
+        [
+            "The Fugitive Doctor",
+            "Rose Noble",
+            3
+        ],
+        [
+            "The Fugitive Doctor",
+            "Rose Tyler",
+            3
+        ],
+        [
+            "The Fugitive Doctor",
+            "Ryan Sinclair",
+            2
+        ],
+        [
+            "The Fugitive Doctor",
+            "Sarah Jane Smith",
+            30
+        ],
+        [
+            "The Fugitive Doctor",
+            "Susan Foreman",
+            39
+        ],
+        [
+            "The Fugitive Doctor",
+            "Tegan Jovanka",
+            13
+        ],
+        [
+            "The Fugitive Doctor",
+            "Vislor Turlough",
+            31
+        ],
+        [
+            "The Fugitive Doctor",
             "Yasmin Khan",
             1
         ],
         [
-            "The Fugitive Doctor",
-            "Jamie McCrimmon",
-            1
-        ],
-        [
-            "The Fugitive Doctor",
-            "Amy Pond",
-            1
-        ],
-        [
             "The War Doctor",
-            "Clara Oswald",
-            1288
-        ],
-        [
-            "The War Doctor",
-            "Ryan Sinclair",
-            744
-        ],
-        [
-            "The War Doctor",
-            "K-9, Mark I",
-            439
-        ],
-        [
-            "The War Doctor",
-            "Susan Foreman",
-            405
+            "Ace, Fearless Rebel",
+            8
         ],
         [
             "The War Doctor",
@@ -2286,13 +2271,28 @@
         ],
         [
             "The War Doctor",
-            "Vislor Turlough",
-            76
+            "Amy Pond",
+            3
         ],
         [
             "The War Doctor",
-            "Graham O'Brien",
-            64
+            "Barbara Wright",
+            6
+        ],
+        [
+            "The War Doctor",
+            "Bill Potts",
+            3
+        ],
+        [
+            "The War Doctor",
+            "Clara Oswald",
+            1288
+        ],
+        [
+            "The War Doctor",
+            "Dan Lewis",
+            11
         ],
         [
             "The War Doctor",
@@ -2301,28 +2301,13 @@
         ],
         [
             "The War Doctor",
-            "Yasmin Khan",
-            40
+            "Graham O'Brien",
+            64
         ],
         [
             "The War Doctor",
-            "Tegan Jovanka",
-            40
-        ],
-        [
-            "The War Doctor",
-            "Nardole, Resourceful Cyborg",
-            37
-        ],
-        [
-            "The War Doctor",
-            "Martha Jones",
-            36
-        ],
-        [
-            "The War Doctor",
-            "Rose Tyler",
-            34
+            "Ian Chesterton",
+            3
         ],
         [
             "The War Doctor",
@@ -2336,23 +2321,8 @@
         ],
         [
             "The War Doctor",
-            "Dan Lewis",
-            11
-        ],
-        [
-            "The War Doctor",
-            "Ace, Fearless Rebel",
-            8
-        ],
-        [
-            "The War Doctor",
-            "Nyssa of Traken",
-            8
-        ],
-        [
-            "The War Doctor",
-            "Barbara Wright",
-            6
+            "K-9, Mark I",
+            439
         ],
         [
             "The War Doctor",
@@ -2361,23 +2331,18 @@
         ],
         [
             "The War Doctor",
-            "Rose Noble",
-            4
+            "Martha Jones",
+            36
         ],
         [
             "The War Doctor",
-            "Bill Potts",
-            3
+            "Nardole, Resourceful Cyborg",
+            37
         ],
         [
             "The War Doctor",
-            "Ian Chesterton",
-            3
-        ],
-        [
-            "The War Doctor",
-            "Amy Pond",
-            3
+            "Nyssa of Traken",
+            8
         ],
         [
             "The War Doctor",
@@ -2386,8 +2351,43 @@
         ],
         [
             "The War Doctor",
+            "Rose Noble",
+            4
+        ],
+        [
+            "The War Doctor",
+            "Rose Tyler",
+            34
+        ],
+        [
+            "The War Doctor",
+            "Ryan Sinclair",
+            744
+        ],
+        [
+            "The War Doctor",
             "Sarah Jane Smith",
             1
+        ],
+        [
+            "The War Doctor",
+            "Susan Foreman",
+            405
+        ],
+        [
+            "The War Doctor",
+            "Tegan Jovanka",
+            40
+        ],
+        [
+            "The War Doctor",
+            "Vislor Turlough",
+            76
+        ],
+        [
+            "The War Doctor",
+            "Yasmin Khan",
+            40
         ]
     ]
 }
