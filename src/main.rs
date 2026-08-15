@@ -1,7 +1,6 @@
 use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 use std::{
-    collections::HashMap,
     fs, io,
     path::{Path, PathBuf},
     str::FromStr,
@@ -104,10 +103,6 @@ fn main() {
         update_data(&mut data);
     }
 
-    let x_positions = positions(&data.x_values);
-    let y_positions = positions(&data.y_values);
-    let numbers = get_counts(&x_positions, &y_positions, &data);
-
     if save_data {
         let mut out = fs::File::create(data_folder.join("data.json")).unwrap();
 
@@ -119,15 +114,7 @@ fn main() {
     let x_images = get_images(&data_folder.join("images"), &data.x_values);
     let y_images = get_images(&data_folder.join("images"), &data.y_values);
 
-    let data = draw::DrawData {
-        x_names: data.x_values,
-        x_images,
-        y_names: data.y_values,
-        y_images,
-        numbers,
-    };
-
-    let svg = create_svg(&data);
+    let svg = create_svg(&data, &x_images, &y_images);
 
     svg::save("./out2.svg", &svg).unwrap();
 }
@@ -150,27 +137,4 @@ fn load_image(path: &Path) -> io::Result<String> {
     let mut out = String::new();
     BASE64_STANDARD.encode_string(&image, &mut out);
     Ok(out)
-}
-
-fn get_counts(
-    x_positions: &HashMap<String, usize>,
-    y_positions: &HashMap<String, usize>,
-    data: &Data,
-) -> HashMap<(usize, usize), u64> {
-    let mut out = HashMap::new();
-    for ((x_name, y_name), count) in &data.decks {
-        let x_position = x_positions.get(x_name).unwrap();
-        let y_position = y_positions.get(y_name).unwrap();
-        out.insert((*x_position, *y_position), *count);
-    }
-
-    out
-}
-
-fn positions(v: &[Partner]) -> HashMap<String, usize> {
-    let mut out = HashMap::new();
-    for (i, label) in v.iter().enumerate() {
-        out.insert(label.name.clone(), i);
-    }
-    out
 }

@@ -1,6 +1,4 @@
-use std::collections::HashMap;
-
-use crate::{Color, Partner};
+use crate::{Color, Data};
 use colorous::VIRIDIS;
 
 use svg::{
@@ -8,22 +6,14 @@ use svg::{
     node::element::{self, Rectangle},
 };
 
-pub struct DrawData {
-    pub x_names: Vec<Partner>,
-    pub y_names: Vec<Partner>,
-    pub x_images: Vec<String>,
-    pub y_images: Vec<String>,
-    pub numbers: HashMap<(usize, usize), u64>,
-}
-
-pub fn create_svg(data: &DrawData) -> impl svg::Node {
+pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl svg::Node {
     let box_width: f64 = 1.4;
     let scale = 30.0;
-    let x_len = data.x_names.len();
-    let y_len = data.y_names.len();
+    let x_len = data.x_values.len();
+    let y_len = data.y_values.len();
     let mut min = u64::MAX;
     let mut max = u64::MIN;
-    for &x in data.numbers.values() {
+    for &x in data.decks.values() {
         if x < min {
             min = x;
         }
@@ -70,7 +60,7 @@ pub fn create_svg(data: &DrawData) -> impl svg::Node {
     definitions.append(filter);
 
     // Add images
-    for (i, image) in data.x_images.iter().enumerate() {
+    for (i, image) in x_images.iter().enumerate() {
         let id = format!("x-{}", i);
 
         let rect = Rectangle::new()
@@ -94,8 +84,8 @@ pub fn create_svg(data: &DrawData) -> impl svg::Node {
 
     let color_width = 0.2;
 
-    for (j, image) in data.y_images.iter().enumerate() {
-        let info = &data.y_names[j];
+    for (j, image) in y_images.iter().enumerate() {
+        let info = &data.y_values[j];
         let id = format!("y-{}", j);
 
         let inner_y = margin_top + j as f64;
@@ -142,7 +132,7 @@ pub fn create_svg(data: &DrawData) -> impl svg::Node {
 
     document.append(definitions);
 
-    for (j, label) in data.y_names.iter().enumerate() {
+    for (j, label) in data.y_values.iter().enumerate() {
         let name = &label.name;
         outlined_text(
             &mut document,
@@ -155,7 +145,7 @@ pub fn create_svg(data: &DrawData) -> impl svg::Node {
         );
     }
 
-    for (i, label) in data.x_names.iter().enumerate() {
+    for (i, label) in data.x_values.iter().enumerate() {
         let name = label.short.as_ref().unwrap();
         outlined_text(
             &mut document,
@@ -169,22 +159,23 @@ pub fn create_svg(data: &DrawData) -> impl svg::Node {
     }
 
     // Draw boxes
-    for j in 0..y_len {
-        for i in 0..x_len {
-            let (color, number) = if let Some(&x) = data.numbers.get(&(i, j)) {
-                let ratio = (x - min) as f64 / (max - min) as f64;
-                let scaled = 1.0 - (1.0 - ratio).powi(15);
-                (VIRIDIS.eval_continuous(scaled), x.to_string())
-            } else {
-                (
-                    colorous::Color {
-                        r: 30,
-                        g: 25,
-                        b: 30,
-                    },
-                    "0".to_string(),
-                )
-            };
+    for (j, y) in data.y_values.iter().enumerate() {
+        for (i, x) in data.x_values.iter().enumerate() {
+            let (color, number) =
+                if let Some(&x) = data.decks.get(&(x.name.clone(), y.name.clone())) {
+                    let ratio = (x - min) as f64 / (max - min) as f64;
+                    let scaled = 1.0 - (1.0 - ratio).powi(15);
+                    (VIRIDIS.eval_continuous(scaled), x.to_string())
+                } else {
+                    (
+                        colorous::Color {
+                            r: 30,
+                            g: 25,
+                            b: 30,
+                        },
+                        "0".to_string(),
+                    )
+                };
             let x_pos = i as f64 * box_width + margin_left;
             let y_pos = j as f64 + margin_top;
             let r = Rectangle::new()
