@@ -95,7 +95,7 @@ struct Data {
 fn main() {
     let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
     let download_counts: bool = false;
-    let save_data: bool = false;
+    let save_data: bool = true;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let mut data: Data = serde_json::from_reader(f).unwrap();
@@ -109,27 +109,11 @@ fn main() {
     let numbers = get_counts(&x_positions, &y_positions, &data);
 
     if save_data {
-        let mut companions = IndexMap::new();
-        for i in 0..data.x_values.len() {
-            for j in 0..data.y_values.len() {
-                if let Some(&c) = numbers.get(&(i, j)) {
-                    let name_x = &data.x_values[i].name;
-                    let name_y = &data.y_values[j].name;
-                    companions.insert((name_x.clone(), name_y.clone()), c);
-                }
-            }
-        }
-        let new_data = Data {
-            x_values: data.x_values.clone(),
-            y_values: data.y_values.clone(),
-            companions,
-        };
-
         let mut out = fs::File::create(data_folder.join("data.json")).unwrap();
 
         let formatter = serde_json::ser::PrettyFormatter::with_indent(b"    ");
         let mut ser = serde_json::Serializer::with_formatter(&mut out, formatter);
-        new_data.serialize(&mut ser).unwrap();
+        data.serialize(&mut ser).unwrap();
     }
 
     let x_images = get_images(Path::new("./data/doctor_who/images"), &data.x_values);
