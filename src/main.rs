@@ -116,8 +116,8 @@ fn main() {
         data.serialize(&mut ser).unwrap();
     }
 
-    let x_images = get_images(Path::new("./data/doctor_who/images"), &data.x_values);
-    let y_images = get_images(Path::new("./data/doctor_who/images"), &data.y_values);
+    let x_images = get_images(&data_folder.join("images"), &data.x_values);
+    let y_images = get_images(&data_folder.join("images"), &data.y_values);
 
     let data = draw::DrawData {
         x_names: data.x_values,
