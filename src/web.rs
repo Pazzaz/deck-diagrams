@@ -11,16 +11,9 @@ struct ParseData {
     id_1: Vec<Color>,
 }
 
-#[derive(Debug, Clone, Copy)]
-struct ParseDataDiff {
-    deck_count: bool,
-    color_0: bool,
-    color_1: bool,
-}
-
 impl ParseData {
-    fn diff(&self, other: (u64, &[Color], &[Color])) -> ParseDataDiff {
-        ParseDataDiff {
+    fn diff(&self, other: (u64, &[Color], &[Color])) -> WebParameters {
+        WebParameters {
             deck_count: self.deck_count != other.0,
             color_0: &self.id_0[..] != other.1,
             color_1: &self.id_1[..] != other.2,
@@ -28,9 +21,31 @@ impl ParseData {
     }
 }
 
-impl ParseDataDiff {
-    const fn any(self) -> bool {
+#[derive(Debug, Clone, Copy)]
+pub struct WebParameters {
+    deck_count: bool,
+    color_0: bool,
+    color_1: bool,
+}
+
+impl WebParameters {
+    pub const fn new(deck_count: bool, colors: bool) -> Self {
+        Self {
+            deck_count,
+            color_0: colors,
+            color_1: colors,
+        }
+    }
+    pub const fn any(self) -> bool {
         self.deck_count || self.color_0 || self.color_1
+    }
+
+    const fn and(self, other: Self) -> Self {
+        Self {
+            deck_count: self.deck_count && other.deck_count,
+            color_0: self.color_0 && other.color_0,
+            color_1: self.color_1 && other.color_1,
+        }
     }
 }
 
@@ -53,7 +68,8 @@ impl Display for WebError {
     }
 }
 
-pub fn update_data(data: &mut Data) {
+pub fn update_data(data: &mut Data, to_download: WebParameters) {
+    debug_assert!(to_download.any());
     let client = reqwest::blocking::Client::new();
 
     for x in &mut data.x_values {
@@ -72,19 +88,21 @@ pub fn update_data(data: &mut Data) {
                 .get(&(x.name.clone(), y.name.clone()))
                 .unwrap_or(&0);
             let diff = downloaded.diff((old_c, &x.id, &y.id));
-            if diff.any() {
+            let to_update = diff.and(to_download);
+            if to_update.any() {
                 let url = format!("https://edhrec.com/commanders/{a}-{b}");
                 println!("Updated {url}");
-                if diff.deck_count {
+                if to_update.deck_count {
                     println!("count: {} -> {}", old_c, downloaded.deck_count);
                     data.decks
                         .insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
                 }
-                if diff.color_0 {
+                if to_update.color_0 {
                     println!("color of first: {:?} -> {:?}", x.id, downloaded.id_0);
                     x.id = downloaded.id_0;
                 }
-                if diff.color_1 {
+
+                if to_update.color_1 {
                     println!("color of second: {:?} -> {:?}", y.id, downloaded.id_1);
                     y.id = downloaded.id_1;
                 }

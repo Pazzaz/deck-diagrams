@@ -12,6 +12,8 @@ use web::update_data;
 
 use draw::create_svg;
 
+use web::WebParameters;
+
 mod draw;
 mod web;
 
@@ -94,13 +96,16 @@ struct Data {
 fn main() {
     let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
     let download_counts: bool = false;
+    let download_colors: bool = true;
     let save_data: bool = false;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let mut data: Data = serde_json::from_reader(f).unwrap();
 
-    if download_counts {
-        update_data(&mut data);
+    let to_download = WebParameters::new(download_counts, download_colors);
+
+    if to_download.any() {
+        update_data(&mut data, to_download);
     }
 
     if save_data {
