@@ -166,6 +166,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "deck-diagrams"
+version = "0.1.0"
+dependencies = [
+ "base64 0.23.1",
+ "colorous",
+ "indexmap",
+ "itertools",
+ "regex",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "svg",
+]
+
+[[package]]
 name = "displaydoc"
 version = "0.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -277,21 +292,6 @@ dependencies = [
  "memchr",
  "pin-project-lite",
  "slab",
-]
-
-[[package]]
-name = "generate"
-version = "0.1.0"
-dependencies = [
- "base64 0.23.1",
- "colorous",
- "indexmap",
- "itertools",
- "regex",
- "reqwest",
- "serde",
- "serde_json",
- "svg",
 ]
 
 [[package]]
