@@ -167,14 +167,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
                     let scaled = 1.0 - (1.0 - ratio).powi(15);
                     (VIRIDIS.eval_continuous(scaled), x.to_string())
                 } else {
-                    (
-                        colorous::Color {
-                            r: 30,
-                            g: 25,
-                            b: 30,
-                        },
-                        "0".to_string(),
-                    )
+                    (MISSING_COLOR, "0".to_string())
                 };
             let x_pos = i as f64 * box_width + margin_left;
             let y_pos = j as f64 + margin_top;
@@ -231,6 +224,12 @@ fn outlined_text(
     output.append(text_outer2);
     output.append(text_inner);
 }
+
+const MISSING_COLOR: colorous::Color = colorous::Color {
+    r: 30,
+    g: 25,
+    b: 30,
+};
 
 const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
 
