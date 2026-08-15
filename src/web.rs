@@ -124,24 +124,31 @@ fn download_data(
     if let Some(capture) = re.captures(&content) {
         let block = capture.get(1).unwrap().as_str();
         let v: serde_json::Value = serde_json::from_str(block).unwrap();
-        let json_dict = &v["props"]["pageProps"]["data"]["container"]["json_dict"];
-        let cards = json_dict["card"]["cards"].as_array().unwrap();
-        assert!(cards.len() == 2);
-        let mut id_0 = parse_color(&cards[0]["color_identity"]).ok_or(WebError::ParseFail)?;
-        let mut id_1 = parse_color(&cards[1]["color_identity"]).ok_or(WebError::ParseFail)?;
+        let mut data = parse_json(&v).ok_or(WebError::ParseFail)?;
         if switched {
-            (id_0, id_1) = (id_1, id_0);
+            (data.id_0, data.id_1) = (data.id_1, data.id_0);
         }
-        let deck_count = json_dict["card"]["num_decks"].as_u64().unwrap();
-        let out = ParseData {
-            deck_count,
-            id_0,
-            id_1,
-        };
-        Ok(out)
+        Ok(data)
     } else {
         Err(WebError::MissingData)
     }
+}
+
+fn parse_json(v: &serde_json::Value) -> Option<ParseData> {
+    let json_dict = &v.pointer("/props/pageProps/data/container/json_dict")?;
+    let cards = json_dict.pointer("/card/cards")?.as_array()?;
+    if cards.len() != 2 {
+        return None;
+    }
+    let id_0 = parse_color(&cards[0]["color_identity"])?;
+    let id_1 = parse_color(&cards[1]["color_identity"])?;
+    let deck_count = json_dict.pointer("/card/num_decks")?.as_u64()?;
+    let out = ParseData {
+        deck_count,
+        id_0,
+        id_1,
+    };
+    Some(out)
 }
 
 fn slugify(s: &str) -> String {
