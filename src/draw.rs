@@ -6,6 +6,9 @@ use svg::{
     node::element::{self, Rectangle},
 };
 
+// Adjacent SVG elements may display a gap, so we add `EPSILON` overlap in some places
+const EPSILON: f64 = 0.01;
+
 pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl svg::Node {
     let box_width: f64 = 1.4;
     let scale = 30.0;
@@ -42,7 +45,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
         let rect = Rectangle::new()
             .set("y", 0.5)
             .set("x", i as f64 * box_width + margin_left)
-            .set("height", 1.51)
+            .set("height", 1.5 + EPSILON)
             .set("width", box_width)
             .set("fill", "white");
         let clip_path = element::ClipPath::new().set("id", id.as_str()).add(rect);
@@ -76,15 +79,15 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
         let rect = Rectangle::new()
             .set("y", inner_y)
             .set("x", 0)
-            .set("height", 1.01)
-            .set("width", margin_left + 0.01)
+            .set("height", 1.0 + EPSILON)
+            .set("width", margin_left + EPSILON)
             .set("fill", "white");
         let clip_path = element::ClipPath::new().set("id", id.as_str()).add(rect);
 
         let img = element::Image::new()
             .set("y", outer_y)
             .set("x", -0.5)
-            .set("width", margin_left + 0.1 + 1.0)
+            .set("width", margin_left + 1.0 + EPSILON)
             .set("href", format!("data:image/jpeg;base64,{image}"))
             .set("clip-path", format!("url(#{})", id.as_str()));
 
@@ -100,8 +103,8 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
         let rect = Rectangle::new()
             .set("y", inner_y)
             .set("x", margin_left - color_width)
-            .set("height", 1.01)
-            .set("width", color_width + 0.01)
+            .set("height", 1.0 + EPSILON)
+            .set("width", color_width + EPSILON)
             .set("fill", color_str);
         document.append(rect);
     }
@@ -150,8 +153,8 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
             let r = Rectangle::new()
                 .set("x", x_pos)
                 .set("y", y_pos)
-                .set("width", 1.01 * box_width)
-                .set("height", 1.01)
+                .set("width", box_width * (1.0 + EPSILON))
+                .set("height", 1.0 + EPSILON)
                 .set(
                     "fill",
                     format!("rgb({}, {}, {})", color.r, color.g, color.b),
