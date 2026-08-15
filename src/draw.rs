@@ -177,7 +177,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
         let id = format!("y-{j}");
 
         let inner_y = IMAGE_HEIGHT_X + COLOR_WIDTH + j as f64;
-        let mut y_offset = 3.0;
+        let mut y_offset = 2.8;
 
         if let Some(y_offset_offset) = info.offset_y {
             y_offset -= y_offset_offset;
