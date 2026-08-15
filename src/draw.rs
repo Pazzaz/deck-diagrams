@@ -35,30 +35,6 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
 
     let mut definitions = element::Definitions::new();
 
-    // Add filter
-    let fe_morphology = element::FilterEffectMorphology::new()
-        .set("operator", "dilate")
-        .set("radius", 0.1)
-        .set("in", "SourceAlpha")
-        .set("result", "thicken");
-
-    let fe_flood = element::FilterEffectFlood::new().set("flood-color", "#000000");
-
-    let fe_composite_in = element::FilterEffectComposite::new()
-        .set("in2", "thicken")
-        .set("operator", "in");
-
-    let fe_composite_source = element::FilterEffectComposite::new().set("in", "SourceGraphic");
-
-    let filter = element::Filter::new()
-        .set("id", "outline")
-        .add(fe_morphology)
-        .add(fe_flood)
-        .add(fe_composite_in)
-        .add(fe_composite_source);
-
-    definitions.append(filter);
-
     // Add images
     for (i, image) in x_images.iter().enumerate() {
         let id = format!("x-{i}");
