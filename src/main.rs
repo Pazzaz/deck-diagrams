@@ -1,6 +1,4 @@
 use colorous::VIRIDIS;
-use regex::Regex;
-use reqwest::StatusCode;
 use serde::{Deserialize, Serialize};
 use std::{
     collections::HashMap,
@@ -14,6 +12,10 @@ use svg::{
 };
 
 use base64::prelude::*;
+
+use web::update_data;
+
+mod web;
 
 #[derive(Deserialize, Serialize, Clone, Copy, Debug, PartialEq, Eq)]
 enum Color {
@@ -315,8 +317,8 @@ fn outlined_text(
 
 fn main() {
     let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
-    let download_counts: bool = true;
-    let save_data: bool = true;
+    let download_counts: bool = false;
+    let save_data: bool = false;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let mut data: Data = serde_json::from_reader(f).unwrap();
@@ -326,46 +328,8 @@ fn main() {
 
     let mut numbers = get_counts(&x_positions, &y_positions, &data);
 
-    let client = reqwest::blocking::Client::new();
-
     if download_counts {
-        for (i, x) in data.x_values.iter_mut().enumerate() {
-            for (j, y) in data.y_values.iter_mut().enumerate() {
-                if let Some(&c) = numbers.get(&(i, j)) {
-                    let downloaded = match get_deck_count(&x.name, &y.name, &client) {
-                        Ok(x) => x,
-                        Err(x) => {
-                            match x {
-                                WebError::Request(error) => eprintln!("Error: {}", error),
-                                WebError::BadStatus => eprintln!("Could not reach URL"),
-                                WebError::MissingData => eprintln!("Could not find data at URL"),
-                                WebError::ParseFail => eprintln!("Could not parse data"),
-                            }
-                            continue;
-                        }
-                    };
-                    let diff = downloaded.diff((c, &x.id, &y.id));
-                    if diff.any() {
-                        let a = slugify(&x.name);
-                        let b = slugify(&y.name);
-                        let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
-                        println!("Updated {}", url);
-                        if diff.deck_count {
-                            println!("count: {} -> {}", c, downloaded.deck_count);
-                            numbers.insert((i, j), downloaded.deck_count);
-                        }
-                        if diff.color_0 {
-                            println!("color of first: {:?} -> {:?}", &x.id, &downloaded.id_0);
-                            x.id = downloaded.id_0;
-                        }
-                        if diff.color_1 {
-                            println!("color of second: {:?} -> {:?}", &y.id, &downloaded.id_1);
-                            y.id = downloaded.id_1;
-                        }
-                    }
-                }
-            }
-        }
+        update_data(&mut data, &mut numbers);
     }
 
     if save_data {
@@ -406,108 +370,6 @@ fn main() {
     let svg = create_svg(&data);
 
     svg::save("./out2.svg", &svg).unwrap();
-}
-
-fn slugify(s: &str) -> String {
-    s.to_lowercase()
-        .replace(char::is_whitespace, "-")
-        .replace(',', "")
-        .replace('\'', "")
-}
-
-struct ParseData {
-    deck_count: u64,
-    id_0: Vec<Color>,
-    id_1: Vec<Color>,
-}
-
-#[derive(Debug, Clone, Copy)]
-struct ParseDataDiff {
-    deck_count: bool,
-    color_0: bool,
-    color_1: bool,
-}
-
-impl ParseData {
-    fn diff(&self, other: (u64, &[Color], &[Color])) -> ParseDataDiff {
-        ParseDataDiff {
-            deck_count: self.deck_count != other.0,
-            color_0: &self.id_0[..] != other.1,
-            color_1: &self.id_1[..] != other.2,
-        }
-    }
-}
-
-impl ParseDataDiff {
-    fn any(&self) -> bool {
-        self.deck_count || self.color_0 || self.color_1
-    }
-}
-
-#[derive(Debug)]
-enum WebError {
-    Request(reqwest::Error),
-    BadStatus,
-    MissingData,
-    ParseFail,
-}
-
-fn get_deck_count(
-    partner1: &str,
-    partner2: &str,
-    client: &reqwest::blocking::Client,
-) -> Result<ParseData, WebError> {
-    let a = slugify(partner1);
-    let b = slugify(partner2);
-    let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
-    let mut resp = client.get(&url).send().map_err(WebError::Request)?;
-
-    let mut switched = false;
-    if resp.status() != StatusCode::OK {
-        // Try switching the two partners in the URL
-        let url = format!("https://edhrec.com/commanders/{}-{}", b, a);
-        resp = client.get(&url).send().map_err(WebError::Request)?;
-        if resp.status() != StatusCode::OK {
-            return Err(WebError::BadStatus);
-        }
-
-        switched = true;
-    }
-
-    let content = resp.text().map_err(WebError::Request)?;
-
-    // Extract
-    let re =
-        Regex::new(r#"<script id="__NEXT_DATA__" type="application/json">(.+)</script>"#).unwrap();
-
-    if let Some(capture) = re.captures(&content) {
-        let block = capture.get(1).unwrap().as_str();
-        let v: serde_json::Value = serde_json::from_str(block).unwrap();
-        let json_dict = &v["props"]["pageProps"]["data"]["container"]["json_dict"];
-        let cards = json_dict["card"]["cards"].as_array().unwrap();
-        assert!(cards.len() == 2);
-        let mut id_0 = parse_color(&cards[0]["color_identity"]).ok_or(WebError::ParseFail)?;
-        let mut id_1 = parse_color(&cards[1]["color_identity"]).ok_or(WebError::ParseFail)?;
-        if switched {
-            (id_0, id_1) = (id_1, id_0);
-        }
-        let deck_count = json_dict["card"]["num_decks"].as_u64().unwrap();
-        let out = ParseData {
-            deck_count,
-            id_0,
-            id_1,
-        };
-        Ok(out)
-    } else {
-        Err(WebError::MissingData)
-    }
-}
-
-fn parse_color(v: &serde_json::Value) -> Option<Vec<Color>> {
-    v.as_array()?
-        .iter()
-        .map(|x| x.as_str().and_then(|y| y.parse().ok()))
-        .collect::<Option<Vec<Color>>>()
 }
 
 fn get_images(folder: &Path, labels: &[PartnerInfo]) -> Vec<String> {
