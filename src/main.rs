@@ -47,7 +47,7 @@ impl FromStr for Color {
 }
 
 #[derive(Deserialize, Serialize, Clone)]
-struct PartnerInfo {
+struct Partner {
     name: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     short: Option<String>,
@@ -56,7 +56,7 @@ struct PartnerInfo {
     id: Vec<Color>,
 }
 
-mod companions_format {
+mod decks_format {
     use super::*;
     use serde::ser::SerializeSeq;
 
@@ -85,11 +85,11 @@ mod companions_format {
 
 #[derive(Deserialize, Serialize)]
 struct Data {
-    x_values: Vec<PartnerInfo>,
-    y_values: Vec<PartnerInfo>,
+    x_values: Vec<Partner>,
+    y_values: Vec<Partner>,
 
-    #[serde(with = "companions_format")]
-    companions: IndexMap<(String, String), u64>,
+    #[serde(with = "decks_format")]
+    decks: IndexMap<(String, String), u64>,
 }
 
 fn main() {
@@ -132,7 +132,7 @@ fn main() {
     svg::save("./out2.svg", &svg).unwrap();
 }
 
-fn get_images(folder: &Path, labels: &[PartnerInfo]) -> Vec<String> {
+fn get_images(folder: &Path, labels: &[Partner]) -> Vec<String> {
     let mut out = Vec::new();
     let mut new = folder.to_path_buf();
     for label in labels {
@@ -158,7 +158,7 @@ fn get_counts(
     data: &Data,
 ) -> HashMap<(usize, usize), u64> {
     let mut out = HashMap::new();
-    for ((x_name, y_name), count) in &data.companions {
+    for ((x_name, y_name), count) in &data.decks {
         let x_position = x_positions.get(x_name).unwrap();
         let y_position = y_positions.get(y_name).unwrap();
         out.insert((*x_position, *y_position), *count);
@@ -167,7 +167,7 @@ fn get_counts(
     out
 }
 
-fn positions(v: &[PartnerInfo]) -> HashMap<String, usize> {
+fn positions(v: &[Partner]) -> HashMap<String, usize> {
     let mut out = HashMap::new();
     for (i, label) in v.iter().enumerate() {
         out.insert(label.name.clone(), i);

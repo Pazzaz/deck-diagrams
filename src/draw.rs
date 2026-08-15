@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::{Color, PartnerInfo};
+use crate::{Color, Partner};
 use colorous::VIRIDIS;
 
 use svg::{
@@ -9,8 +9,8 @@ use svg::{
 };
 
 pub struct DrawData {
-    pub x_names: Vec<PartnerInfo>,
-    pub y_names: Vec<PartnerInfo>,
+    pub x_names: Vec<Partner>,
+    pub y_names: Vec<Partner>,
     pub x_images: Vec<String>,
     pub y_images: Vec<String>,
     pub numbers: HashMap<(usize, usize), u64>,

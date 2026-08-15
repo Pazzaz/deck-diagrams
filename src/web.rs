@@ -66,7 +66,7 @@ pub fn update_data(data: &mut Data) {
                 }
             };
             let old_c = *data
-                .companions
+                .decks
                 .get(&(x.name.clone(), y.name.clone()))
                 .unwrap_or(&0);
             let diff = downloaded.diff((old_c, &x.id, &y.id));
@@ -77,7 +77,7 @@ pub fn update_data(data: &mut Data) {
                 println!("Updated {}", url);
                 if diff.deck_count {
                     println!("count: {} -> {}", old_c, downloaded.deck_count);
-                    data.companions
+                    data.decks
                         .insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
                 }
                 if diff.color_0 {
