@@ -2,7 +2,12 @@ use colorous::VIRIDIS;
 use regex::Regex;
 use reqwest::StatusCode;
 use serde::{Deserialize, Serialize};
-use std::{collections::HashMap, fs, io, path::{Path, PathBuf}, str::FromStr};
+use std::{
+    collections::HashMap,
+    fs, io,
+    path::{Path, PathBuf},
+    str::FromStr,
+};
 use svg::{
     Document, Node as _,
     node::element::{self, Rectangle},
@@ -10,7 +15,7 @@ use svg::{
 
 use base64::prelude::*;
 
-#[derive(Deserialize, Serialize, Clone, Copy)]
+#[derive(Deserialize, Serialize, Clone, Copy, Debug, PartialEq, Eq)]
 enum Color {
     #[serde(rename = "W")]
     White,
@@ -22,6 +27,22 @@ enum Color {
     Red,
     #[serde(rename = "G")]
     Green,
+}
+
+impl FromStr for Color {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let c = match s {
+            "W" => Color::White,
+            "U" => Color::Blue,
+            "B" => Color::Black,
+            "R" => Color::Red,
+            "G" => Color::Green,
+            _ => return Err(()),
+        };
+        Ok(c)
+    }
 }
 
 const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
@@ -46,15 +67,14 @@ struct PartnerInfo {
     short: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     offset_y: Option<f64>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    id: Option<Vec<Color>>,
+    id: Vec<Color>,
 }
 
 #[derive(Deserialize, Serialize)]
 struct Data {
     x_values: Vec<PartnerInfo>,
     y_values: Vec<PartnerInfo>,
-    companions: Vec<(String, String, usize)>,
+    companions: Vec<(String, String, u64)>,
 }
 
 struct DrawData {
@@ -62,7 +82,7 @@ struct DrawData {
     y_names: Vec<PartnerInfo>,
     x_images: Vec<String>,
     y_images: Vec<String>,
-    numbers: HashMap<(usize, usize), usize>,
+    numbers: HashMap<(usize, usize), u64>,
 }
 
 fn create_svg(data: &DrawData) -> impl svg::Node {
@@ -70,8 +90,8 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
     let scale = 30.0;
     let x_len = data.x_names.len();
     let y_len = data.y_names.len();
-    let mut min = usize::MAX;
-    let mut max = usize::MIN;
+    let mut min = u64::MAX;
+    let mut max = u64::MIN;
     for i in 0..x_len {
         for j in 0..y_len {
             if let Some(&x) = data.numbers.get(&(i, j)) {
@@ -178,20 +198,18 @@ fn create_svg(data: &DrawData) -> impl svg::Node {
         definitions.append(clip_path);
 
         // Add color
-        if let Some(color) = &info.id {
-            let color_str = match &color[..] {
-                [] => COLORLESS_COLOR,
-                [single_color] => &single_color.to_string(),
-                _ => panic!(),
-            };
-            let rect = Rectangle::new()
-                .set("y", inner_y)
-                .set("x", margin_left - color_width)
-                .set("height", 1.01)
-                .set("width", color_width + 0.01)
-                .set("fill", color_str);
-            document.append(rect);
-        }
+        let color_str = match &info.id[..] {
+            [] => COLORLESS_COLOR,
+            [single_color] => &single_color.to_string(),
+            _ => panic!(),
+        };
+        let rect = Rectangle::new()
+            .set("y", inner_y)
+            .set("x", margin_left - color_width)
+            .set("height", 1.01)
+            .set("width", color_width + 0.01)
+            .set("fill", color_str);
+        document.append(rect);
     }
 
     document.append(definitions);
@@ -297,11 +315,11 @@ fn outlined_text(
 
 fn main() {
     let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
-    let download_counts: bool = false;
+    let download_counts: bool = true;
     let save_data: bool = true;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
-    let data: Data = serde_json::from_reader(f).unwrap();
+    let mut data: Data = serde_json::from_reader(f).unwrap();
 
     let x_positions = positions(&data.x_values);
     let y_positions = positions(&data.y_values);
@@ -311,19 +329,39 @@ fn main() {
     let client = reqwest::blocking::Client::new();
 
     if download_counts {
-        for (i, x) in data.x_values.iter().enumerate() {
-            for (j, y) in data.y_values.iter().enumerate() {
+        for (i, x) in data.x_values.iter_mut().enumerate() {
+            for (j, y) in data.y_values.iter_mut().enumerate() {
                 if let Some(&c) = numbers.get(&(i, j)) {
-                    if let Some(new_c) = get_deck_count(&x.name, &y.name, &client).unwrap() {
-                        if new_c != c {
-                            let a = slugify(&x.name);
-                            let b = slugify(&y.name);
-                            let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
-                            println!("Updated {}->{}: {}", c, new_c, url);
-                            numbers.insert((i, j), new_c);
+                    let downloaded = match get_deck_count(&x.name, &y.name, &client) {
+                        Ok(x) => x,
+                        Err(x) => {
+                            match x {
+                                WebError::Request(error) => eprintln!("Error: {}", error),
+                                WebError::BadStatus => eprintln!("Could not reach URL"),
+                                WebError::MissingData => eprintln!("Could not find data at URL"),
+                                WebError::ParseFail => eprintln!("Could not parse data"),
+                            }
+                            continue;
                         }
-                    } else {
-                        eprintln!("Parsing failed");
+                    };
+                    let diff = downloaded.diff((c, &x.id, &y.id));
+                    if diff.any() {
+                        let a = slugify(&x.name);
+                        let b = slugify(&y.name);
+                        let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
+                        println!("Updated {}", url);
+                        if diff.deck_count {
+                            println!("count: {} -> {}", c, downloaded.deck_count);
+                            numbers.insert((i, j), downloaded.deck_count);
+                        }
+                        if diff.color_0 {
+                            println!("color of first: {:?} -> {:?}", &x.id, &downloaded.id_0);
+                            x.id = downloaded.id_0;
+                        }
+                        if diff.color_1 {
+                            println!("color of second: {:?} -> {:?}", &y.id, &downloaded.id_1);
+                            y.id = downloaded.id_1;
+                        }
                     }
                 }
             }
@@ -379,32 +417,68 @@ fn slugify(s: &str) -> String {
 
 struct ParseData {
     deck_count: u64,
-    color_0: Vec<Color>,
-    color_1: Vec<Color>,
+    id_0: Vec<Color>,
+    id_1: Vec<Color>,
+}
+
+#[derive(Debug, Clone, Copy)]
+struct ParseDataDiff {
+    deck_count: bool,
+    color_0: bool,
+    color_1: bool,
+}
+
+impl ParseData {
+    fn diff(&self, other: (u64, &[Color], &[Color])) -> ParseDataDiff {
+        ParseDataDiff {
+            deck_count: self.deck_count != other.0,
+            color_0: &self.id_0[..] != other.1,
+            color_1: &self.id_1[..] != other.2,
+        }
+    }
+}
+
+impl ParseDataDiff {
+    fn any(&self) -> bool {
+        self.deck_count || self.color_0 || self.color_1
+    }
+}
+
+#[derive(Debug)]
+enum WebError {
+    Request(reqwest::Error),
+    BadStatus,
+    MissingData,
+    ParseFail,
 }
 
 fn get_deck_count(
     partner1: &str,
     partner2: &str,
     client: &reqwest::blocking::Client,
-) -> reqwest::Result<Option<usize>> {
+) -> Result<ParseData, WebError> {
     let a = slugify(partner1);
     let b = slugify(partner2);
     let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
-    let mut resp = client.get(&url).send()?;
+    let mut resp = client.get(&url).send().map_err(WebError::Request)?;
+
+    let mut switched = false;
     if resp.status() != StatusCode::OK {
         // Try switching the two partners in the URL
         let url = format!("https://edhrec.com/commanders/{}-{}", b, a);
-        resp = client.get(&url).send()?;
+        resp = client.get(&url).send().map_err(WebError::Request)?;
         if resp.status() != StatusCode::OK {
-            return Ok(None);
+            return Err(WebError::BadStatus);
         }
+
+        switched = true;
     }
 
-    let content = resp.text()?;
+    let content = resp.text().map_err(WebError::Request)?;
 
-    // Extract 
-    let re = Regex::new(r#"<script id="__NEXT_DATA__" type="application/json">(.+)</script>"#).unwrap();
+    // Extract
+    let re =
+        Regex::new(r#"<script id="__NEXT_DATA__" type="application/json">(.+)</script>"#).unwrap();
 
     if let Some(capture) = re.captures(&content) {
         let block = capture.get(1).unwrap().as_str();
@@ -412,12 +486,28 @@ fn get_deck_count(
         let json_dict = &v["props"]["pageProps"]["data"]["container"]["json_dict"];
         let cards = json_dict["card"]["cards"].as_array().unwrap();
         assert!(cards.len() == 2);
-        let color_0 = &cards[0]["color_identity"];
-        let n = json_dict["card"]["num_decks"].as_u64().unwrap();
-        Ok(Some(n as usize))
+        let mut id_0 = parse_color(&cards[0]["color_identity"]).ok_or(WebError::ParseFail)?;
+        let mut id_1 = parse_color(&cards[1]["color_identity"]).ok_or(WebError::ParseFail)?;
+        if switched {
+            (id_0, id_1) = (id_1, id_0);
+        }
+        let deck_count = json_dict["card"]["num_decks"].as_u64().unwrap();
+        let out = ParseData {
+            deck_count,
+            id_0,
+            id_1,
+        };
+        Ok(out)
     } else {
-        Ok(None)
+        Err(WebError::MissingData)
     }
+}
+
+fn parse_color(v: &serde_json::Value) -> Option<Vec<Color>> {
+    v.as_array()?
+        .iter()
+        .map(|x| x.as_str().and_then(|y| y.parse().ok()))
+        .collect::<Option<Vec<Color>>>()
 }
 
 fn get_images(folder: &Path, labels: &[PartnerInfo]) -> Vec<String> {
@@ -444,7 +534,7 @@ fn get_counts(
     x_positions: &HashMap<String, usize>,
     y_positions: &HashMap<String, usize>,
     data: &Data,
-) -> HashMap<(usize, usize), usize> {
+) -> HashMap<(usize, usize), u64> {
     let mut out = HashMap::new();
     for (x_name, y_name, count) in &data.companions {
         let x_position = x_positions.get(x_name).unwrap();

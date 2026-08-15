@@ -2,71 +2,141 @@
     "x_values": [
         {
             "name": "The First Doctor",
-            "short": "1"
+            "short": "1",
+            "id": [
+                "W",
+                "U"
+            ]
         },
         {
             "name": "The Second Doctor",
-            "short": "2"
+            "short": "2",
+            "id": [
+                "W",
+                "U"
+            ]
         },
         {
             "name": "The Third Doctor",
-            "short": "3"
+            "short": "3",
+            "id": [
+                "G",
+                "U"
+            ]
         },
         {
             "name": "The Fourth Doctor",
-            "short": "4"
+            "short": "4",
+            "id": [
+                "G",
+                "U"
+            ]
         },
         {
             "name": "The Fifth Doctor",
-            "short": "5"
+            "short": "5",
+            "id": [
+                "W",
+                "U"
+            ]
         },
         {
             "name": "The Sixth Doctor",
-            "short": "6"
+            "short": "6",
+            "id": [
+                "G",
+                "U"
+            ]
         },
         {
             "name": "The Seventh Doctor",
-            "short": "7"
+            "short": "7",
+            "id": [
+                "W",
+                "U"
+            ]
         },
         {
             "name": "The Eighth Doctor",
-            "short": "8"
+            "short": "8",
+            "id": [
+                "W",
+                "U"
+            ]
         },
         {
             "name": "The Ninth Doctor",
-            "short": "9"
+            "short": "9",
+            "id": [
+                "U",
+                "R"
+            ]
         },
         {
             "name": "The Tenth Doctor",
-            "short": "10"
+            "short": "10",
+            "id": [
+                "U",
+                "R"
+            ]
         },
         {
             "name": "The Eleventh Doctor",
-            "short": "11"
+            "short": "11",
+            "id": [
+                "W",
+                "U"
+            ]
         },
         {
             "name": "The Twelfth Doctor",
-            "short": "12"
+            "short": "12",
+            "id": [
+                "U",
+                "R"
+            ]
         },
         {
             "name": "The Thirteenth Doctor",
-            "short": "13"
+            "short": "13",
+            "id": [
+                "G",
+                "U"
+            ]
         },
         {
             "name": "The Fourteenth Doctor",
-            "short": "14"
+            "short": "14",
+            "id": [
+                "R",
+                "G",
+                "W",
+                "U"
+            ]
         },
         {
             "name": "The Fifteenth Doctor",
-            "short": "15"
+            "short": "15",
+            "id": [
+                "U",
+                "R"
+            ]
         },
         {
             "name": "The Fugitive Doctor",
-            "short": "F"
+            "short": "F",
+            "id": [
+                "R",
+                "G"
+            ]
         },
         {
             "name": "The War Doctor",
-            "short": "W"
+            "short": "W",
+            "id": [
+                "R",
+                "W"
+            ]
         }
     ],
     "y_values": [
@@ -219,7 +289,7 @@
             "name": "Ryan Sinclair",
             "offset_y": 2.4,
             "id": [
-                "U"
+                "R"
             ]
         },
         {
@@ -347,7 +417,7 @@
         [
             "The First Doctor",
             "Ryan Sinclair",
-            91
+            92
         ],
         [
             "The First Doctor",
@@ -367,7 +437,7 @@
         [
             "The First Doctor",
             "Vislor Turlough",
-            31
+            32
         ],
         [
             "The First Doctor",
@@ -402,7 +472,7 @@
         [
             "The Second Doctor",
             "Clara Oswald",
-            507
+            508
         ],
         [
             "The Second Doctor",
@@ -412,7 +482,7 @@
         [
             "The Second Doctor",
             "Donna Noble",
-            342
+            341
         ],
         [
             "The Second Doctor",
@@ -442,7 +512,7 @@
         [
             "The Second Doctor",
             "Leela, Sevateem Warrior",
-            750
+            749
         ],
         [
             "The Second Doctor",
@@ -502,7 +572,7 @@
         [
             "The Second Doctor",
             "Vislor Turlough",
-            1116
+            1117
         ],
         [
             "The Second Doctor",
@@ -542,7 +612,7 @@
         [
             "The Third Doctor",
             "Dan Lewis",
-            345
+            346
         ],
         [
             "The Third Doctor",
@@ -617,7 +687,7 @@
         [
             "The Third Doctor",
             "Sarah Jane Smith",
-            692
+            691
         ],
         [
             "The Third Doctor",
@@ -657,7 +727,7 @@
         [
             "The Fourth Doctor",
             "Barbara Wright",
-            32
+            31
         ],
         [
             "The Fourth Doctor",
@@ -667,7 +737,7 @@
         [
             "The Fourth Doctor",
             "Clara Oswald",
-            38
+            39
         ],
         [
             "The Fourth Doctor",
@@ -747,7 +817,7 @@
         [
             "The Fourth Doctor",
             "Sarah Jane Smith",
-            1129
+            1131
         ],
         [
             "The Fourth Doctor",
@@ -797,7 +867,7 @@
         [
             "The Fifth Doctor",
             "Clara Oswald",
-            203
+            205
         ],
         [
             "The Fifth Doctor",
@@ -887,7 +957,7 @@
         [
             "The Fifth Doctor",
             "Susan Foreman",
-            366
+            372
         ],
         [
             "The Fifth Doctor",
@@ -947,7 +1017,7 @@
         [
             "The Sixth Doctor",
             "Ian Chesterton",
-            180
+            179
         ],
         [
             "The Sixth Doctor",
@@ -982,12 +1052,12 @@
         [
             "The Sixth Doctor",
             "Peri Brown",
-            555
+            552
         ],
         [
             "The Sixth Doctor",
             "Romana II",
-            1214
+            1213
         ],
         [
             "The Sixth Doctor",
@@ -1052,7 +1122,7 @@
         [
             "The Seventh Doctor",
             "Clara Oswald",
-            178
+            176
         ],
         [
             "The Seventh Doctor",
@@ -1102,7 +1172,7 @@
         [
             "The Seventh Doctor",
             "Nyssa of Traken",
-            62
+            63
         ],
         [
             "The Seventh Doctor",
@@ -1207,7 +1277,7 @@
         [
             "The Eighth Doctor",
             "Jo Grant",
-            79
+            78
         ],
         [
             "The Eighth Doctor",
@@ -1287,7 +1357,7 @@
         [
             "The Ninth Doctor",
             "Clara Oswald",
-            895
+            894
         ],
         [
             "The Ninth Doctor",
@@ -1357,7 +1427,7 @@
         [
             "The Ninth Doctor",
             "Rose Tyler",
-            126
+            129
         ],
         [
             "The Ninth Doctor",
@@ -1412,12 +1482,12 @@
         [
             "The Tenth Doctor",
             "Bill Potts",
-            2
+            1
         ],
         [
             "The Tenth Doctor",
             "Clara Oswald",
-            1042
+            1043
         ],
         [
             "The Tenth Doctor",
@@ -1482,7 +1552,7 @@
         [
             "The Tenth Doctor",
             "Rose Tyler",
-            5586
+            5589
         ],
         [
             "The Tenth Doctor",
@@ -1527,7 +1597,7 @@
         [
             "The Eleventh Doctor",
             "Amy Pond",
-            961
+            963
         ],
         [
             "The Eleventh Doctor",
@@ -1537,7 +1607,7 @@
         [
             "The Eleventh Doctor",
             "Clara Oswald",
-            130
+            128
         ],
         [
             "The Eleventh Doctor",
@@ -1737,7 +1807,7 @@
         [
             "The Twelfth Doctor",
             "Susan Foreman",
-            774
+            775
         ],
         [
             "The Twelfth Doctor",
@@ -1777,7 +1847,7 @@
         [
             "The Thirteenth Doctor",
             "Clara Oswald",
-            174
+            173
         ],
         [
             "The Thirteenth Doctor",
@@ -1857,7 +1927,7 @@
         [
             "The Thirteenth Doctor",
             "Susan Foreman",
-            13
+            12
         ],
         [
             "The Thirteenth Doctor",
@@ -1872,7 +1942,7 @@
         [
             "The Thirteenth Doctor",
             "Yasmin Khan",
-            1925
+            1922
         ],
         [
             "The Fourteenth Doctor",
@@ -1897,12 +1967,12 @@
         [
             "The Fourteenth Doctor",
             "Clara Oswald",
-            1882
+            1886
         ],
         [
             "The Fourteenth Doctor",
             "Dan Lewis",
-            112
+            113
         ],
         [
             "The Fourteenth Doctor",
@@ -1962,12 +2032,12 @@
         [
             "The Fourteenth Doctor",
             "Romana II",
-            13
+            14
         ],
         [
             "The Fourteenth Doctor",
             "Rose Noble",
-            1235
+            1238
         ],
         [
             "The Fourteenth Doctor",
@@ -1987,7 +2057,7 @@
         [
             "The Fourteenth Doctor",
             "Susan Foreman",
-            176
+            177
         ],
         [
             "The Fourteenth Doctor",
@@ -2197,7 +2267,7 @@
         [
             "The Fugitive Doctor",
             "Martha Jones",
-            231
+            230
         ],
         [
             "The Fugitive Doctor",
@@ -2287,7 +2357,7 @@
         [
             "The War Doctor",
             "Clara Oswald",
-            1290
+            1285
         ],
         [
             "The War Doctor",
@@ -2302,7 +2372,7 @@
         [
             "The War Doctor",
             "Graham O'Brien",
-            64
+            63
         ],
         [
             "The War Doctor",
@@ -2322,7 +2392,7 @@
         [
             "The War Doctor",
             "K-9, Mark I",
-            435
+            436
         ],
         [
             "The War Doctor",
@@ -2362,7 +2432,7 @@
         [
             "The War Doctor",
             "Ryan Sinclair",
-            746
+            747
         ],
         [
             "The War Doctor",
@@ -2372,7 +2442,7 @@
         [
             "The War Doctor",
             "Susan Foreman",
-            410
+            411
         ],
         [
             "The War Doctor",
