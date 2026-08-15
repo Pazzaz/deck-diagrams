@@ -34,11 +34,11 @@ impl FromStr for Color {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let c = match s {
-            "W" => Color::White,
-            "U" => Color::Blue,
-            "B" => Color::Black,
-            "R" => Color::Red,
-            "G" => Color::Green,
+            "W" => Self::White,
+            "U" => Self::Blue,
+            "B" => Self::Black,
+            "R" => Self::Red,
+            "G" => Self::Green,
             _ => return Err(()),
         };
         Ok(c)
@@ -56,7 +56,7 @@ struct Partner {
 }
 
 mod decks_format {
-    use super::*;
+    use super::{Deserialize, IndexMap};
     use serde::ser::SerializeSeq;
 
     pub fn serialize<S>(
@@ -94,7 +94,7 @@ struct Data {
 fn main() {
     let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
     let download_counts: bool = false;
-    let save_data: bool = true;
+    let save_data: bool = false;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let mut data: Data = serde_json::from_reader(f).unwrap();

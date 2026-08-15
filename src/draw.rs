@@ -61,7 +61,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
 
     // Add images
     for (i, image) in x_images.iter().enumerate() {
-        let id = format!("x-{}", i);
+        let id = format!("x-{i}");
 
         let rect = Rectangle::new()
             .set("y", 0.5)
@@ -75,7 +75,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
             .set("y", 0.5)
             .set("x", i as f64 * box_width + margin_left - (0.5 * box_width))
             .set("width", box_width * 2.0)
-            .set("href", format!("data:image/jpeg;base64,{}", image))
+            .set("href", format!("data:image/jpeg;base64,{image}"))
             .set("clip-path", format!("url(#{})", id.as_str()));
 
         document.append(img);
@@ -86,7 +86,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
 
     for (j, image) in y_images.iter().enumerate() {
         let info = &data.y_values[j];
-        let id = format!("y-{}", j);
+        let id = format!("y-{j}");
 
         let inner_y = margin_top + j as f64;
         let mut outer_y = margin_top + j as f64 - 3.0;
@@ -109,7 +109,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
             .set("y", outer_y)
             .set("x", -0.5)
             .set("width", margin_left + 0.1 + 1.0)
-            .set("href", format!("data:image/jpeg;base64,{}", image))
+            .set("href", format!("data:image/jpeg;base64,{image}"))
             .set("clip-path", format!("url(#{})", id.as_str()));
 
         document.append(img);
@@ -220,13 +220,13 @@ fn outlined_text(
         .set("text-anchor", text_anchor)
         .set("dominant-baseline", "central")
         .set("font-size", font_size)
-        .set("style", format!("font-family:{};", font_family));
+        .set("style", format!("font-family:{font_family};"));
 
     let text_inner = text.clone().set("fill", "white");
     let text_outer1 = text.clone().set("fill", "black")
-        .set("style", format!("font-family:{};paint-order: stroke fill;stroke: #000000;stroke-width: 0.2;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;", font_family));
-    let text_outer2 = text.clone().set("fill", "black")
-        .set("style", format!("font-family:{};paint-order: stroke fill;stroke: #000000;stroke-width: 0.1;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;", font_family));
+        .set("style", format!("font-family:{font_family};paint-order: stroke fill;stroke: #000000;stroke-width: 0.2;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;"));
+    let text_outer2 = text.set("fill", "black")
+        .set("style", format!("font-family:{font_family};paint-order: stroke fill;stroke: #000000;stroke-width: 0.1;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;"));
     output.append(text_outer1);
     output.append(text_outer2);
     output.append(text_inner);
@@ -237,11 +237,11 @@ const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
 impl std::fmt::Display for Color {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let x = match self {
-            Color::White => "rgb(245, 241, 237)",
-            Color::Blue => "rgb(0, 107, 167)",
-            Color::Black => "rgb(60, 55, 52)",
-            Color::Red => "rgb(229, 65, 43)",
-            Color::Green => "rgb(0, 108, 71)",
+            Self::White => "rgb(245, 241, 237)",
+            Self::Blue => "rgb(0, 107, 167)",
+            Self::Black => "rgb(60, 55, 52)",
+            Self::Red => "rgb(229, 65, 43)",
+            Self::Green => "rgb(0, 108, 71)",
         };
         f.write_str(x)
     }

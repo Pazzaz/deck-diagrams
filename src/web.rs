@@ -29,7 +29,7 @@ impl ParseData {
 }
 
 impl ParseDataDiff {
-    fn any(&self) -> bool {
+    const fn any(self) -> bool {
         self.deck_count || self.color_0 || self.color_1
     }
 }
@@ -45,10 +45,10 @@ enum WebError {
 impl Display for WebError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            WebError::Request(error) => f.write_fmt(format_args!("Error: {}", error)),
-            WebError::BadStatus => f.write_str("Could not reach URL"),
-            WebError::MissingData => f.write_str("Could not find data at URL"),
-            WebError::ParseFail => f.write_str("Could not parse data"),
+            Self::Request(error) => f.write_fmt(format_args!("Error: {error}")),
+            Self::BadStatus => f.write_str("Could not reach URL"),
+            Self::MissingData => f.write_str("Could not find data at URL"),
+            Self::ParseFail => f.write_str("Could not parse data"),
         }
     }
 }
@@ -56,12 +56,12 @@ impl Display for WebError {
 pub fn update_data(data: &mut Data) {
     let client = reqwest::blocking::Client::new();
 
-    for x in data.x_values.iter_mut() {
-        for y in data.y_values.iter_mut() {
+    for x in &mut data.x_values {
+        for y in &mut data.y_values {
             let downloaded = match download_data(&x.name, &y.name, &client) {
                 Ok(x) => x,
                 Err(x) => {
-                    eprintln!("{}", x);
+                    eprintln!("{x}");
                     continue;
                 }
             };
@@ -73,19 +73,19 @@ pub fn update_data(data: &mut Data) {
             if diff.any() {
                 let a = slugify(&x.name);
                 let b = slugify(&y.name);
-                let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
-                println!("Updated {}", url);
+                let url = format!("https://edhrec.com/commanders/{a}-{b}");
+                println!("Updated {url}");
                 if diff.deck_count {
                     println!("count: {} -> {}", old_c, downloaded.deck_count);
                     data.decks
                         .insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
                 }
                 if diff.color_0 {
-                    println!("color of first: {:?} -> {:?}", &x.id, &downloaded.id_0);
+                    println!("color of first: {:?} -> {:?}", x.id, downloaded.id_0);
                     x.id = downloaded.id_0;
                 }
                 if diff.color_1 {
-                    println!("color of second: {:?} -> {:?}", &y.id, &downloaded.id_1);
+                    println!("color of second: {:?} -> {:?}", y.id, downloaded.id_1);
                     y.id = downloaded.id_1;
                 }
             }
@@ -100,20 +100,20 @@ fn download_data(
 ) -> Result<ParseData, WebError> {
     let a = slugify(partner1);
     let b = slugify(partner2);
-    let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
+    let url = format!("https://edhrec.com/commanders/{a}-{b}");
     let mut resp = client.get(&url).send().map_err(WebError::Request)?;
 
-    let mut switched = false;
-    if resp.status() != StatusCode::OK {
+    let switched = if resp.status() != StatusCode::OK {
         // Try switching the two partners in the URL
-        let url = format!("https://edhrec.com/commanders/{}-{}", b, a);
+        let url = format!("https://edhrec.com/commanders/{b}-{a}");
         resp = client.get(&url).send().map_err(WebError::Request)?;
         if resp.status() != StatusCode::OK {
             return Err(WebError::BadStatus);
         }
-
-        switched = true;
-    }
+        true
+    } else {
+        false
+    };
 
     let content = resp.text().map_err(WebError::Request)?;
 
@@ -121,9 +121,9 @@ fn download_data(
     let re =
         Regex::new(r#"<script id="__NEXT_DATA__" type="application/json">(.+)</script>"#).unwrap();
 
-    if let Some(capture) = re.captures(&content) {
-        let block = capture.get(1).unwrap().as_str();
-        let v: serde_json::Value = serde_json::from_str(block).unwrap();
+    if let Some(capture) = re.captures(&content).and_then(|x| x.get(1)) {
+        let block = capture.as_str();
+        let v: serde_json::Value = serde_json::from_str(block).map_err(|_| WebError::ParseFail)?;
         let mut data = parse_json(&v).ok_or(WebError::ParseFail)?;
         if switched {
             (data.id_0, data.id_1) = (data.id_1, data.id_0);
@@ -137,25 +137,25 @@ fn download_data(
 fn parse_json(v: &serde_json::Value) -> Option<ParseData> {
     let json_dict = &v.pointer("/props/pageProps/data/container/json_dict")?;
     let cards = json_dict.pointer("/card/cards")?.as_array()?;
-    if cards.len() != 2 {
-        return None;
+    if let [card_0, card_1] = &cards[..] {
+        let id_0 = parse_color(card_0.get("color_identity")?)?;
+        let id_1 = parse_color(card_1.get("color_identity")?)?;
+        let deck_count = json_dict.pointer("/card/num_decks")?.as_u64()?;
+        let out = ParseData {
+            deck_count,
+            id_0,
+            id_1,
+        };
+        Some(out)
+    } else {
+        None
     }
-    let id_0 = parse_color(&cards[0]["color_identity"])?;
-    let id_1 = parse_color(&cards[1]["color_identity"])?;
-    let deck_count = json_dict.pointer("/card/num_decks")?.as_u64()?;
-    let out = ParseData {
-        deck_count,
-        id_0,
-        id_1,
-    };
-    Some(out)
 }
 
 fn slugify(s: &str) -> String {
     s.to_lowercase()
         .replace(char::is_whitespace, "-")
-        .replace(',', "")
-        .replace('\'', "")
+        .replace([',', '\''], "")
 }
 
 fn parse_color(v: &serde_json::Value) -> Option<Vec<Color>> {
