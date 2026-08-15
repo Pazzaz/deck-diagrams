@@ -57,8 +57,10 @@ pub fn update_data(data: &mut Data) {
     let client = reqwest::blocking::Client::new();
 
     for x in &mut data.x_values {
+        let a = slugify(&x.name);
         for y in &mut data.y_values {
-            let downloaded = match download_data(&x.name, &y.name, &client) {
+            let b = slugify(&y.name);
+            let downloaded = match download_data(&a, &b, &client) {
                 Ok(x) => x,
                 Err(x) => {
                     eprintln!("{x}");
@@ -71,8 +73,6 @@ pub fn update_data(data: &mut Data) {
                 .unwrap_or(&0);
             let diff = downloaded.diff((old_c, &x.id, &y.id));
             if diff.any() {
-                let a = slugify(&x.name);
-                let b = slugify(&y.name);
                 let url = format!("https://edhrec.com/commanders/{a}-{b}");
                 println!("Updated {url}");
                 if diff.deck_count {
@@ -94,20 +94,18 @@ pub fn update_data(data: &mut Data) {
 }
 
 fn download_data(
-    partner1: &str,
-    partner2: &str,
+    slug1: &str,
+    slug2: &str,
     client: &reqwest::blocking::Client,
 ) -> Result<ParseData, WebError> {
-    let a = slugify(partner1);
-    let b = slugify(partner2);
-    let url = format!("https://edhrec.com/commanders/{a}-{b}");
+    let url = format!("https://edhrec.com/commanders/{slug1}-{slug2}");
     let mut resp = client.get(&url).send().map_err(WebError::Request)?;
 
     // If we don't reach a valid url, we'll try switching the partner order
     let switched = resp.status() != StatusCode::OK;
 
     if switched {
-        let url = format!("https://edhrec.com/commanders/{b}-{a}");
+        let url = format!("https://edhrec.com/commanders/{slug2}-{slug1}");
         resp = client.get(&url).send().map_err(WebError::Request)?;
 
         // If it still didn't work, we return
