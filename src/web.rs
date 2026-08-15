@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{fmt::Display, fs, io::Write, mem, path::Path};
 
 use crate::{Color, Data};
 
@@ -9,6 +9,8 @@ struct ParseData {
     deck_count: u64,
     id_0: Vec<Color>,
     id_1: Vec<Color>,
+    image_url_0: String,
+    image_url_1: String,
 }
 
 impl ParseData {
@@ -18,6 +20,11 @@ impl ParseData {
             color_0: &self.id_0[..] != other.1,
             color_1: &self.id_1[..] != other.2,
         }
+    }
+
+    fn switch(&mut self) {
+        mem::swap(&mut self.id_0, &mut self.id_1);
+        mem::swap(&mut self.image_url_0, &mut self.image_url_1);
     }
 }
 
@@ -68,11 +75,15 @@ impl Display for WebError {
     }
 }
 
-pub fn update_data(data: &mut Data, to_download: WebParameters) {
+pub fn update_data(data: &mut Data, to_download: WebParameters, download_images: Option<&Path>) {
     debug_assert!(to_download.any());
     let client = reqwest::blocking::Client::new();
 
+    // When downloading images, we only download the first run through the `y_values`.
+    let mut new_y = true;
     for x in &mut data.x_values {
+        // Similarly for the `x_values`, we don't want to download their image every execution of the inner loop.
+        let mut new_x = true;
         let a = slugify(&x.name);
         for y in &mut data.y_values {
             let b = slugify(&y.name);
@@ -107,8 +118,37 @@ pub fn update_data(data: &mut Data, to_download: WebParameters) {
                     y.id = downloaded.id_1;
                 }
             }
+
+            if let Some(image_folder) = download_images {
+                if new_x {
+                    let mut f =
+                        fs::File::create(image_folder.join(format!("{}.jpg", &x.name))).unwrap();
+                    let image_0 = download_image(&client, &downloaded.image_url_0).unwrap();
+                    f.write(&image_0).unwrap();
+                }
+
+                if new_y {
+                    let mut f =
+                        fs::File::create(image_folder.join(format!("{}.jpg", &y.name))).unwrap();
+                    let image_1 = download_image(&client, &downloaded.image_url_1).unwrap();
+                    f.write(&image_1).unwrap();
+                }
+            }
+            new_x = false;
         }
+        new_y = false;
     }
+}
+
+fn download_image(client: &reqwest::blocking::Client, url: &str) -> Result<Vec<u8>, WebError> {
+    let resp = client.get(url).send().map_err(WebError::Request)?;
+    if resp.status() != StatusCode::OK {
+        return Err(WebError::BadStatus);
+    }
+
+    let content = resp.bytes().map_err(WebError::Request)?;
+
+    Ok(content.to_vec())
 }
 
 fn download_data(
@@ -143,7 +183,7 @@ fn download_data(
         let v: serde_json::Value = serde_json::from_str(block).map_err(|_| WebError::ParseFail)?;
         let mut data = parse_json(&v).ok_or(WebError::ParseFail)?;
         if switched {
-            (data.id_0, data.id_1) = (data.id_1, data.id_0);
+            data.switch();
         }
         Ok(data)
     } else {
@@ -152,18 +192,26 @@ fn download_data(
 }
 
 fn parse_json(v: &serde_json::Value) -> Option<ParseData> {
-    let json_dict = &v.pointer("/props/pageProps/data/container/json_dict")?;
-    let cards = json_dict.pointer("/card/cards")?.as_array()?;
+    let card = &v.pointer("/props/pageProps/data/container/json_dict/card")?;
+    let cards = card.pointer("/cards")?.as_array()?;
     if let [card_0, card_1] = &cards[..] {
         let id_0 = parse_color(card_0.get("color_identity")?)?;
         let id_1 = parse_color(card_1.get("color_identity")?)?;
-        let deck_count = json_dict.pointer("/card/num_decks")?.as_u64()?;
-        let out = ParseData {
-            deck_count,
-            id_0,
-            id_1,
-        };
-        Some(out)
+        let deck_count = card.pointer("/num_decks")?.as_u64()?;
+        if let [card_images_0, card_images_1] = &card.get("image_uris")?.as_array()?[..] {
+            let image_0 = card_images_0.get("art_crop")?.as_str()?.to_string();
+            let image_1 = card_images_1.get("art_crop")?.as_str()?.to_string();
+            let out = ParseData {
+                deck_count,
+                id_0,
+                id_1,
+                image_url_0: image_0,
+                image_url_1: image_1,
+            };
+            Some(out)
+        } else {
+            return None;
+        }
     } else {
         None
     }

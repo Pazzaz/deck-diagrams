@@ -94,10 +94,11 @@ struct Data {
 }
 
 fn main() {
-    let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
-    let download_counts: bool = false;
+    let data_folder = PathBuf::from_str("./data/tmnt").unwrap();
+    let download_counts: bool = true;
     let download_colors: bool = true;
-    let save_data: bool = false;
+    let download_images: bool = true;
+    let save_data: bool = true;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let mut data: Data = serde_json::from_reader(f).unwrap();
@@ -105,7 +106,13 @@ fn main() {
     let to_download = WebParameters::new(download_counts, download_colors);
 
     if to_download.any() {
-        update_data(&mut data, to_download);
+        let image_path = data_folder.join("images");
+        let images = if download_images {
+            Some(image_path.as_path())
+        } else {
+            None
+        };
+        update_data(&mut data, to_download, images);
     }
 
     if save_data {
@@ -116,8 +123,8 @@ fn main() {
         data.serialize(&mut ser).unwrap();
     }
 
-    let x_images = get_images(&data_folder.join("images"), &data.x_values);
-    let y_images = get_images(&data_folder.join("images"), &data.y_values);
+    let x_images = get_images(&data_folder.join("testing"), &data.x_values);
+    let y_images = get_images(&data_folder.join("testing"), &data.y_values);
 
     let svg = create_svg(&data, &x_images, &y_images);
 
