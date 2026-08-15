@@ -1,4 +1,5 @@
 use colorous::VIRIDIS;
+use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 use std::{
     collections::HashMap,
@@ -72,11 +73,40 @@ struct PartnerInfo {
     id: Vec<Color>,
 }
 
+mod companions_format {
+    use super::*;
+    use serde::ser::SerializeSeq;
+
+    pub fn serialize<S>(
+        map: &IndexMap<(String, String), u64>,
+        serializer: S,
+    ) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        let mut seq = serializer.serialize_seq(Some(map.len()))?;
+        for ((a, b), c) in map {
+            seq.serialize_element(&(a, b, c))?;
+        }
+        seq.end()
+    }
+
+    pub fn deserialize<'de, D>(deserializer: D) -> Result<IndexMap<(String, String), u64>, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let raw: Vec<(String, String, u64)> = Vec::deserialize(deserializer)?;
+        Ok(raw.into_iter().map(|(a, b, c)| ((a, b), c)).collect())
+    }
+}
+
 #[derive(Deserialize, Serialize)]
 struct Data {
     x_values: Vec<PartnerInfo>,
     y_values: Vec<PartnerInfo>,
-    companions: Vec<(String, String, u64)>,
+
+    #[serde(with = "companions_format")]
+    companions: IndexMap<(String, String), u64>,
 }
 
 struct DrawData {
@@ -318,28 +348,27 @@ fn outlined_text(
 fn main() {
     let data_folder = PathBuf::from_str("./data/doctor_who").unwrap();
     let download_counts: bool = false;
-    let save_data: bool = false;
+    let save_data: bool = true;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let mut data: Data = serde_json::from_reader(f).unwrap();
 
-    let x_positions = positions(&data.x_values);
-    let y_positions = positions(&data.y_values);
-
-    let mut numbers = get_counts(&x_positions, &y_positions, &data);
-
     if download_counts {
-        update_data(&mut data, &mut numbers);
+        update_data(&mut data);
     }
 
+    let x_positions = positions(&data.x_values);
+    let y_positions = positions(&data.y_values);
+    let numbers = get_counts(&x_positions, &y_positions, &data);
+
     if save_data {
-        let mut companions = Vec::new();
+        let mut companions = IndexMap::new();
         for i in 0..data.x_values.len() {
             for j in 0..data.y_values.len() {
                 if let Some(&c) = numbers.get(&(i, j)) {
                     let name_x = &data.x_values[i].name;
                     let name_y = &data.y_values[j].name;
-                    companions.push((name_x.clone(), name_y.clone(), c));
+                    companions.insert((name_x.clone(), name_y.clone()), c);
                 }
             }
         }
@@ -398,7 +427,7 @@ fn get_counts(
     data: &Data,
 ) -> HashMap<(usize, usize), u64> {
     let mut out = HashMap::new();
-    for (x_name, y_name, count) in &data.companions {
+    for ((x_name, y_name), count) in &data.companions {
         let x_position = x_positions.get(x_name).unwrap();
         let y_position = y_positions.get(y_name).unwrap();
         out.insert((*x_position, *y_position), *count);

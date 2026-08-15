@@ -53,37 +53,40 @@ impl Display for WebError {
     }
 }
 
-pub fn update_data(data: &mut Data, numbers: &mut HashMap<(usize, usize), u64>) {
+pub fn update_data(data: &mut Data) {
     let client = reqwest::blocking::Client::new();
 
-    for (i, x) in data.x_values.iter_mut().enumerate() {
-        for (j, y) in data.y_values.iter_mut().enumerate() {
-            if let Some(&c) = numbers.get(&(i, j)) {
-                let downloaded = match download_data(&x.name, &y.name, &client) {
-                    Ok(x) => x,
-                    Err(x) => {
-                        eprintln!("{}", x);
-                        continue;
-                    }
-                };
-                let diff = downloaded.diff((c, &x.id, &y.id));
-                if diff.any() {
-                    let a = slugify(&x.name);
-                    let b = slugify(&y.name);
-                    let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
-                    println!("Updated {}", url);
-                    if diff.deck_count {
-                        println!("count: {} -> {}", c, downloaded.deck_count);
-                        numbers.insert((i, j), downloaded.deck_count);
-                    }
-                    if diff.color_0 {
-                        println!("color of first: {:?} -> {:?}", &x.id, &downloaded.id_0);
-                        x.id = downloaded.id_0;
-                    }
-                    if diff.color_1 {
-                        println!("color of second: {:?} -> {:?}", &y.id, &downloaded.id_1);
-                        y.id = downloaded.id_1;
-                    }
+    for x in data.x_values.iter_mut() {
+        for y in data.y_values.iter_mut() {
+            let downloaded = match download_data(&x.name, &y.name, &client) {
+                Ok(x) => x,
+                Err(x) => {
+                    eprintln!("{}", x);
+                    continue;
+                }
+            };
+            let old_c = *data
+                .companions
+                .get(&(x.name.clone(), y.name.clone()))
+                .unwrap_or(&0);
+            let diff = downloaded.diff((old_c, &x.id, &y.id));
+            if diff.any() {
+                let a = slugify(&x.name);
+                let b = slugify(&y.name);
+                let url = format!("https://edhrec.com/commanders/{}-{}", a, b);
+                println!("Updated {}", url);
+                if diff.deck_count {
+                    println!("count: {} -> {}", old_c, downloaded.deck_count);
+                    data.companions
+                        .insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
+                }
+                if diff.color_0 {
+                    println!("color of first: {:?} -> {:?}", &x.id, &downloaded.id_0);
+                    x.id = downloaded.id_0;
+                }
+                if diff.color_1 {
+                    println!("color of second: {:?} -> {:?}", &y.id, &downloaded.id_1);
+                    y.id = downloaded.id_1;
                 }
             }
         }
