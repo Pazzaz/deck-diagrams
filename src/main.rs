@@ -94,7 +94,7 @@ struct Data {
 }
 
 fn main() {
-    let data_folder = PathBuf::from_str("./data/tmnt").unwrap();
+    let data_folder = PathBuf::from_str("./data/friends_forever").unwrap();
     let download_counts: bool = true;
     let download_colors: bool = true;
     let download_images: bool = true;
@@ -123,12 +123,12 @@ fn main() {
         data.serialize(&mut ser).unwrap();
     }
 
-    let x_images = get_images(&data_folder.join("testing"), &data.x_values);
-    let y_images = get_images(&data_folder.join("testing"), &data.y_values);
+    let x_images = get_images(&data_folder.join("images"), &data.x_values);
+    let y_images = get_images(&data_folder.join("images"), &data.y_values);
 
     let svg = create_svg(&data, &x_images, &y_images);
 
-    svg::save("./out2.svg", &svg).unwrap();
+    svg::save("./out4.svg", &svg).unwrap();
 }
 
 fn get_images(folder: &Path, labels: &[Partner]) -> Vec<String> {

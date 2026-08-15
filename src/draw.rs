@@ -231,7 +231,10 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
     }
 
     for (i, label) in data.x_values.iter().enumerate() {
-        let name = label.short.as_ref().unwrap();
+        let name = match label.short.as_ref() {
+            Some(x) => x,
+            None => &label.name.chars().next().unwrap().to_string(),
+        };
         outlined_text(
             &mut document,
             "middle",

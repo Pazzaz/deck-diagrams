@@ -87,7 +87,7 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
         let a = slugify(&x.name);
         for y in &mut data.y_values {
             let b = slugify(&y.name);
-            let downloaded = match download_data(&a, &b, &client) {
+            let downloaded = match download_data(&x.name, &y.name, &a, &b, &client) {
                 Ok(x) => x,
                 Err(x) => {
                     eprintln!("{x}");
@@ -122,16 +122,16 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
             if let Some(image_folder) = download_images {
                 if new_x {
                     let mut f =
-                        fs::File::create(image_folder.join(format!("{}.jpg", &x.name))).unwrap();
+                        fs::File::create(image_folder.join(format!("{}.jpg", x.name))).unwrap();
                     let image_0 = download_image(&client, &downloaded.image_url_0).unwrap();
-                    f.write(&image_0).unwrap();
+                    f.write_all(&image_0).unwrap();
                 }
 
                 if new_y {
                     let mut f =
-                        fs::File::create(image_folder.join(format!("{}.jpg", &y.name))).unwrap();
+                        fs::File::create(image_folder.join(format!("{}.jpg", y.name))).unwrap();
                     let image_1 = download_image(&client, &downloaded.image_url_1).unwrap();
-                    f.write(&image_1).unwrap();
+                    f.write_all(&image_1).unwrap();
                 }
             }
             new_x = false;
@@ -152,6 +152,8 @@ fn download_image(client: &reqwest::blocking::Client, url: &str) -> Result<Vec<u
 }
 
 fn download_data(
+    x_name: &str,
+    y_name: &str,
     slug1: &str,
     slug2: &str,
     client: &reqwest::blocking::Client,
@@ -160,9 +162,8 @@ fn download_data(
     let mut resp = client.get(&url).send().map_err(WebError::Request)?;
 
     // If we don't reach a valid url, we'll try switching the partner order
-    let switched = resp.status() != StatusCode::OK;
-
-    if switched {
+    // May not be needed, seems like the site redirects sometimes
+    if resp.status() != StatusCode::OK {
         let url = format!("https://edhrec.com/commanders/{slug2}-{slug1}");
         resp = client.get(&url).send().map_err(WebError::Request)?;
 
@@ -181,36 +182,45 @@ fn download_data(
     if let Some(capture) = re.captures(&content).and_then(|x| x.get(1)) {
         let block = capture.as_str();
         let v: serde_json::Value = serde_json::from_str(block).map_err(|_| WebError::ParseFail)?;
-        let mut data = parse_json(&v).ok_or(WebError::ParseFail)?;
-        if switched {
-            data.switch();
-        }
+        let data = parse_json(&v, x_name, y_name).ok_or(WebError::ParseFail)?;
         Ok(data)
     } else {
         Err(WebError::MissingData)
     }
 }
 
-fn parse_json(v: &serde_json::Value) -> Option<ParseData> {
+fn parse_json(v: &serde_json::Value, x_name: &str, y_name: &str) -> Option<ParseData> {
     let card = &v.pointer("/props/pageProps/data/container/json_dict/card")?;
     let cards = card.pointer("/cards")?.as_array()?;
     if let [card_0, card_1] = &cards[..] {
+        let name_0 = card_0.get("name")?.as_str()?;
+        let name_1 = card_1.get("name")?.as_str()?;
+        let switch = if (name_0, name_1) == (x_name, y_name) {
+            false
+        } else if (name_1, name_0) == (x_name, y_name) {
+            true
+        } else {
+            return None;
+        };
         let id_0 = parse_color(card_0.get("color_identity")?)?;
         let id_1 = parse_color(card_1.get("color_identity")?)?;
         let deck_count = card.pointer("/num_decks")?.as_u64()?;
         if let [card_images_0, card_images_1] = &card.get("image_uris")?.as_array()?[..] {
             let image_0 = card_images_0.get("art_crop")?.as_str()?.to_string();
             let image_1 = card_images_1.get("art_crop")?.as_str()?.to_string();
-            let out = ParseData {
+            let mut out = ParseData {
                 deck_count,
                 id_0,
                 id_1,
                 image_url_0: image_0,
                 image_url_1: image_1,
             };
+            if switch {
+                out.switch();
+            }
             Some(out)
         } else {
-            return None;
+            None
         }
     } else {
         None

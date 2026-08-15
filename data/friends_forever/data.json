@@ -1,0 +1,318 @@
+{
+    "x_values": [
+        {
+            "name": "Bjorna, Nightfall Alchemist",
+            "id": [
+                "U",
+                "R"
+            ]
+        },
+        {
+            "name": "Cecily, Haunted Mage",
+            "id": [
+                "U",
+                "B",
+                "R"
+            ]
+        },
+        {
+            "name": "Elmar, Ulvenwald Informant",
+            "id": [
+                "R",
+                "G"
+            ]
+        },
+        {
+            "name": "Hargilde, Kindly Runechanter",
+            "id": [
+                "W",
+                "U"
+            ]
+        },
+        {
+            "name": "Othelm, Sigardian Outcast",
+            "id": [
+                "G",
+                "W"
+            ]
+        },
+        {
+            "name": "Sophina, Spearsage Deserter",
+            "id": [
+                "R",
+                "W"
+            ]
+        },
+        {
+            "name": "Wernog, Rider's Chaplain",
+            "id": [
+                "W",
+                "B"
+            ]
+        }
+    ],
+    "y_values": [
+        {
+            "name": "Bjorna, Nightfall Alchemist",
+            "id": [
+                "U",
+                "R"
+            ]
+        },
+        {
+            "name": "Cecily, Haunted Mage",
+            "id": [
+                "U",
+                "B",
+                "R"
+            ]
+        },
+        {
+            "name": "Elmar, Ulvenwald Informant",
+            "id": [
+                "R",
+                "G"
+            ]
+        },
+        {
+            "name": "Hargilde, Kindly Runechanter",
+            "id": [
+                "W",
+                "U"
+            ]
+        },
+        {
+            "name": "Othelm, Sigardian Outcast",
+            "id": [
+                "G",
+                "W"
+            ]
+        },
+        {
+            "name": "Sophina, Spearsage Deserter",
+            "id": [
+                "R",
+                "W"
+            ]
+        },
+        {
+            "name": "Wernog, Rider's Chaplain",
+            "id": [
+                "W",
+                "B"
+            ]
+        }
+    ],
+    "decks": [
+        [
+            "Bjorna, Nightfall Alchemist",
+            "Cecily, Haunted Mage",
+            115
+        ],
+        [
+            "Bjorna, Nightfall Alchemist",
+            "Elmar, Ulvenwald Informant",
+            665
+        ],
+        [
+            "Bjorna, Nightfall Alchemist",
+            "Hargilde, Kindly Runechanter",
+            190
+        ],
+        [
+            "Bjorna, Nightfall Alchemist",
+            "Othelm, Sigardian Outcast",
+            354
+        ],
+        [
+            "Bjorna, Nightfall Alchemist",
+            "Sophina, Spearsage Deserter",
+            192
+        ],
+        [
+            "Bjorna, Nightfall Alchemist",
+            "Wernog, Rider's Chaplain",
+            3980
+        ],
+        [
+            "Cecily, Haunted Mage",
+            "Bjorna, Nightfall Alchemist",
+            115
+        ],
+        [
+            "Cecily, Haunted Mage",
+            "Elmar, Ulvenwald Informant",
+            1122
+        ],
+        [
+            "Cecily, Haunted Mage",
+            "Hargilde, Kindly Runechanter",
+            124
+        ],
+        [
+            "Cecily, Haunted Mage",
+            "Othelm, Sigardian Outcast",
+            2435
+        ],
+        [
+            "Cecily, Haunted Mage",
+            "Sophina, Spearsage Deserter",
+            866
+        ],
+        [
+            "Cecily, Haunted Mage",
+            "Wernog, Rider's Chaplain",
+            1008
+        ],
+        [
+            "Elmar, Ulvenwald Informant",
+            "Bjorna, Nightfall Alchemist",
+            665
+        ],
+        [
+            "Elmar, Ulvenwald Informant",
+            "Cecily, Haunted Mage",
+            1122
+        ],
+        [
+            "Elmar, Ulvenwald Informant",
+            "Hargilde, Kindly Runechanter",
+            1012
+        ],
+        [
+            "Elmar, Ulvenwald Informant",
+            "Othelm, Sigardian Outcast",
+            140
+        ],
+        [
+            "Elmar, Ulvenwald Informant",
+            "Sophina, Spearsage Deserter",
+            229
+        ],
+        [
+            "Elmar, Ulvenwald Informant",
+            "Wernog, Rider's Chaplain",
+            1235
+        ],
+        [
+            "Hargilde, Kindly Runechanter",
+            "Bjorna, Nightfall Alchemist",
+            190
+        ],
+        [
+            "Hargilde, Kindly Runechanter",
+            "Cecily, Haunted Mage",
+            124
+        ],
+        [
+            "Hargilde, Kindly Runechanter",
+            "Elmar, Ulvenwald Informant",
+            1012
+        ],
+        [
+            "Hargilde, Kindly Runechanter",
+            "Othelm, Sigardian Outcast",
+            83
+        ],
+        [
+            "Hargilde, Kindly Runechanter",
+            "Sophina, Spearsage Deserter",
+            165
+        ],
+        [
+            "Hargilde, Kindly Runechanter",
+            "Wernog, Rider's Chaplain",
+            1064
+        ],
+        [
+            "Othelm, Sigardian Outcast",
+            "Bjorna, Nightfall Alchemist",
+            354
+        ],
+        [
+            "Othelm, Sigardian Outcast",
+            "Cecily, Haunted Mage",
+            2435
+        ],
+        [
+            "Othelm, Sigardian Outcast",
+            "Elmar, Ulvenwald Informant",
+            140
+        ],
+        [
+            "Othelm, Sigardian Outcast",
+            "Hargilde, Kindly Runechanter",
+            83
+        ],
+        [
+            "Othelm, Sigardian Outcast",
+            "Sophina, Spearsage Deserter",
+            79
+        ],
+        [
+            "Othelm, Sigardian Outcast",
+            "Wernog, Rider's Chaplain",
+            1161
+        ],
+        [
+            "Sophina, Spearsage Deserter",
+            "Bjorna, Nightfall Alchemist",
+            192
+        ],
+        [
+            "Sophina, Spearsage Deserter",
+            "Cecily, Haunted Mage",
+            866
+        ],
+        [
+            "Sophina, Spearsage Deserter",
+            "Elmar, Ulvenwald Informant",
+            229
+        ],
+        [
+            "Sophina, Spearsage Deserter",
+            "Hargilde, Kindly Runechanter",
+            165
+        ],
+        [
+            "Sophina, Spearsage Deserter",
+            "Othelm, Sigardian Outcast",
+            79
+        ],
+        [
+            "Sophina, Spearsage Deserter",
+            "Wernog, Rider's Chaplain",
+            690
+        ],
+        [
+            "Wernog, Rider's Chaplain",
+            "Bjorna, Nightfall Alchemist",
+            3980
+        ],
+        [
+            "Wernog, Rider's Chaplain",
+            "Cecily, Haunted Mage",
+            1008
+        ],
+        [
+            "Wernog, Rider's Chaplain",
+            "Elmar, Ulvenwald Informant",
+            1235
+        ],
+        [
+            "Wernog, Rider's Chaplain",
+            "Hargilde, Kindly Runechanter",
+            1064
+        ],
+        [
+            "Wernog, Rider's Chaplain",
+            "Othelm, Sigardian Outcast",
+            1161
+        ],
+        [
+            "Wernog, Rider's Chaplain",
+            "Sophina, Spearsage Deserter",
+            690
+        ]
+    ]
+}
