@@ -103,17 +103,18 @@ fn download_data(
     let url = format!("https://edhrec.com/commanders/{a}-{b}");
     let mut resp = client.get(&url).send().map_err(WebError::Request)?;
 
-    let switched = if resp.status() != StatusCode::OK {
-        // Try switching the two partners in the URL
+    // If we don't reach a valid url, we'll try switching the partner order
+    let switched = resp.status() != StatusCode::OK;
+
+    if switched {
         let url = format!("https://edhrec.com/commanders/{b}-{a}");
         resp = client.get(&url).send().map_err(WebError::Request)?;
+
+        // If it still didn't work, we return
         if resp.status() != StatusCode::OK {
             return Err(WebError::BadStatus);
         }
-        true
-    } else {
-        false
-    };
+    }
 
     let content = resp.text().map_err(WebError::Request)?;
 
