@@ -23,15 +23,12 @@ pub fn create_svg(data: &DrawData) -> impl svg::Node {
     let y_len = data.y_names.len();
     let mut min = u64::MAX;
     let mut max = u64::MIN;
-    for i in 0..x_len {
-        for j in 0..y_len {
-            if let Some(&x) = data.numbers.get(&(i, j)) {
-                if x < min {
-                    min = x;
-                } else if x > max {
-                    max = x;
-                }
-            }
+    for &x in data.numbers.values() {
+        if x < min {
+            min = x;
+        }
+        if x > max {
+            max = x;
         }
     }
 
