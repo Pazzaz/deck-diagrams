@@ -36,15 +36,21 @@ pub const MISSING_COLOR: colorous::Color = colorous::Color { r: 30, g: 25, b: 30
 
 pub const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
 
-impl std::fmt::Display for Color {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let x = match self {
+impl Color {
+    pub fn as_str(&self) -> &str {
+        match self {
             Self::White => "rgb(245, 241, 237)",
             Self::Blue => "rgb(0, 107, 167)",
             Self::Black => "rgb(60, 55, 52)",
             Self::Red => "rgb(229, 65, 43)",
             Self::Green => "rgb(0, 108, 71)",
-        };
+        }
+    }
+}
+
+impl std::fmt::Display for Color {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let x = self.as_str();
         f.write_str(x)
     }
 }
