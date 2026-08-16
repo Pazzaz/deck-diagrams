@@ -3,7 +3,7 @@ use std::{fmt::Display, fs, io::Write, mem, path::Path};
 use regex::Regex;
 use reqwest::StatusCode;
 
-use crate::{Color, Data};
+use crate::{color::Color, partner_data::Data};
 
 struct ParseData {
     deck_count: u64,

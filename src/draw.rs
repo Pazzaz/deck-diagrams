@@ -4,7 +4,10 @@ use svg::{
     node::element::{self, Rectangle},
 };
 
-use crate::{Color, Data};
+use crate::{
+    Data,
+    color::{COLORLESS_COLOR, Color, MISSING_COLOR},
+};
 
 // Adjacent SVG elements may display a gap, so we add `EPSILON` overlap in some
 // places
@@ -309,21 +312,4 @@ fn outlined_text(
     output.append(text_outer1);
     output.append(text_outer2);
     output.append(text_inner);
-}
-
-const MISSING_COLOR: colorous::Color = colorous::Color { r: 30, g: 25, b: 30 };
-
-const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
-
-impl std::fmt::Display for Color {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let x = match self {
-            Self::White => "rgb(245, 241, 237)",
-            Self::Blue => "rgb(0, 107, 167)",
-            Self::Black => "rgb(60, 55, 52)",
-            Self::Red => "rgb(229, 65, 43)",
-            Self::Green => "rgb(0, 108, 71)",
-        };
-        f.write_str(x)
-    }
 }
