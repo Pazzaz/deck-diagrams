@@ -271,7 +271,6 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
     document
 }
 
-// Returns the outline and text
 fn outlined_text(
     output: &mut impl svg::Node,
     text_anchor: &str,
@@ -290,11 +289,31 @@ fn outlined_text(
         .set("style", format!("font-family:{font_family};"));
 
     let text_inner = text.clone().set("fill", "white");
-    let text_outer1 = text.clone().set("fill", "black")
-        .set("style", format!("font-family:{font_family};paint-order: stroke fill;stroke: #000000;stroke-width: 0.2;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;"));
-    let text_outer2 = text.set("fill", "black")
-        .set("style", format!("font-family:{font_family};paint-order: stroke fill;stroke: #000000;stroke-width: 0.1;stroke-linecap: butt;stroke-linejoin: round;fill-rule: nonzero;"));
-    output.append(text_outer1);
-    output.append(text_outer2);
+
+    // We add two outlines to prevent gaps between the outline
+    text_outline(output, font_family, 0.2, &text);
+    text_outline(output, font_family, 0.1, &text);
     output.append(text_inner);
+}
+
+fn text_outline(
+    output: &mut impl svg::Node,
+    font_family: &str,
+    stroke_width: f64,
+    text: &element::Text,
+) {
+    let style = format!(
+        concat!(
+            "font-family:{};",
+            "paint-order: stroke fill;",
+            "stroke: #000000;",
+            "stroke-width: {};",
+            "stroke-linecap: butt;",
+            "stroke-linejoin: round;",
+            "fill-rule: nonzero;"
+        ),
+        font_family, stroke_width
+    );
+    let text_outline = text.clone().set("fill", "black").set("style", style);
+    output.append(text_outline);
 }
