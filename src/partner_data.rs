@@ -10,7 +10,7 @@ pub struct Partner {
     pub short: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub offset_y: Option<f64>,
-    pub id: Vec<Color>,
+    pub color_id: Vec<Color>,
 }
 
 mod decks_format {

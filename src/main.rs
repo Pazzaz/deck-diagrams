@@ -19,14 +19,14 @@ mod web;
 fn main() {
     let data_folder = PathBuf::from_str("./data/friends_forever").unwrap();
     let download_counts: bool = false;
-    let download_colors: bool = false;
+    let download_color_ids: bool = false;
     let download_images: bool = false;
     let save_data: bool = false;
 
     let f = fs::File::open(data_folder.join("data.json")).unwrap();
     let mut data: Data = serde_json::from_reader(f).unwrap();
 
-    let to_download = WebParameters::new(download_counts, download_colors);
+    let to_download = WebParameters::new(download_counts, download_color_ids);
 
     if to_download.any() {
         let image_path = data_folder.join("images");

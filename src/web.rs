@@ -7,8 +7,8 @@ use crate::{color::Color, partner_data::Data};
 
 struct ParseData {
     deck_count: u64,
-    id_0: Vec<Color>,
-    id_1: Vec<Color>,
+    color_id_0: Vec<Color>,
+    color_id_1: Vec<Color>,
     image_url_0: String,
     image_url_1: String,
 }
@@ -17,13 +17,13 @@ impl ParseData {
     fn diff(&self, other: (u64, &[Color], &[Color])) -> WebParameters {
         WebParameters {
             deck_count: self.deck_count != other.0,
-            color_0: &self.id_0[..] != other.1,
-            color_1: &self.id_1[..] != other.2,
+            color_id_0: &self.color_id_0[..] != other.1,
+            color_id_1: &self.color_id_1[..] != other.2,
         }
     }
 
     fn switch(&mut self) {
-        mem::swap(&mut self.id_0, &mut self.id_1);
+        mem::swap(&mut self.color_id_0, &mut self.color_id_1);
         mem::swap(&mut self.image_url_0, &mut self.image_url_1);
     }
 }
@@ -31,23 +31,24 @@ impl ParseData {
 #[derive(Debug, Clone, Copy)]
 pub struct WebParameters {
     deck_count: bool,
-    color_0: bool,
-    color_1: bool,
+    color_id_0: bool,
+    color_id_1: bool,
 }
 
 impl WebParameters {
-    pub const fn new(deck_count: bool, colors: bool) -> Self {
-        Self { deck_count, color_0: colors, color_1: colors }
+    pub const fn new(deck_count: bool, color_id: bool) -> Self {
+        Self { deck_count, color_id_0: color_id, color_id_1: color_id }
     }
+
     pub const fn any(self) -> bool {
-        self.deck_count || self.color_0 || self.color_1
+        self.deck_count || self.color_id_0 || self.color_id_1
     }
 
     const fn and(self, other: Self) -> Self {
         Self {
             deck_count: self.deck_count && other.deck_count,
-            color_0: self.color_0 && other.color_0,
-            color_1: self.color_1 && other.color_1,
+            color_id_0: self.color_id_0 && other.color_id_0,
+            color_id_1: self.color_id_1 && other.color_id_1,
         }
     }
 }
@@ -93,7 +94,7 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
                 }
             };
             let old_c = *data.decks.get(&(x.name.clone(), y.name.clone())).unwrap_or(&0);
-            let diff = downloaded.diff((old_c, &x.id, &y.id));
+            let diff = downloaded.diff((old_c, &x.color_id, &y.color_id));
             let to_update = diff.and(to_download);
             if to_update.any() {
                 let url = format!("https://edhrec.com/commanders/{a}-{b}");
@@ -102,14 +103,20 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
                     println!("count: {} -> {}", old_c, downloaded.deck_count);
                     data.decks.insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
                 }
-                if to_update.color_0 {
-                    println!("color of first: {:?} -> {:?}", x.id, downloaded.id_0);
-                    x.id = downloaded.id_0;
+                if to_update.color_id_0 {
+                    println!(
+                        "color identity of first: {:?} -> {:?}",
+                        x.color_id, downloaded.color_id_0
+                    );
+                    x.color_id = downloaded.color_id_0;
                 }
 
-                if to_update.color_1 {
-                    println!("color of second: {:?} -> {:?}", y.id, downloaded.id_1);
-                    y.id = downloaded.id_1;
+                if to_update.color_id_1 {
+                    println!(
+                        "color identity of second: {:?} -> {:?}",
+                        y.color_id, downloaded.color_id_1
+                    );
+                    y.color_id = downloaded.color_id_1;
                 }
             }
 
@@ -196,14 +203,14 @@ fn parse_json(v: &serde_json::Value, x_name: &str, y_name: &str) -> Option<Parse
         } else {
             return None;
         };
-        let id_0 = parse_color(card_0.get("color_identity")?)?;
-        let id_1 = parse_color(card_1.get("color_identity")?)?;
+        let color_id_0 = parse_color(card_0.get("color_id")?)?;
+        let color_id_1 = parse_color(card_1.get("color_id")?)?;
         let deck_count = card.pointer("/num_decks")?.as_u64()?;
         if let [card_images_0, card_images_1] = &card.get("image_uris")?.as_array()?[..] {
-            let image_0 = card_images_0.get("art_crop")?.as_str()?.to_string();
-            let image_1 = card_images_1.get("art_crop")?.as_str()?.to_string();
+            let image_url_0 = card_images_0.get("art_crop")?.as_str()?.to_string();
+            let image_url_1 = card_images_1.get("art_crop")?.as_str()?.to_string();
             let mut out =
-                ParseData { deck_count, id_0, id_1, image_url_0: image_0, image_url_1: image_1 };
+                ParseData { deck_count, color_id_0, color_id_1, image_url_0, image_url_1 };
             if switch {
                 out.switch();
             }
@@ -221,8 +228,5 @@ fn slugify(s: &str) -> String {
 }
 
 fn parse_color(v: &serde_json::Value) -> Option<Vec<Color>> {
-    v.as_array()?
-        .iter()
-        .map(|x| x.as_str().and_then(|y| y.parse().ok()))
-        .collect::<Option<Vec<Color>>>()
+    v.as_array()?.iter().map(|x| x.as_str().and_then(|y| y.parse().ok())).collect()
 }

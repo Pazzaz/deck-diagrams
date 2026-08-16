@@ -62,12 +62,12 @@ struct BoxParams {
     height: f64,
 }
 
-fn add_color_box(
+fn color_id_box(
     document: &mut element::SVG,
     definitions: &mut element::Definitions,
     params: BoxParams,
-    id: &str,
-    colors: &[Color],
+    gradient_id: &str,
+    color_id: &[Color],
     rotate_gradient: bool,
 ) {
     let mut rect = Rectangle::new()
@@ -76,12 +76,12 @@ fn add_color_box(
         .set("width", params.width)
         .set("height", params.height);
 
-    if colors.len() <= 1 {
-        let color = colors.get(0).map_or(COLORLESS_COLOR, |x| x.as_str());
+    if color_id.len() <= 1 {
+        let color = color_id.first().map_or(COLORLESS_COLOR, |x| x.as_str());
         rect.assign("fill", color);
     } else {
-        assert!(colors.len() > 1);
-        let mut gradient = element::LinearGradient::new().set("id", id);
+        assert!(color_id.len() > 1);
+        let mut gradient = element::LinearGradient::new().set("id", gradient_id);
 
         if rotate_gradient {
             gradient.assign("x1", 0);
@@ -90,17 +90,17 @@ fn add_color_box(
             gradient.assign("y2", 0);
         }
 
-        let len = (colors.len() - 1) as f64;
-        for (i, color) in colors.iter().enumerate() {
+        let len = (color_id.len() - 1) as f64;
+        for (i, color) in color_id.iter().enumerate() {
             gradient.append(
                 element::Stop::new()
                     .set("offset", format!("{}%", 100.0 * i as f64 / len))
-                    .set("stop-color", color.to_string()),
+                    .set("stop-color", color.as_str()),
             );
         }
         definitions.append(gradient);
 
-        rect.assign("fill", format!("url(#{})", id));
+        rect.assign("fill", format!("url(#{})", gradient_id));
     }
 
     document.append(rect);
@@ -160,8 +160,8 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
             height: COLOR_WIDTH + EPSILON,
         };
 
-        let id = format!("x-gradient-{}", i);
-        add_color_box(&mut document, &mut definitions, params, &id, &info.id, false);
+        let gradient_id = format!("x-gradient-{}", i);
+        color_id_box(&mut document, &mut definitions, params, &gradient_id, &info.color_id, false);
     }
 
     for (j, image) in y_images.iter().enumerate() {
@@ -195,8 +195,8 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
             height: 1.0 + EPSILON,
         };
 
-        let id = format!("y-gradient-{}", j);
-        add_color_box(&mut document, &mut definitions, params, &id, &info.id, true);
+        let gradient_id = format!("y-gradient-{}", j);
+        color_id_box(&mut document, &mut definitions, params, &gradient_id, &info.color_id, true);
     }
 
     document.append(definitions);
