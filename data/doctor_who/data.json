@@ -3,7 +3,7 @@
         {
             "name": "The First Doctor",
             "short": "1",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
@@ -11,7 +11,7 @@
         {
             "name": "The Second Doctor",
             "short": "2",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
@@ -19,7 +19,7 @@
         {
             "name": "The Third Doctor",
             "short": "3",
-            "id": [
+            "color_id": [
                 "G",
                 "U"
             ]
@@ -27,7 +27,7 @@
         {
             "name": "The Fourth Doctor",
             "short": "4",
-            "id": [
+            "color_id": [
                 "G",
                 "U"
             ]
@@ -35,7 +35,7 @@
         {
             "name": "The Fifth Doctor",
             "short": "5",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
@@ -43,7 +43,7 @@
         {
             "name": "The Sixth Doctor",
             "short": "6",
-            "id": [
+            "color_id": [
                 "G",
                 "U"
             ]
@@ -51,7 +51,7 @@
         {
             "name": "The Seventh Doctor",
             "short": "7",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
@@ -59,7 +59,7 @@
         {
             "name": "The Eighth Doctor",
             "short": "8",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
@@ -67,7 +67,7 @@
         {
             "name": "The Ninth Doctor",
             "short": "9",
-            "id": [
+            "color_id": [
                 "U",
                 "R"
             ]
@@ -75,7 +75,7 @@
         {
             "name": "The Tenth Doctor",
             "short": "10",
-            "id": [
+            "color_id": [
                 "U",
                 "R"
             ]
@@ -83,7 +83,7 @@
         {
             "name": "The Eleventh Doctor",
             "short": "11",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
@@ -91,7 +91,7 @@
         {
             "name": "The Twelfth Doctor",
             "short": "12",
-            "id": [
+            "color_id": [
                 "U",
                 "R"
             ]
@@ -99,7 +99,7 @@
         {
             "name": "The Thirteenth Doctor",
             "short": "13",
-            "id": [
+            "color_id": [
                 "G",
                 "U"
             ]
@@ -107,7 +107,7 @@
         {
             "name": "The Fourteenth Doctor",
             "short": "14",
-            "id": [
+            "color_id": [
                 "R",
                 "G",
                 "W",
@@ -117,7 +117,7 @@
         {
             "name": "The Fifteenth Doctor",
             "short": "15",
-            "id": [
+            "color_id": [
                 "U",
                 "R"
             ]
@@ -125,7 +125,7 @@
         {
             "name": "The Fugitive Doctor",
             "short": "F",
-            "id": [
+            "color_id": [
                 "R",
                 "G"
             ]
@@ -133,7 +133,7 @@
         {
             "name": "The War Doctor",
             "short": "W",
-            "id": [
+            "color_id": [
                 "R",
                 "W"
             ]
@@ -143,187 +143,187 @@
         {
             "name": "Ace, Fearless Rebel",
             "offset_y": 1.5,
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Adric, Mathematical Genius",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Amy Pond",
             "offset_y": 1.7,
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Barbara Wright",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Bill Potts",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Clara Oswald",
             "offset_y": 2.5,
-            "id": []
+            "color_id": []
         },
         {
             "name": "Dan Lewis",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Donna Noble",
             "offset_y": 2.5,
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Graham O'Brien",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Ian Chesterton",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Jamie McCrimmon",
             "offset_y": 2.3,
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Jo Grant",
             "offset_y": 2.3,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "K-9, Mark I",
             "offset_y": 1.5,
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Leela, Sevateem Warrior",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Martha Jones",
             "offset_y": 2.4,
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Nardole, Resourceful Cyborg",
             "offset_y": 1.3,
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Nyssa of Traken",
             "offset_y": 1.7,
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Peri Brown",
             "offset_y": 2.3,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Romana II",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Rose Noble",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Rose Tyler",
             "offset_y": 2.2,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Ryan Sinclair",
             "offset_y": 2.4,
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Sarah Jane Smith",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Susan Foreman",
             "offset_y": 2.0,
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Tegan Jovanka",
             "offset_y": 2.2,
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Vislor Turlough",
             "offset_y": 2.1,
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Yasmin Khan",
             "offset_y": 1.2,
-            "id": [
+            "color_id": [
                 "R"
             ]
         }

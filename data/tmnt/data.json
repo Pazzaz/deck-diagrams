@@ -2,19 +2,19 @@
     "x_values": [
         {
             "name": "April O'Neil, Live on the Scene",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Donatello, the Brains",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Leonardo, the Balance",
-            "id": [
+            "color_id": [
                 "W",
                 "U",
                 "B",
@@ -24,19 +24,19 @@
         },
         {
             "name": "Michelangelo, the Heart",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Raphael, the Muscle",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Splinter, the Mentor",
-            "id": [
+            "color_id": [
                 "B"
             ]
         }
@@ -44,19 +44,19 @@
     "y_values": [
         {
             "name": "April O'Neil, Live on the Scene",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Donatello, the Brains",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Leonardo, the Balance",
-            "id": [
+            "color_id": [
                 "W",
                 "U",
                 "B",
@@ -66,19 +66,19 @@
         },
         {
             "name": "Michelangelo, the Heart",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Raphael, the Muscle",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Splinter, the Mentor",
-            "id": [
+            "color_id": [
                 "B"
             ]
         }

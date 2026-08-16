@@ -2,191 +2,191 @@
     "x_values": [
         {
             "name": "Abdel Adrian, Gorion's Ward",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Alora, Merry Thief",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Amber Gristle O'Maul",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Baeloth Barrityl, Entertainer",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Burakos, Party Leader",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Durnan of the Yawning Portal",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Ellyn Harbreeze, Busybody",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Erinis, Gloom Stalker",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Faceless One",
-            "id": []
+            "color_id": []
         },
         {
             "name": "Gale, Waterdeep Prodigy",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Ganax, Astral Hunter",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Gut, True Soul Zealot",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Halsin, Emerald Archdruid",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Imoen, Mystic Trickster",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Jaheira, Friend of the Forest",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Karlach, Fury of Avernus",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Lae'zel, Vlaakith's Champion",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Livaan, Cultist of Tiamat",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Lulu, Loyal Hollyphant",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Rasaad yn Bashir",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Renari, Merchant of Marvels",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Safana, Calimport Cutthroat",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Sarevok, Deathbringer",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Shadowheart, Dark Justiciar",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Sivriss, Nightmare Speaker",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Skanos Dragonheart",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Vhal, Candlekeep Researcher",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Viconia, Drow Apostate",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Volo, Itinerant Scholar",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Wilson, Refined Grizzly",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Wyll, Blade of Frontiers",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Zellix, Sanity Flayer",
-            "id": [
+            "color_id": [
                 "U"
             ]
         }
@@ -194,179 +194,179 @@
     "y_values": [
         {
             "name": "Acolyte of Bahamut",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Agent of the Iron Throne",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Agent of the Shadow Thieves",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Candlekeep Sage",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Clan Crafter",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Cloakwood Hermit",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Criminal Past",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Cultist of the Absolute",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Dragon Cultist",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Dungeon Delver",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Faceless One",
-            "id": []
+            "color_id": []
         },
         {
             "name": "Far Traveler",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Feywild Visitor",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Flaming Fist",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Folk Hero",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Guild Artisan",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Hardy Outlander",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Haunted One",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Inspiring Leader",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Master Chef",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Noble Heritage",
-            "id": [
+            "color_id": [
                 "W"
             ]
         },
         {
             "name": "Passionate Archaeologist",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Popular Entertainer",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Raised by Giants",
-            "id": [
+            "color_id": [
                 "G"
             ]
         },
         {
             "name": "Scion of Halaster",
-            "id": [
+            "color_id": [
                 "B"
             ]
         },
         {
             "name": "Shameless Charlatan",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Street Urchin",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Sword Coast Sailor",
-            "id": [
+            "color_id": [
                 "U"
             ]
         },
         {
             "name": "Tavern Brawler",
-            "id": [
+            "color_id": [
                 "R"
             ]
         },
         {
             "name": "Veteran Soldier",
-            "id": [
+            "color_id": [
                 "W"
             ]
         }

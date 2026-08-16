@@ -2,14 +2,14 @@
     "x_values": [
         {
             "name": "Bjorna, Nightfall Alchemist",
-            "id": [
+            "color_id": [
                 "U",
                 "R"
             ]
         },
         {
             "name": "Cecily, Haunted Mage",
-            "id": [
+            "color_id": [
                 "U",
                 "B",
                 "R"
@@ -17,35 +17,35 @@
         },
         {
             "name": "Elmar, Ulvenwald Informant",
-            "id": [
+            "color_id": [
                 "R",
                 "G"
             ]
         },
         {
             "name": "Hargilde, Kindly Runechanter",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
         },
         {
             "name": "Othelm, Sigardian Outcast",
-            "id": [
+            "color_id": [
                 "G",
                 "W"
             ]
         },
         {
             "name": "Sophina, Spearsage Deserter",
-            "id": [
+            "color_id": [
                 "R",
                 "W"
             ]
         },
         {
             "name": "Wernog, Rider's Chaplain",
-            "id": [
+            "color_id": [
                 "W",
                 "B"
             ]
@@ -54,14 +54,14 @@
     "y_values": [
         {
             "name": "Bjorna, Nightfall Alchemist",
-            "id": [
+            "color_id": [
                 "U",
                 "R"
             ]
         },
         {
             "name": "Cecily, Haunted Mage",
-            "id": [
+            "color_id": [
                 "U",
                 "B",
                 "R"
@@ -69,35 +69,35 @@
         },
         {
             "name": "Elmar, Ulvenwald Informant",
-            "id": [
+            "color_id": [
                 "R",
                 "G"
             ]
         },
         {
             "name": "Hargilde, Kindly Runechanter",
-            "id": [
+            "color_id": [
                 "W",
                 "U"
             ]
         },
         {
             "name": "Othelm, Sigardian Outcast",
-            "id": [
+            "color_id": [
                 "G",
                 "W"
             ]
         },
         {
             "name": "Sophina, Spearsage Deserter",
-            "id": [
+            "color_id": [
                 "R",
                 "W"
             ]
         },
         {
             "name": "Wernog, Rider's Chaplain",
-            "id": [
+            "color_id": [
                 "W",
                 "B"
             ]
