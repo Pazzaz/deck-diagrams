@@ -203,8 +203,8 @@ fn parse_json(v: &serde_json::Value, x_name: &str, y_name: &str) -> Option<Parse
         } else {
             return None;
         };
-        let color_id_0 = parse_color(card_0.get("color_id")?)?;
-        let color_id_1 = parse_color(card_1.get("color_id")?)?;
+        let color_id_0 = parse_color(card_0.get("color_identity")?)?;
+        let color_id_1 = parse_color(card_1.get("color_identity")?)?;
         let deck_count = card.pointer("/num_decks")?.as_u64()?;
         if let [card_images_0, card_images_1] = &card.get("image_uris")?.as_array()?[..] {
             let image_url_0 = card_images_0.get("art_crop")?.as_str()?.to_string();
