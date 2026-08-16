@@ -55,11 +55,13 @@ fn add_image(
 }
 
 #[derive(Debug, Clone, Copy)]
-struct BoxParams {
+struct BoxParams<'a> {
     x: f64,
     y: f64,
     width: f64,
     height: f64,
+    color_id: &'a [Color],
+    rotated: bool,
 }
 
 fn color_id_box(
@@ -67,8 +69,6 @@ fn color_id_box(
     definitions: &mut element::Definitions,
     params: BoxParams,
     gradient_id: &str,
-    color_id: &[Color],
-    rotate_gradient: bool,
 ) {
     let mut rect = Rectangle::new()
         .set("x", params.x)
@@ -76,22 +76,23 @@ fn color_id_box(
         .set("width", params.width)
         .set("height", params.height);
 
-    if color_id.len() <= 1 {
-        let color = color_id.first().map_or(COLORLESS_COLOR, |x| x.as_str());
+    if params.color_id.len() <= 1 {
+        let color = params.color_id.first().map_or(COLORLESS_COLOR, |x| x.as_str());
         rect.assign("fill", color);
     } else {
-        assert!(color_id.len() > 1);
+        assert!(params.color_id.len() > 1);
         let mut gradient = element::LinearGradient::new().set("id", gradient_id);
 
-        if rotate_gradient {
+        if params.rotated {
+            // Changes gradient direction
             gradient.assign("x1", 0);
             gradient.assign("x2", 0);
             gradient.assign("y1", 1);
             gradient.assign("y2", 0);
         }
 
-        let len = (color_id.len() - 1) as f64;
-        for (i, color) in color_id.iter().enumerate() {
+        let len = (params.color_id.len() - 1) as f64;
+        for (i, color) in params.color_id.iter().enumerate() {
             gradient.append(
                 element::Stop::new()
                     .set("offset", format!("{}%", 100.0 * i as f64 / len))
@@ -158,10 +159,12 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
             y: IMAGE_HEIGHT_X,
             width: box_width + EPSILON,
             height: COLOR_WIDTH + EPSILON,
+            color_id: &info.color_id,
+            rotated: false,
         };
 
         let gradient_id = format!("x-gradient-{}", i);
-        color_id_box(&mut document, &mut definitions, params, &gradient_id, &info.color_id, false);
+        color_id_box(&mut document, &mut definitions, params, &gradient_id);
     }
 
     for (j, image) in y_images.iter().enumerate() {
@@ -193,10 +196,12 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
             y: inner_y,
             width: COLOR_WIDTH + EPSILON,
             height: 1.0 + EPSILON,
+            color_id: &info.color_id,
+            rotated: true,
         };
 
         let gradient_id = format!("y-gradient-{}", j);
-        color_id_box(&mut document, &mut definitions, params, &gradient_id, &info.color_id, true);
+        color_id_box(&mut document, &mut definitions, params, &gradient_id);
     }
 
     document.append(definitions);
