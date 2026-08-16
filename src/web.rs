@@ -1,9 +1,9 @@
 use std::{fmt::Display, fs, io::Write, mem, path::Path};
 
-use crate::{Color, Data};
-
 use regex::Regex;
 use reqwest::StatusCode;
+
+use crate::{Color, Data};
 
 struct ParseData {
     deck_count: u64,
@@ -37,11 +37,7 @@ pub struct WebParameters {
 
 impl WebParameters {
     pub const fn new(deck_count: bool, colors: bool) -> Self {
-        Self {
-            deck_count,
-            color_0: colors,
-            color_1: colors,
-        }
+        Self { deck_count, color_0: colors, color_1: colors }
     }
     pub const fn any(self) -> bool {
         self.deck_count || self.color_0 || self.color_1
@@ -79,10 +75,12 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
     debug_assert!(to_download.any());
     let client = reqwest::blocking::Client::new();
 
-    // When downloading images, we only download the first run through the `y_values`.
+    // When downloading images, we only download the first run through the
+    // `y_values`.
     let mut new_y = true;
     for x in &mut data.x_values {
-        // Similarly for the `x_values`, we don't want to download their image every execution of the inner loop.
+        // Similarly for the `x_values`, we don't want to download their image every
+        // execution of the inner loop.
         let mut new_x = true;
         let a = slugify(&x.name);
         for y in &mut data.y_values {
@@ -94,10 +92,7 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
                     continue;
                 }
             };
-            let old_c = *data
-                .decks
-                .get(&(x.name.clone(), y.name.clone()))
-                .unwrap_or(&0);
+            let old_c = *data.decks.get(&(x.name.clone(), y.name.clone())).unwrap_or(&0);
             let diff = downloaded.diff((old_c, &x.id, &y.id));
             let to_update = diff.and(to_download);
             if to_update.any() {
@@ -105,8 +100,7 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
                 println!("Updated {url}");
                 if to_update.deck_count {
                     println!("count: {} -> {}", old_c, downloaded.deck_count);
-                    data.decks
-                        .insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
+                    data.decks.insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
                 }
                 if to_update.color_0 {
                     println!("color of first: {:?} -> {:?}", x.id, downloaded.id_0);
@@ -208,13 +202,8 @@ fn parse_json(v: &serde_json::Value, x_name: &str, y_name: &str) -> Option<Parse
         if let [card_images_0, card_images_1] = &card.get("image_uris")?.as_array()?[..] {
             let image_0 = card_images_0.get("art_crop")?.as_str()?.to_string();
             let image_1 = card_images_1.get("art_crop")?.as_str()?.to_string();
-            let mut out = ParseData {
-                deck_count,
-                id_0,
-                id_1,
-                image_url_0: image_0,
-                image_url_1: image_1,
-            };
+            let mut out =
+                ParseData { deck_count, id_0, id_1, image_url_0: image_0, image_url_1: image_1 };
             if switch {
                 out.switch();
             }
@@ -228,9 +217,7 @@ fn parse_json(v: &serde_json::Value, x_name: &str, y_name: &str) -> Option<Parse
 }
 
 fn slugify(s: &str) -> String {
-    s.to_lowercase()
-        .replace(char::is_whitespace, "-")
-        .replace([',', '\''], "")
+    s.to_lowercase().replace(char::is_whitespace, "-").replace([',', '\''], "")
 }
 
 fn parse_color(v: &serde_json::Value) -> Option<Vec<Color>> {

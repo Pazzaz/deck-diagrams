@@ -1,12 +1,13 @@
-use crate::{Color, Data};
 use colorous::VIRIDIS;
-
 use svg::{
     Document, Node as _,
     node::element::{self, Rectangle},
 };
 
-// Adjacent SVG elements may display a gap, so we add `EPSILON` overlap in some places
+use crate::{Color, Data};
+
+// Adjacent SVG elements may display a gap, so we add `EPSILON` overlap in some
+// places
 const EPSILON: f64 = 0.01;
 
 const COLOR_WIDTH: f64 = 0.2;
@@ -264,10 +265,7 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
                 .set("y", y_pos)
                 .set("width", box_width * (1.0 + EPSILON))
                 .set("height", 1.0 + EPSILON)
-                .set(
-                    "fill",
-                    format!("rgb({}, {}, {})", color.r, color.g, color.b),
-                );
+                .set("fill", format!("rgb({}, {}, {})", color.r, color.g, color.b));
 
             document.append(r);
             outlined_text(
@@ -313,11 +311,7 @@ fn outlined_text(
     output.append(text_inner);
 }
 
-const MISSING_COLOR: colorous::Color = colorous::Color {
-    r: 30,
-    g: 25,
-    b: 30,
-};
+const MISSING_COLOR: colorous::Color = colorous::Color { r: 30, g: 25, b: 30 };
 
 const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
 

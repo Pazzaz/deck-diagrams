@@ -1,5 +1,3 @@
-use indexmap::IndexMap;
-use serde::{Deserialize, Serialize};
 use std::{
     fs, io,
     path::{Path, PathBuf},
@@ -7,12 +5,10 @@ use std::{
 };
 
 use base64::prelude::*;
-
-use web::update_data;
-
 use draw::create_svg;
-
-use web::WebParameters;
+use indexmap::IndexMap;
+use serde::{Deserialize, Serialize};
+use web::{WebParameters, update_data};
 
 mod draw;
 mod web;
@@ -58,8 +54,9 @@ struct Partner {
 }
 
 mod decks_format {
-    use super::{Deserialize, IndexMap};
     use serde::ser::SerializeSeq;
+
+    use super::{Deserialize, IndexMap};
 
     pub fn serialize<S>(
         map: &IndexMap<(String, String), u64>,
@@ -107,11 +104,7 @@ fn main() {
 
     if to_download.any() {
         let image_path = data_folder.join("images");
-        let images = if download_images {
-            Some(image_path.as_path())
-        } else {
-            None
-        };
+        let images = if download_images { Some(image_path.as_path()) } else { None };
         update_data(&mut data, to_download, images);
     }
 
