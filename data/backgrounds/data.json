@@ -1,0 +1,5136 @@
+{
+    "x_values": [
+        {
+            "name": "Abdel Adrian, Gorion's Ward",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Alora, Merry Thief",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Amber Gristle O'Maul",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Baeloth Barrityl, Entertainer",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Burakos, Party Leader",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Durnan of the Yawning Portal",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Ellyn Harbreeze, Busybody",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Erinis, Gloom Stalker",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Faceless One",
+            "id": []
+        },
+        {
+            "name": "Gale, Waterdeep Prodigy",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Ganax, Astral Hunter",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Gut, True Soul Zealot",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Halsin, Emerald Archdruid",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Imoen, Mystic Trickster",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Jaheira, Friend of the Forest",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Karlach, Fury of Avernus",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Lae'zel, Vlaakith's Champion",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Livaan, Cultist of Tiamat",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Lulu, Loyal Hollyphant",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Rasaad yn Bashir",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Renari, Merchant of Marvels",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Safana, Calimport Cutthroat",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Sarevok, Deathbringer",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Shadowheart, Dark Justiciar",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Sivriss, Nightmare Speaker",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Skanos Dragonheart",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Vhal, Candlekeep Researcher",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Viconia, Drow Apostate",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Volo, Itinerant Scholar",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Wilson, Refined Grizzly",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Wyll, Blade of Frontiers",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Zellix, Sanity Flayer",
+            "id": [
+                "U"
+            ]
+        }
+    ],
+    "y_values": [
+        {
+            "name": "Acolyte of Bahamut",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Agent of the Iron Throne",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Agent of the Shadow Thieves",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Candlekeep Sage",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Clan Crafter",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Cloakwood Hermit",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Criminal Past",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Cultist of the Absolute",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Dragon Cultist",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Dungeon Delver",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Faceless One",
+            "id": []
+        },
+        {
+            "name": "Far Traveler",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Feywild Visitor",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Flaming Fist",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Folk Hero",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Guild Artisan",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Hardy Outlander",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Haunted One",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Inspiring Leader",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Master Chef",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Noble Heritage",
+            "id": [
+                "W"
+            ]
+        },
+        {
+            "name": "Passionate Archaeologist",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Popular Entertainer",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Raised by Giants",
+            "id": [
+                "G"
+            ]
+        },
+        {
+            "name": "Scion of Halaster",
+            "id": [
+                "B"
+            ]
+        },
+        {
+            "name": "Shameless Charlatan",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Street Urchin",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Sword Coast Sailor",
+            "id": [
+                "U"
+            ]
+        },
+        {
+            "name": "Tavern Brawler",
+            "id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Veteran Soldier",
+            "id": [
+                "W"
+            ]
+        }
+    ],
+    "decks": [
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Acolyte of Bahamut",
+            8
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Agent of the Iron Throne",
+            593
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Agent of the Shadow Thieves",
+            7
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Candlekeep Sage",
+            4353
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Clan Crafter",
+            5
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Cloakwood Hermit",
+            9
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Criminal Past",
+            3
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Cultist of the Absolute",
+            110
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Dragon Cultist",
+            23
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Dungeon Delver",
+            120
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Faceless One",
+            12
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Far Traveler",
+            1179
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Feywild Visitor",
+            13
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Flaming Fist",
+            8
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Folk Hero",
+            27
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Guild Artisan",
+            30
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Hardy Outlander",
+            5
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Haunted One",
+            38
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Inspiring Leader",
+            170
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Master Chef",
+            234
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Noble Heritage",
+            27
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Passionate Archaeologist",
+            12
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Popular Entertainer",
+            33
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Raised by Giants",
+            14
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Scion of Halaster",
+            50
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Shameless Charlatan",
+            19
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Street Urchin",
+            356
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Sword Coast Sailor",
+            43
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Tavern Brawler",
+            45
+        ],
+        [
+            "Abdel Adrian, Gorion's Ward",
+            "Veteran Soldier",
+            16
+        ],
+        [
+            "Alora, Merry Thief",
+            "Acolyte of Bahamut",
+            6
+        ],
+        [
+            "Alora, Merry Thief",
+            "Agent of the Iron Throne",
+            7
+        ],
+        [
+            "Alora, Merry Thief",
+            "Agent of the Shadow Thieves",
+            84
+        ],
+        [
+            "Alora, Merry Thief",
+            "Candlekeep Sage",
+            83
+        ],
+        [
+            "Alora, Merry Thief",
+            "Clan Crafter",
+            5
+        ],
+        [
+            "Alora, Merry Thief",
+            "Cloakwood Hermit",
+            3
+        ],
+        [
+            "Alora, Merry Thief",
+            "Criminal Past",
+            14
+        ],
+        [
+            "Alora, Merry Thief",
+            "Cultist of the Absolute",
+            12
+        ],
+        [
+            "Alora, Merry Thief",
+            "Dragon Cultist",
+            29
+        ],
+        [
+            "Alora, Merry Thief",
+            "Dungeon Delver",
+            4
+        ],
+        [
+            "Alora, Merry Thief",
+            "Faceless One",
+            1
+        ],
+        [
+            "Alora, Merry Thief",
+            "Far Traveler",
+            163
+        ],
+        [
+            "Alora, Merry Thief",
+            "Feywild Visitor",
+            29
+        ],
+        [
+            "Alora, Merry Thief",
+            "Flaming Fist",
+            13
+        ],
+        [
+            "Alora, Merry Thief",
+            "Folk Hero",
+            8
+        ],
+        [
+            "Alora, Merry Thief",
+            "Guild Artisan",
+            62
+        ],
+        [
+            "Alora, Merry Thief",
+            "Hardy Outlander",
+            14
+        ],
+        [
+            "Alora, Merry Thief",
+            "Haunted One",
+            30
+        ],
+        [
+            "Alora, Merry Thief",
+            "Inspiring Leader",
+            8
+        ],
+        [
+            "Alora, Merry Thief",
+            "Master Chef",
+            38
+        ],
+        [
+            "Alora, Merry Thief",
+            "Noble Heritage",
+            19
+        ],
+        [
+            "Alora, Merry Thief",
+            "Passionate Archaeologist",
+            22
+        ],
+        [
+            "Alora, Merry Thief",
+            "Popular Entertainer",
+            176
+        ],
+        [
+            "Alora, Merry Thief",
+            "Raised by Giants",
+            27
+        ],
+        [
+            "Alora, Merry Thief",
+            "Scion of Halaster",
+            44
+        ],
+        [
+            "Alora, Merry Thief",
+            "Shameless Charlatan",
+            37
+        ],
+        [
+            "Alora, Merry Thief",
+            "Street Urchin",
+            21
+        ],
+        [
+            "Alora, Merry Thief",
+            "Sword Coast Sailor",
+            6
+        ],
+        [
+            "Alora, Merry Thief",
+            "Tavern Brawler",
+            11
+        ],
+        [
+            "Alora, Merry Thief",
+            "Veteran Soldier",
+            4
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Acolyte of Bahamut",
+            5
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Agent of the Iron Throne",
+            11
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Agent of the Shadow Thieves",
+            96
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Candlekeep Sage",
+            4
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Clan Crafter",
+            4
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Cloakwood Hermit",
+            42
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Criminal Past",
+            124
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Cultist of the Absolute",
+            22
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Dragon Cultist",
+            11
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Dungeon Delver",
+            1
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Far Traveler",
+            7
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Feywild Visitor",
+            22
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Flaming Fist",
+            7
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Folk Hero",
+            9
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Guild Artisan",
+            29
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Hardy Outlander",
+            9
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Haunted One",
+            59
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Inspiring Leader",
+            6
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Master Chef",
+            14
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Noble Heritage",
+            9
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Passionate Archaeologist",
+            9
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Popular Entertainer",
+            6
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Raised by Giants",
+            7
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Scion of Halaster",
+            27
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Shameless Charlatan",
+            10
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Street Urchin",
+            3
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Sword Coast Sailor",
+            43
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Tavern Brawler",
+            18
+        ],
+        [
+            "Amber Gristle O'Maul",
+            "Veteran Soldier",
+            154
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Acolyte of Bahamut",
+            6
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Agent of the Iron Throne",
+            109
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Agent of the Shadow Thieves",
+            218
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Candlekeep Sage",
+            3
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Clan Crafter",
+            703
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Cloakwood Hermit",
+            2
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Criminal Past",
+            305
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Cultist of the Absolute",
+            230
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Dragon Cultist",
+            6
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Dungeon Delver",
+            8
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Faceless One",
+            1
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Far Traveler",
+            6
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Feywild Visitor",
+            9
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Flaming Fist",
+            23
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Folk Hero",
+            4
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Guild Artisan",
+            40
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Hardy Outlander",
+            4
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Haunted One",
+            22
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Inspiring Leader",
+            16
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Master Chef",
+            105
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Noble Heritage",
+            3222
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Passionate Archaeologist",
+            13
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Popular Entertainer",
+            127
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Raised by Giants",
+            2779
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Scion of Halaster",
+            13
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Shameless Charlatan",
+            4
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Street Urchin",
+            13
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Sword Coast Sailor",
+            25
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Tavern Brawler",
+            28
+        ],
+        [
+            "Baeloth Barrityl, Entertainer",
+            "Veteran Soldier",
+            5
+        ],
+        [
+            "Burakos, Party Leader",
+            "Acolyte of Bahamut",
+            7
+        ],
+        [
+            "Burakos, Party Leader",
+            "Agent of the Iron Throne",
+            105
+        ],
+        [
+            "Burakos, Party Leader",
+            "Agent of the Shadow Thieves",
+            59
+        ],
+        [
+            "Burakos, Party Leader",
+            "Candlekeep Sage",
+            17
+        ],
+        [
+            "Burakos, Party Leader",
+            "Clan Crafter",
+            125
+        ],
+        [
+            "Burakos, Party Leader",
+            "Cloakwood Hermit",
+            6
+        ],
+        [
+            "Burakos, Party Leader",
+            "Criminal Past",
+            6
+        ],
+        [
+            "Burakos, Party Leader",
+            "Cultist of the Absolute",
+            10
+        ],
+        [
+            "Burakos, Party Leader",
+            "Dragon Cultist",
+            4
+        ],
+        [
+            "Burakos, Party Leader",
+            "Dungeon Delver",
+            88
+        ],
+        [
+            "Burakos, Party Leader",
+            "Faceless One",
+            2
+        ],
+        [
+            "Burakos, Party Leader",
+            "Far Traveler",
+            36
+        ],
+        [
+            "Burakos, Party Leader",
+            "Feywild Visitor",
+            19
+        ],
+        [
+            "Burakos, Party Leader",
+            "Flaming Fist",
+            17
+        ],
+        [
+            "Burakos, Party Leader",
+            "Folk Hero",
+            3693
+        ],
+        [
+            "Burakos, Party Leader",
+            "Guild Artisan",
+            553
+        ],
+        [
+            "Burakos, Party Leader",
+            "Hardy Outlander",
+            5
+        ],
+        [
+            "Burakos, Party Leader",
+            "Haunted One",
+            682
+        ],
+        [
+            "Burakos, Party Leader",
+            "Inspiring Leader",
+            2
+        ],
+        [
+            "Burakos, Party Leader",
+            "Master Chef",
+            54
+        ],
+        [
+            "Burakos, Party Leader",
+            "Noble Heritage",
+            41
+        ],
+        [
+            "Burakos, Party Leader",
+            "Passionate Archaeologist",
+            53
+        ],
+        [
+            "Burakos, Party Leader",
+            "Popular Entertainer",
+            17
+        ],
+        [
+            "Burakos, Party Leader",
+            "Raised by Giants",
+            18
+        ],
+        [
+            "Burakos, Party Leader",
+            "Scion of Halaster",
+            8
+        ],
+        [
+            "Burakos, Party Leader",
+            "Shameless Charlatan",
+            22
+        ],
+        [
+            "Burakos, Party Leader",
+            "Street Urchin",
+            34
+        ],
+        [
+            "Burakos, Party Leader",
+            "Sword Coast Sailor",
+            469
+        ],
+        [
+            "Burakos, Party Leader",
+            "Tavern Brawler",
+            55
+        ],
+        [
+            "Burakos, Party Leader",
+            "Veteran Soldier",
+            13
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Acolyte of Bahamut",
+            61
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Agent of the Iron Throne",
+            6
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Agent of the Shadow Thieves",
+            198
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Candlekeep Sage",
+            10
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Clan Crafter",
+            6
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Cloakwood Hermit",
+            1
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Criminal Past",
+            4
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Cultist of the Absolute",
+            16
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Dragon Cultist",
+            10
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Dungeon Delver",
+            23
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Faceless One",
+            1
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Far Traveler",
+            25
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Feywild Visitor",
+            9
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Flaming Fist",
+            13
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Folk Hero",
+            59
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Guild Artisan",
+            59
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Hardy Outlander",
+            6
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Haunted One",
+            53
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Inspiring Leader",
+            5
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Master Chef",
+            44
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Noble Heritage",
+            18
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Passionate Archaeologist",
+            978
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Popular Entertainer",
+            5
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Raised by Giants",
+            11
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Scion of Halaster",
+            6
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Shameless Charlatan",
+            18
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Street Urchin",
+            4
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Sword Coast Sailor",
+            268
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Tavern Brawler",
+            90
+        ],
+        [
+            "Durnan of the Yawning Portal",
+            "Veteran Soldier",
+            5
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Acolyte of Bahamut",
+            6
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Agent of the Iron Throne",
+            52
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Candlekeep Sage",
+            5
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Clan Crafter",
+            17
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Cloakwood Hermit",
+            43
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Cultist of the Absolute",
+            3
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Dragon Cultist",
+            12
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Dungeon Delver",
+            7
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Faceless One",
+            4
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Far Traveler",
+            34
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Feywild Visitor",
+            63
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Flaming Fist",
+            3
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Folk Hero",
+            17
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Guild Artisan",
+            10
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Hardy Outlander",
+            3
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Haunted One",
+            98
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Inspiring Leader",
+            108
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Master Chef",
+            127
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Noble Heritage",
+            6
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Passionate Archaeologist",
+            4
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Popular Entertainer",
+            15
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Raised by Giants",
+            6
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Scion of Halaster",
+            11
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Shameless Charlatan",
+            10
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Street Urchin",
+            36
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Sword Coast Sailor",
+            1
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Tavern Brawler",
+            13
+        ],
+        [
+            "Ellyn Harbreeze, Busybody",
+            "Veteran Soldier",
+            5
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Acolyte of Bahamut",
+            5
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Agent of the Iron Throne",
+            15
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Agent of the Shadow Thieves",
+            114
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Candlekeep Sage",
+            10
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Clan Crafter",
+            27
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Cloakwood Hermit",
+            16
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Criminal Past",
+            52
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Cultist of the Absolute",
+            14
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Dragon Cultist",
+            6
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Dungeon Delver",
+            11
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Faceless One",
+            2
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Far Traveler",
+            30
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Feywild Visitor",
+            14
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Flaming Fist",
+            74
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Folk Hero",
+            6
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Guild Artisan",
+            170
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Hardy Outlander",
+            9
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Haunted One",
+            13
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Inspiring Leader",
+            18
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Master Chef",
+            21
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Noble Heritage",
+            26
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Passionate Archaeologist",
+            8
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Popular Entertainer",
+            12
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Raised by Giants",
+            19
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Scion of Halaster",
+            796
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Shameless Charlatan",
+            30
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Street Urchin",
+            1849
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Sword Coast Sailor",
+            103
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Tavern Brawler",
+            14
+        ],
+        [
+            "Erinis, Gloom Stalker",
+            "Veteran Soldier",
+            23
+        ],
+        [
+            "Faceless One",
+            "Acolyte of Bahamut",
+            6
+        ],
+        [
+            "Faceless One",
+            "Agent of the Iron Throne",
+            11
+        ],
+        [
+            "Faceless One",
+            "Agent of the Shadow Thieves",
+            7
+        ],
+        [
+            "Faceless One",
+            "Candlekeep Sage",
+            18
+        ],
+        [
+            "Faceless One",
+            "Clan Crafter",
+            5
+        ],
+        [
+            "Faceless One",
+            "Cloakwood Hermit",
+            7
+        ],
+        [
+            "Faceless One",
+            "Criminal Past",
+            8
+        ],
+        [
+            "Faceless One",
+            "Cultist of the Absolute",
+            20
+        ],
+        [
+            "Faceless One",
+            "Dragon Cultist",
+            9
+        ],
+        [
+            "Faceless One",
+            "Dungeon Delver",
+            12
+        ],
+        [
+            "Faceless One",
+            "Far Traveler",
+            7
+        ],
+        [
+            "Faceless One",
+            "Feywild Visitor",
+            6
+        ],
+        [
+            "Faceless One",
+            "Flaming Fist",
+            13
+        ],
+        [
+            "Faceless One",
+            "Folk Hero",
+            2
+        ],
+        [
+            "Faceless One",
+            "Guild Artisan",
+            6
+        ],
+        [
+            "Faceless One",
+            "Hardy Outlander",
+            3
+        ],
+        [
+            "Faceless One",
+            "Haunted One",
+            7
+        ],
+        [
+            "Faceless One",
+            "Inspiring Leader",
+            8
+        ],
+        [
+            "Faceless One",
+            "Master Chef",
+            11
+        ],
+        [
+            "Faceless One",
+            "Noble Heritage",
+            13
+        ],
+        [
+            "Faceless One",
+            "Passionate Archaeologist",
+            1
+        ],
+        [
+            "Faceless One",
+            "Popular Entertainer",
+            4
+        ],
+        [
+            "Faceless One",
+            "Raised by Giants",
+            30
+        ],
+        [
+            "Faceless One",
+            "Scion of Halaster",
+            24
+        ],
+        [
+            "Faceless One",
+            "Shameless Charlatan",
+            121
+        ],
+        [
+            "Faceless One",
+            "Street Urchin",
+            6
+        ],
+        [
+            "Faceless One",
+            "Sword Coast Sailor",
+            4
+        ],
+        [
+            "Faceless One",
+            "Tavern Brawler",
+            14
+        ],
+        [
+            "Faceless One",
+            "Veteran Soldier",
+            6
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Acolyte of Bahamut",
+            46
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Agent of the Iron Throne",
+            21
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Agent of the Shadow Thieves",
+            7
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Candlekeep Sage",
+            141
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Clan Crafter",
+            21
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Cloakwood Hermit",
+            39
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Criminal Past",
+            8
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Cultist of the Absolute",
+            10
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Dragon Cultist",
+            170
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Dungeon Delver",
+            10
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Faceless One",
+            13
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Far Traveler",
+            28
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Feywild Visitor",
+            16
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Flaming Fist",
+            4
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Folk Hero",
+            69
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Guild Artisan",
+            196
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Hardy Outlander",
+            17
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Haunted One",
+            26
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Inspiring Leader",
+            112
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Master Chef",
+            451
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Noble Heritage",
+            103
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Passionate Archaeologist",
+            371
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Popular Entertainer",
+            45
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Raised by Giants",
+            218
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Scion of Halaster",
+            2870
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Shameless Charlatan",
+            23
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Street Urchin",
+            30
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Sword Coast Sailor",
+            9
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Tavern Brawler",
+            102
+        ],
+        [
+            "Gale, Waterdeep Prodigy",
+            "Veteran Soldier",
+            3
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Acolyte of Bahamut",
+            2733
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Agent of the Iron Throne",
+            249
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Agent of the Shadow Thieves",
+            5
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Candlekeep Sage",
+            204
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Clan Crafter",
+            59
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Criminal Past",
+            2
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Cultist of the Absolute",
+            2
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Dragon Cultist",
+            327
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Dungeon Delver",
+            17
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Faceless One",
+            4
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Far Traveler",
+            289
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Feywild Visitor",
+            1378
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Flaming Fist",
+            4
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Folk Hero",
+            114
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Guild Artisan",
+            280
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Hardy Outlander",
+            6
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Haunted One",
+            331
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Inspiring Leader",
+            7
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Master Chef",
+            27
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Noble Heritage",
+            20
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Passionate Archaeologist",
+            18
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Popular Entertainer",
+            10
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Raised by Giants",
+            19
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Scion of Halaster",
+            16
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Shameless Charlatan",
+            11
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Street Urchin",
+            8
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Sword Coast Sailor",
+            4
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Tavern Brawler",
+            55
+        ],
+        [
+            "Ganax, Astral Hunter",
+            "Veteran Soldier",
+            2
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Acolyte of Bahamut",
+            7
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Agent of the Iron Throne",
+            1163
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Agent of the Shadow Thieves",
+            169
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Candlekeep Sage",
+            6
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Clan Crafter",
+            29
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Cloakwood Hermit",
+            260
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Criminal Past",
+            14
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Cultist of the Absolute",
+            139
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Dragon Cultist",
+            35
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Dungeon Delver",
+            5
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Faceless One",
+            3
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Far Traveler",
+            11
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Feywild Visitor",
+            26
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Flaming Fist",
+            7
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Folk Hero",
+            42
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Guild Artisan",
+            68
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Hardy Outlander",
+            5
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Haunted One",
+            760
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Inspiring Leader",
+            1134
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Master Chef",
+            115
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Noble Heritage",
+            22
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Passionate Archaeologist",
+            5
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Popular Entertainer",
+            41
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Raised by Giants",
+            11
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Scion of Halaster",
+            68
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Shameless Charlatan",
+            7
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Street Urchin",
+            27
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Sword Coast Sailor",
+            46
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Tavern Brawler",
+            16
+        ],
+        [
+            "Gut, True Soul Zealot",
+            "Veteran Soldier",
+            60
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Acolyte of Bahamut",
+            1
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Agent of the Iron Throne",
+            83
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Agent of the Shadow Thieves",
+            6
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Candlekeep Sage",
+            6
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Clan Crafter",
+            51
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Cloakwood Hermit",
+            72
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Criminal Past",
+            1
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Cultist of the Absolute",
+            5
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Dragon Cultist",
+            3
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Dungeon Delver",
+            3
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Faceless One",
+            2
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Far Traveler",
+            15
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Feywild Visitor",
+            148
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Flaming Fist",
+            3
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Folk Hero",
+            10
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Guild Artisan",
+            62
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Hardy Outlander",
+            5
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Haunted One",
+            7
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Inspiring Leader",
+            464
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Master Chef",
+            33
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Noble Heritage",
+            6
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Passionate Archaeologist",
+            1
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Popular Entertainer",
+            11
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Raised by Giants",
+            8
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Scion of Halaster",
+            25
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Shameless Charlatan",
+            8
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Street Urchin",
+            17
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Sword Coast Sailor",
+            2
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Tavern Brawler",
+            9
+        ],
+        [
+            "Halsin, Emerald Archdruid",
+            "Veteran Soldier",
+            50
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Acolyte of Bahamut",
+            9
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Agent of the Iron Throne",
+            6
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Agent of the Shadow Thieves",
+            39
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Candlekeep Sage",
+            5
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Clan Crafter",
+            2
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Cloakwood Hermit",
+            1
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Criminal Past",
+            4
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Cultist of the Absolute",
+            7
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Dragon Cultist",
+            6
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Dungeon Delver",
+            167
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Faceless One",
+            3
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Far Traveler",
+            256
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Feywild Visitor",
+            6
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Flaming Fist",
+            4
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Folk Hero",
+            44
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Guild Artisan",
+            19
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Hardy Outlander",
+            4
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Haunted One",
+            31
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Inspiring Leader",
+            1
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Master Chef",
+            10
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Noble Heritage",
+            44
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Passionate Archaeologist",
+            4
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Popular Entertainer",
+            19
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Raised by Giants",
+            8
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Scion of Halaster",
+            30
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Shameless Charlatan",
+            3
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Street Urchin",
+            3
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Sword Coast Sailor",
+            2
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Tavern Brawler",
+            3
+        ],
+        [
+            "Imoen, Mystic Trickster",
+            "Veteran Soldier",
+            5
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Acolyte of Bahamut",
+            7
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Agent of the Iron Throne",
+            516
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Agent of the Shadow Thieves",
+            2
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Candlekeep Sage",
+            22
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Clan Crafter",
+            503
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Cloakwood Hermit",
+            122
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Criminal Past",
+            3
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Cultist of the Absolute",
+            23
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Dragon Cultist",
+            22
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Dungeon Delver",
+            13
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Faceless One",
+            9
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Far Traveler",
+            52
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Feywild Visitor",
+            114
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Flaming Fist",
+            4
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Folk Hero",
+            134
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Guild Artisan",
+            286
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Hardy Outlander",
+            2
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Haunted One",
+            39
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Inspiring Leader",
+            805
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Master Chef",
+            102
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Noble Heritage",
+            34
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Passionate Archaeologist",
+            37
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Popular Entertainer",
+            12
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Raised by Giants",
+            22
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Scion of Halaster",
+            51
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Shameless Charlatan",
+            25
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Street Urchin",
+            645
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Sword Coast Sailor",
+            7
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Tavern Brawler",
+            20
+        ],
+        [
+            "Jaheira, Friend of the Forest",
+            "Veteran Soldier",
+            50
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Acolyte of Bahamut",
+            176
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Agent of the Iron Throne",
+            77
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Agent of the Shadow Thieves",
+            463
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Candlekeep Sage",
+            8
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Clan Crafter",
+            42
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Cloakwood Hermit",
+            10
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Criminal Past",
+            89
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Cultist of the Absolute",
+            612
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Dragon Cultist",
+            128
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Dungeon Delver",
+            21
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Faceless One",
+            11
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Far Traveler",
+            49
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Feywild Visitor",
+            463
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Flaming Fist",
+            1456
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Folk Hero",
+            13
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Guild Artisan",
+            355
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Hardy Outlander",
+            1290
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Haunted One",
+            221
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Inspiring Leader",
+            230
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Master Chef",
+            368
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Noble Heritage",
+            171
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Passionate Archaeologist",
+            43
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Popular Entertainer",
+            95
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Raised by Giants",
+            2020
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Scion of Halaster",
+            19
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Shameless Charlatan",
+            19
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Street Urchin",
+            15
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Sword Coast Sailor",
+            1521
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Tavern Brawler",
+            330
+        ],
+        [
+            "Karlach, Fury of Avernus",
+            "Veteran Soldier",
+            350
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Acolyte of Bahamut",
+            41
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Agent of the Iron Throne",
+            19
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Agent of the Shadow Thieves",
+            174
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Candlekeep Sage",
+            89
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Clan Crafter",
+            160
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Cloakwood Hermit",
+            6
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Criminal Past",
+            7
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Cultist of the Absolute",
+            16
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Dragon Cultist",
+            50
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Dungeon Delver",
+            14
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Faceless One",
+            5
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Far Traveler",
+            25
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Feywild Visitor",
+            16
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Flaming Fist",
+            8
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Folk Hero",
+            9
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Guild Artisan",
+            54
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Hardy Outlander",
+            9
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Haunted One",
+            35
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Inspiring Leader",
+            139
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Master Chef",
+            2565
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Noble Heritage",
+            418
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Passionate Archaeologist",
+            38
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Popular Entertainer",
+            17
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Raised by Giants",
+            17
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Scion of Halaster",
+            77
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Shameless Charlatan",
+            21
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Street Urchin",
+            53
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Sword Coast Sailor",
+            44
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Tavern Brawler",
+            23
+        ],
+        [
+            "Lae'zel, Vlaakith's Champion",
+            "Veteran Soldier",
+            24
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Acolyte of Bahamut",
+            107
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Agent of the Iron Throne",
+            10
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Agent of the Shadow Thieves",
+            19
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Candlekeep Sage",
+            6
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Clan Crafter",
+            9
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Cloakwood Hermit",
+            2
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Criminal Past",
+            12
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Cultist of the Absolute",
+            37
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Dragon Cultist",
+            69
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Dungeon Delver",
+            6
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Faceless One",
+            6
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Far Traveler",
+            5
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Feywild Visitor",
+            33
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Flaming Fist",
+            56
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Folk Hero",
+            13
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Guild Artisan",
+            15
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Hardy Outlander",
+            106
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Haunted One",
+            12
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Inspiring Leader",
+            11
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Master Chef",
+            18
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Noble Heritage",
+            67
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Passionate Archaeologist",
+            44
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Popular Entertainer",
+            9
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Raised by Giants",
+            60
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Scion of Halaster",
+            50
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Shameless Charlatan",
+            20
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Street Urchin",
+            10
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Sword Coast Sailor",
+            487
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Tavern Brawler",
+            90
+        ],
+        [
+            "Livaan, Cultist of Tiamat",
+            "Veteran Soldier",
+            3
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Acolyte of Bahamut",
+            3
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Agent of the Iron Throne",
+            37
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Agent of the Shadow Thieves",
+            16
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Candlekeep Sage",
+            133
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Clan Crafter",
+            64
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Cloakwood Hermit",
+            130
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Criminal Past",
+            14
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Cultist of the Absolute",
+            302
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Dragon Cultist",
+            6
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Dungeon Delver",
+            19
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Faceless One",
+            5
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Far Traveler",
+            185
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Feywild Visitor",
+            87
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Flaming Fist",
+            15
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Folk Hero",
+            28
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Guild Artisan",
+            265
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Hardy Outlander",
+            7
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Haunted One",
+            36
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Inspiring Leader",
+            22
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Master Chef",
+            263
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Noble Heritage",
+            23
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Passionate Archaeologist",
+            13
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Popular Entertainer",
+            11
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Raised by Giants",
+            37
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Scion of Halaster",
+            13
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Shameless Charlatan",
+            6
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Street Urchin",
+            36
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Sword Coast Sailor",
+            12
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Tavern Brawler",
+            8
+        ],
+        [
+            "Lulu, Loyal Hollyphant",
+            "Veteran Soldier",
+            29
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Acolyte of Bahamut",
+            5
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Agent of the Iron Throne",
+            8
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Agent of the Shadow Thieves",
+            39
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Candlekeep Sage",
+            36
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Clan Crafter",
+            4
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Cloakwood Hermit",
+            6
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Criminal Past",
+            1
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Cultist of the Absolute",
+            16
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Dragon Cultist",
+            10
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Dungeon Delver",
+            719
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Faceless One",
+            6
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Far Traveler",
+            13
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Feywild Visitor",
+            26
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Flaming Fist",
+            134
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Folk Hero",
+            21
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Guild Artisan",
+            38
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Hardy Outlander",
+            2
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Haunted One",
+            6
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Inspiring Leader",
+            6
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Master Chef",
+            58
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Noble Heritage",
+            37
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Passionate Archaeologist",
+            4
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Popular Entertainer",
+            18
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Raised by Giants",
+            126
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Scion of Halaster",
+            22
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Shameless Charlatan",
+            5
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Street Urchin",
+            3
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Sword Coast Sailor",
+            286
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Tavern Brawler",
+            3
+        ],
+        [
+            "Rasaad yn Bashir",
+            "Veteran Soldier",
+            15
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Acolyte of Bahamut",
+            1008
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Agent of the Iron Throne",
+            61
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Agent of the Shadow Thieves",
+            3
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Candlekeep Sage",
+            7
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Clan Crafter",
+            29
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Cloakwood Hermit",
+            1
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Criminal Past",
+            2
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Cultist of the Absolute",
+            5
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Dragon Cultist",
+            63
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Dungeon Delver",
+            1
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Faceless One",
+            1
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Far Traveler",
+            11
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Feywild Visitor",
+            77
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Flaming Fist",
+            2
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Folk Hero",
+            126
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Guild Artisan",
+            37
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Haunted One",
+            21
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Inspiring Leader",
+            4
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Master Chef",
+            8
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Noble Heritage",
+            13
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Passionate Archaeologist",
+            10
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Popular Entertainer",
+            23
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Raised by Giants",
+            3
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Scion of Halaster",
+            39
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Shameless Charlatan",
+            11
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Street Urchin",
+            23
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Sword Coast Sailor",
+            2
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Tavern Brawler",
+            15
+        ],
+        [
+            "Renari, Merchant of Marvels",
+            "Veteran Soldier",
+            2
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Acolyte of Bahamut",
+            4
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Agent of the Iron Throne",
+            26
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Agent of the Shadow Thieves",
+            13
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Candlekeep Sage",
+            2
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Clan Crafter",
+            27
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Cloakwood Hermit",
+            3
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Criminal Past",
+            3
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Cultist of the Absolute",
+            4
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Dragon Cultist",
+            5
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Dungeon Delver",
+            1218
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Faceless One",
+            3
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Far Traveler",
+            54
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Feywild Visitor",
+            10
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Flaming Fist",
+            6
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Folk Hero",
+            10
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Guild Artisan",
+            79
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Hardy Outlander",
+            2
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Haunted One",
+            4
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Inspiring Leader",
+            2
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Master Chef",
+            6
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Noble Heritage",
+            18
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Passionate Archaeologist",
+            10
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Popular Entertainer",
+            13
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Raised by Giants",
+            2
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Scion of Halaster",
+            4
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Shameless Charlatan",
+            3
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Street Urchin",
+            12
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Sword Coast Sailor",
+            10
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Tavern Brawler",
+            6
+        ],
+        [
+            "Safana, Calimport Cutthroat",
+            "Veteran Soldier",
+            3
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Acolyte of Bahamut",
+            3
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Agent of the Iron Throne",
+            32
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Agent of the Shadow Thieves",
+            44
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Candlekeep Sage",
+            11
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Clan Crafter",
+            161
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Cloakwood Hermit",
+            29
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Criminal Past",
+            154
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Cultist of the Absolute",
+            376
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Dragon Cultist",
+            5
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Dungeon Delver",
+            4
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Faceless One",
+            5
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Far Traveler",
+            111
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Feywild Visitor",
+            5
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Flaming Fist",
+            8
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Folk Hero",
+            12
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Guild Artisan",
+            25
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Hardy Outlander",
+            2
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Haunted One",
+            27
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Inspiring Leader",
+            2
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Master Chef",
+            23
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Noble Heritage",
+            297
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Passionate Archaeologist",
+            4
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Popular Entertainer",
+            4
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Raised by Giants",
+            523
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Scion of Halaster",
+            15
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Shameless Charlatan",
+            6
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Street Urchin",
+            55
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Sword Coast Sailor",
+            11
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Tavern Brawler",
+            9
+        ],
+        [
+            "Sarevok, Deathbringer",
+            "Veteran Soldier",
+            9
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Acolyte of Bahamut",
+            473
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Agent of the Iron Throne",
+            283
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Agent of the Shadow Thieves",
+            9
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Candlekeep Sage",
+            78
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Clan Crafter",
+            22
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Cloakwood Hermit",
+            538
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Criminal Past",
+            19
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Cultist of the Absolute",
+            44
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Dragon Cultist",
+            163
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Dungeon Delver",
+            50
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Faceless One",
+            14
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Far Traveler",
+            53
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Feywild Visitor",
+            43
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Flaming Fist",
+            8
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Folk Hero",
+            297
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Guild Artisan",
+            6
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Hardy Outlander",
+            14
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Haunted One",
+            1085
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Inspiring Leader",
+            421
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Master Chef",
+            1604
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Noble Heritage",
+            459
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Passionate Archaeologist",
+            43
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Popular Entertainer",
+            97
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Raised by Giants",
+            41
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Scion of Halaster",
+            69
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Shameless Charlatan",
+            50
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Street Urchin",
+            48
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Sword Coast Sailor",
+            10
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Tavern Brawler",
+            23
+        ],
+        [
+            "Shadowheart, Dark Justiciar",
+            "Veteran Soldier",
+            13
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Acolyte of Bahamut",
+            11
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Agent of the Iron Throne",
+            209
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Agent of the Shadow Thieves",
+            1
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Candlekeep Sage",
+            8
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Clan Crafter",
+            33
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Cloakwood Hermit",
+            918
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Criminal Past",
+            24
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Cultist of the Absolute",
+            10
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Dragon Cultist",
+            20
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Dungeon Delver",
+            14
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Faceless One",
+            5
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Far Traveler",
+            36
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Feywild Visitor",
+            91
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Flaming Fist",
+            6
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Folk Hero",
+            50
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Guild Artisan",
+            6
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Hardy Outlander",
+            1
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Haunted One",
+            156
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Inspiring Leader",
+            21
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Master Chef",
+            56
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Noble Heritage",
+            37
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Passionate Archaeologist",
+            4
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Popular Entertainer",
+            14
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Raised by Giants",
+            3
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Scion of Halaster",
+            73
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Shameless Charlatan",
+            14
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Street Urchin",
+            40
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Sword Coast Sailor",
+            5
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Tavern Brawler",
+            10
+        ],
+        [
+            "Sivriss, Nightmare Speaker",
+            "Veteran Soldier",
+            7
+        ],
+        [
+            "Skanos Dragonheart",
+            "Acolyte of Bahamut",
+            187
+        ],
+        [
+            "Skanos Dragonheart",
+            "Agent of the Iron Throne",
+            2
+        ],
+        [
+            "Skanos Dragonheart",
+            "Agent of the Shadow Thieves",
+            15
+        ],
+        [
+            "Skanos Dragonheart",
+            "Candlekeep Sage",
+            2
+        ],
+        [
+            "Skanos Dragonheart",
+            "Clan Crafter",
+            2
+        ],
+        [
+            "Skanos Dragonheart",
+            "Cloakwood Hermit",
+            2
+        ],
+        [
+            "Skanos Dragonheart",
+            "Criminal Past",
+            82
+        ],
+        [
+            "Skanos Dragonheart",
+            "Cultist of the Absolute",
+            20
+        ],
+        [
+            "Skanos Dragonheart",
+            "Dragon Cultist",
+            207
+        ],
+        [
+            "Skanos Dragonheart",
+            "Dungeon Delver",
+            7
+        ],
+        [
+            "Skanos Dragonheart",
+            "Faceless One",
+            4
+        ],
+        [
+            "Skanos Dragonheart",
+            "Far Traveler",
+            1
+        ],
+        [
+            "Skanos Dragonheart",
+            "Feywild Visitor",
+            19
+        ],
+        [
+            "Skanos Dragonheart",
+            "Flaming Fist",
+            31
+        ],
+        [
+            "Skanos Dragonheart",
+            "Folk Hero",
+            21
+        ],
+        [
+            "Skanos Dragonheart",
+            "Guild Artisan",
+            31
+        ],
+        [
+            "Skanos Dragonheart",
+            "Hardy Outlander",
+            48
+        ],
+        [
+            "Skanos Dragonheart",
+            "Haunted One",
+            55
+        ],
+        [
+            "Skanos Dragonheart",
+            "Inspiring Leader",
+            6
+        ],
+        [
+            "Skanos Dragonheart",
+            "Master Chef",
+            5
+        ],
+        [
+            "Skanos Dragonheart",
+            "Noble Heritage",
+            10
+        ],
+        [
+            "Skanos Dragonheart",
+            "Popular Entertainer",
+            10
+        ],
+        [
+            "Skanos Dragonheart",
+            "Raised by Giants",
+            14
+        ],
+        [
+            "Skanos Dragonheart",
+            "Scion of Halaster",
+            48
+        ],
+        [
+            "Skanos Dragonheart",
+            "Shameless Charlatan",
+            4
+        ],
+        [
+            "Skanos Dragonheart",
+            "Street Urchin",
+            4
+        ],
+        [
+            "Skanos Dragonheart",
+            "Sword Coast Sailor",
+            52
+        ],
+        [
+            "Skanos Dragonheart",
+            "Tavern Brawler",
+            50
+        ],
+        [
+            "Skanos Dragonheart",
+            "Veteran Soldier",
+            2
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Acolyte of Bahamut",
+            3
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Agent of the Iron Throne",
+            14
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Agent of the Shadow Thieves",
+            86
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Candlekeep Sage",
+            9
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Clan Crafter",
+            203
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Cloakwood Hermit",
+            4
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Criminal Past",
+            4
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Cultist of the Absolute",
+            60
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Dragon Cultist",
+            6
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Dungeon Delver",
+            4
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Faceless One",
+            16
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Far Traveler",
+            21
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Feywild Visitor",
+            3
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Flaming Fist",
+            3
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Folk Hero",
+            12
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Guild Artisan",
+            4
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Hardy Outlander",
+            4
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Haunted One",
+            129
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Inspiring Leader",
+            3
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Master Chef",
+            17
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Noble Heritage",
+            163
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Passionate Archaeologist",
+            256
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Popular Entertainer",
+            3
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Raised by Giants",
+            471
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Scion of Halaster",
+            33
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Shameless Charlatan",
+            5
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Street Urchin",
+            20
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Sword Coast Sailor",
+            8
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Tavern Brawler",
+            119
+        ],
+        [
+            "Vhal, Candlekeep Researcher",
+            "Veteran Soldier",
+            3
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Acolyte of Bahamut",
+            17
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Agent of the Iron Throne",
+            35
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Agent of the Shadow Thieves",
+            2
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Candlekeep Sage",
+            17
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Clan Crafter",
+            22
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Cloakwood Hermit",
+            100
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Criminal Past",
+            18
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Cultist of the Absolute",
+            35
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Dragon Cultist",
+            7
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Dungeon Delver",
+            13
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Faceless One",
+            5
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Far Traveler",
+            30
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Feywild Visitor",
+            16
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Flaming Fist",
+            3
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Folk Hero",
+            38
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Guild Artisan",
+            7
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Hardy Outlander",
+            2
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Haunted One",
+            16
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Inspiring Leader",
+            11
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Master Chef",
+            27
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Noble Heritage",
+            12
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Passionate Archaeologist",
+            9
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Popular Entertainer",
+            7
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Raised by Giants",
+            4
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Scion of Halaster",
+            189
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Shameless Charlatan",
+            23
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Street Urchin",
+            32
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Sword Coast Sailor",
+            6
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Tavern Brawler",
+            27
+        ],
+        [
+            "Viconia, Drow Apostate",
+            "Veteran Soldier",
+            3
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Acolyte of Bahamut",
+            292
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Agent of the Iron Throne",
+            58
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Agent of the Shadow Thieves",
+            4
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Candlekeep Sage",
+            51
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Clan Crafter",
+            11
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Cloakwood Hermit",
+            32
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Criminal Past",
+            18
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Cultist of the Absolute",
+            13
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Dragon Cultist",
+            17
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Dungeon Delver",
+            15
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Faceless One",
+            25
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Far Traveler",
+            128
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Feywild Visitor",
+            62
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Flaming Fist",
+            4
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Folk Hero",
+            604
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Guild Artisan",
+            70
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Hardy Outlander",
+            12
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Haunted One",
+            390
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Inspiring Leader",
+            14
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Master Chef",
+            903
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Noble Heritage",
+            131
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Passionate Archaeologist",
+            38
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Popular Entertainer",
+            143
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Raised by Giants",
+            51
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Scion of Halaster",
+            130
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Shameless Charlatan",
+            58
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Street Urchin",
+            21
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Sword Coast Sailor",
+            6
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Tavern Brawler",
+            13
+        ],
+        [
+            "Volo, Itinerant Scholar",
+            "Veteran Soldier",
+            3
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Acolyte of Bahamut",
+            9
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Agent of the Iron Throne",
+            15
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Agent of the Shadow Thieves",
+            669
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Candlekeep Sage",
+            34
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Clan Crafter",
+            80
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Cloakwood Hermit",
+            10
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Criminal Past",
+            123
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Cultist of the Absolute",
+            876
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Dragon Cultist",
+            28
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Dungeon Delver",
+            39
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Faceless One",
+            7
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Far Traveler",
+            57
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Feywild Visitor",
+            34
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Flaming Fist",
+            1316
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Folk Hero",
+            230
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Guild Artisan",
+            112
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Hardy Outlander",
+            29
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Haunted One",
+            51
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Inspiring Leader",
+            31
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Master Chef",
+            178
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Noble Heritage",
+            1372
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Passionate Archaeologist",
+            56
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Popular Entertainer",
+            20
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Raised by Giants",
+            1661
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Scion of Halaster",
+            102
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Shameless Charlatan",
+            134
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Street Urchin",
+            12
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Sword Coast Sailor",
+            236
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Tavern Brawler",
+            376
+        ],
+        [
+            "Wilson, Refined Grizzly",
+            "Veteran Soldier",
+            26
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Acolyte of Bahamut",
+            129
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Agent of the Iron Throne",
+            46
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Agent of the Shadow Thieves",
+            96
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Candlekeep Sage",
+            61
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Clan Crafter",
+            129
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Cloakwood Hermit",
+            6
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Criminal Past",
+            5
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Cultist of the Absolute",
+            20
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Dragon Cultist",
+            13
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Dungeon Delver",
+            362
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Faceless One",
+            4
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Far Traveler",
+            45
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Feywild Visitor",
+            91
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Flaming Fist",
+            62
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Folk Hero",
+            30
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Guild Artisan",
+            52
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Hardy Outlander",
+            55
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Haunted One",
+            11
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Inspiring Leader",
+            19
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Master Chef",
+            156
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Noble Heritage",
+            76
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Passionate Archaeologist",
+            15
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Popular Entertainer",
+            8
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Raised by Giants",
+            99
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Scion of Halaster",
+            28
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Shameless Charlatan",
+            95
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Street Urchin",
+            2
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Sword Coast Sailor",
+            2818
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Tavern Brawler",
+            20
+        ],
+        [
+            "Wyll, Blade of Frontiers",
+            "Veteran Soldier",
+            8
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Acolyte of Bahamut",
+            2
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Agent of the Iron Throne",
+            385
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Agent of the Shadow Thieves",
+            8
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Candlekeep Sage",
+            30
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Clan Crafter",
+            6
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Cloakwood Hermit",
+            163
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Criminal Past",
+            34
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Cultist of the Absolute",
+            94
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Dragon Cultist",
+            4
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Dungeon Delver",
+            4
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Faceless One",
+            3
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Far Traveler",
+            18
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Feywild Visitor",
+            18
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Folk Hero",
+            10
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Guild Artisan",
+            3
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Hardy Outlander",
+            3
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Haunted One",
+            1597
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Inspiring Leader",
+            232
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Master Chef",
+            65
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Noble Heritage",
+            20
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Passionate Archaeologist",
+            7
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Popular Entertainer",
+            14
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Raised by Giants",
+            5
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Scion of Halaster",
+            459
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Shameless Charlatan",
+            12
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Street Urchin",
+            73
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Sword Coast Sailor",
+            9
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Tavern Brawler",
+            7
+        ],
+        [
+            "Zellix, Sanity Flayer",
+            "Veteran Soldier",
+            2
+        ]
+    ]
+}
