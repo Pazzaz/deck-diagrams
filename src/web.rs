@@ -3,7 +3,10 @@ use std::{fmt::Display, fs, io::Write, mem, path::Path};
 use regex::Regex;
 use reqwest::StatusCode;
 
-use crate::{color::Color, partner_data::Data};
+use crate::{
+    color::Color,
+    partner_data::{Data, DataDouble, DataSingle},
+};
 
 struct ParseData {
     deck_count: u64,
@@ -14,15 +17,7 @@ struct ParseData {
 }
 
 impl ParseData {
-    fn diff(&self, other: (u64, &[Color], &[Color])) -> WebParameters {
-        WebParameters {
-            deck_count: self.deck_count != other.0,
-            color_id_0: &self.color_id_0[..] != other.1,
-            color_id_1: &self.color_id_1[..] != other.2,
-        }
-    }
-
-    fn switch(&mut self) {
+    const fn switch(&mut self) {
         mem::swap(&mut self.color_id_0, &mut self.color_id_1);
         mem::swap(&mut self.image_url_0, &mut self.image_url_1);
     }
@@ -42,14 +37,6 @@ impl WebParameters {
 
     pub const fn any(self) -> bool {
         self.deck_count || self.color_id_0 || self.color_id_1
-    }
-
-    const fn and(self, other: Self) -> Self {
-        Self {
-            deck_count: self.deck_count && other.deck_count,
-            color_id_0: self.color_id_0 && other.color_id_0,
-            color_id_1: self.color_id_1 && other.color_id_1,
-        }
     }
 }
 
@@ -72,7 +59,18 @@ impl Display for WebError {
     }
 }
 
-pub fn update_data(data: &mut Data, to_download: WebParameters, download_images: Option<&Path>) {
+pub fn update_data(data: &mut Data, to_download: WebParameters, image_folder: Option<&Path>) {
+    match data {
+        Data::Single(data_single) => update_data_single(data_single, to_download, image_folder),
+        Data::Double(data_double) => update_data_double(data_double, to_download, image_folder),
+    }
+}
+
+pub fn update_data_double(
+    data: &mut DataDouble,
+    to_download: WebParameters,
+    image_folder: Option<&Path>,
+) {
     debug_assert!(to_download.any());
     let client = reqwest::blocking::Client::new();
 
@@ -83,61 +81,180 @@ pub fn update_data(data: &mut Data, to_download: WebParameters, download_images:
         // Similarly for the `x_values`, we don't want to download their image every
         // execution of the inner loop.
         let mut new_x = true;
-        let a = slugify(&x.name);
         for y in &mut data.y_values {
-            let b = slugify(&y.name);
-            let downloaded = match download_data(&x.name, &y.name, &a, &b, &client) {
-                Ok(x) => x,
-                Err(x) => {
-                    eprintln!("{x}");
-                    continue;
-                }
+            if !(to_download.deck_count || new_x || new_y) {
+                break;
+            }
+            let deck_count = if to_download.deck_count {
+                Some(*data.decks.get(&(x.name.clone(), y.name.clone())).unwrap_or(&0))
+            } else {
+                None
             };
-            let old_c = *data.decks.get(&(x.name.clone(), y.name.clone())).unwrap_or(&0);
-            let diff = downloaded.diff((old_c, &x.color_id, &y.color_id));
-            let to_update = diff.and(to_download);
-            if to_update.any() {
-                let url = format!("https://edhrec.com/commanders/{a}-{b}");
-                println!("Updated {url}");
-                if to_update.deck_count {
-                    println!("count: {} -> {}", old_c, downloaded.deck_count);
-                    data.decks.insert((x.name.clone(), y.name.clone()), downloaded.deck_count);
-                }
-                if to_update.color_id_0 {
-                    println!(
-                        "color identity of first: {:?} -> {:?}",
-                        x.color_id, downloaded.color_id_0
-                    );
-                    x.color_id = downloaded.color_id_0;
-                }
+            let x_color_id =
+                if new_x && to_download.color_id_0 { Some(&x.color_id[..]) } else { None };
+            let y_color_id =
+                if new_y && to_download.color_id_1 { Some(&y.color_id[..]) } else { None };
 
-                if to_update.color_id_1 {
-                    println!(
-                        "color identity of second: {:?} -> {:?}",
-                        y.color_id, downloaded.color_id_1
-                    );
-                    y.color_id = downloaded.color_id_1;
-                }
+            let entry = EntryDownload {
+                x_name: &x.name,
+                y_name: &y.name,
+                x_image: new_x,
+                y_image: new_y,
+                deck_count,
+                x_color_id,
+                y_color_id,
+            };
+
+            let downloaded = download_entry(entry, image_folder, &client);
+
+            if let Some(new_deck_count) = downloaded.deck_count {
+                data.decks.insert((x.name.clone(), y.name.clone()), new_deck_count);
             }
 
-            if let Some(image_folder) = download_images {
-                if new_x {
-                    let mut f =
-                        fs::File::create(image_folder.join(format!("{}.jpg", x.name))).unwrap();
-                    let image_0 = download_image(&client, &downloaded.image_url_0).unwrap();
-                    f.write_all(&image_0).unwrap();
-                }
-
-                if new_y {
-                    let mut f =
-                        fs::File::create(image_folder.join(format!("{}.jpg", y.name))).unwrap();
-                    let image_1 = download_image(&client, &downloaded.image_url_1).unwrap();
-                    f.write_all(&image_1).unwrap();
-                }
+            if let Some(new_x_color_id) = downloaded.x_color_id {
+                x.color_id = new_x_color_id;
             }
+
+            if let Some(new_y_color_id) = downloaded.y_color_id {
+                y.color_id = new_y_color_id;
+            }
+
             new_x = false;
         }
         new_y = false;
+    }
+}
+
+struct EntryDownload<'a> {
+    x_name: &'a str,
+    y_name: &'a str,
+    x_image: bool,
+    y_image: bool,
+    deck_count: Option<u64>,
+    x_color_id: Option<&'a [Color]>,
+    y_color_id: Option<&'a [Color]>,
+}
+
+impl<'a> EntryDownload<'a> {
+    const fn any(&self) -> bool {
+        self.x_image
+            || self.y_image
+            || self.deck_count.is_some()
+            || self.x_color_id.is_some()
+            || self.y_color_id.is_some()
+    }
+}
+
+#[derive(Debug, Default)]
+struct Update {
+    deck_count: Option<u64>,
+    x_color_id: Option<Vec<Color>>,
+    y_color_id: Option<Vec<Color>>,
+}
+
+// Downloads the specified info, including saving images to `image_folder`
+fn download_entry(
+    entry: EntryDownload,
+    image_folder: Option<&Path>,
+    client: &reqwest::blocking::Client,
+) -> Update {
+    debug_assert!(entry.any());
+
+    println!("Downloading: {} | {}", entry.x_name, entry.y_name);
+
+    let mut update = Update::default();
+
+    let a = slugify(entry.x_name);
+    let b = slugify(entry.y_name);
+    let downloaded = match download_data(entry.x_name, entry.y_name, &a, &b, client) {
+        Ok(x) => x,
+        Err(x) => {
+            eprintln!("{x}");
+            return update;
+        }
+    };
+
+    if let Some(image_folder) = image_folder {
+        if entry.x_image {
+            let mut f =
+                fs::File::create(image_folder.join(format!("{}.jpg", entry.x_name))).unwrap();
+            let image_0 = download_image(client, &downloaded.image_url_0).unwrap();
+            f.write_all(&image_0).unwrap();
+        }
+
+        if entry.y_image {
+            let mut f =
+                fs::File::create(image_folder.join(format!("{}.jpg", entry.y_name))).unwrap();
+            let image_1 = download_image(client, &downloaded.image_url_1).unwrap();
+            f.write_all(&image_1).unwrap();
+        }
+    }
+    if let Some(old_deck_count) = entry.deck_count
+        && old_deck_count != downloaded.deck_count
+    {
+        update.deck_count = Some(downloaded.deck_count);
+    }
+    if let Some(old_x_color_id) = entry.x_color_id
+        && old_x_color_id != downloaded.color_id_0
+    {
+        update.x_color_id = Some(downloaded.color_id_0);
+    }
+    if let Some(old_y_color_id) = entry.y_color_id
+        && old_y_color_id != downloaded.color_id_1
+    {
+        update.y_color_id = Some(downloaded.color_id_1);
+    }
+    update
+}
+
+pub fn update_data_single(
+    data: &mut DataSingle,
+    to_download: WebParameters,
+    image_folder: Option<&Path>,
+) {
+    debug_assert!(to_download.any());
+    let client = reqwest::blocking::Client::new();
+
+    for j in 1..data.values.len() {
+        let (lower, upper) = data.values.split_at_mut(j);
+        let y = &mut upper[0];
+
+        // When downloading images, we only download the first run through
+        let mut new = true;
+        for x in lower {
+            if !(to_download.deck_count || new) {
+                break;
+            }
+            let deck_count = if to_download.deck_count {
+                Some(*data.decks.get(&(x.name.clone(), y.name.clone())).unwrap_or(&0))
+            } else {
+                None
+            };
+            let x_color_id =
+                if new && to_download.color_id_0 { Some(&x.color_id[..]) } else { None };
+
+            let entry = EntryDownload {
+                x_name: &x.name,
+                y_name: &y.name,
+                x_image: new,
+                y_image: false,
+                deck_count,
+                x_color_id,
+                y_color_id: None,
+            };
+
+            let downloaded = download_entry(entry, image_folder, &client);
+
+            if let Some(new_deck_count) = downloaded.deck_count {
+                data.decks.insert((x.name.clone(), y.name.clone()), new_deck_count);
+            }
+
+            if let Some(new_x_color_id) = downloaded.x_color_id {
+                x.color_id = new_x_color_id;
+            }
+
+            new = false;
+        }
     }
 }
 

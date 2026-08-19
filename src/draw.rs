@@ -1,22 +1,14 @@
 use colorous::VIRIDIS;
+use indexmap::IndexMap;
 use svg::{
     Document, Node as _,
     node::element::{self, Rectangle},
 };
 
 use crate::{
-    Data,
     color::{COLORLESS_COLOR, Color, MISSING_COLOR},
+    partner_data::Partner,
 };
-
-// Adjacent SVG elements may display a gap, so we add `EPSILON` overlap in some
-// places
-const EPSILON: f64 = 0.01;
-
-const COLOR_WIDTH: f64 = 0.2;
-
-const IMAGE_WIDTH_Y: f64 = 6.9;
-const IMAGE_HEIGHT_X: f64 = 1.5;
 
 #[derive(Debug, Clone, Copy)]
 struct ImageParams<'a> {
@@ -31,7 +23,7 @@ struct ImageParams<'a> {
 }
 
 fn add_image(
-    document: &mut element::SVG,
+    document: &mut impl svg::Node,
     definitions: &mut element::Definitions,
     params: ImageParams,
 ) {
@@ -107,14 +99,68 @@ fn color_id_box(
     document.append(rect);
 }
 
-pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl svg::Node {
-    let box_width: f64 = 1.4;
+struct SVGConfig {
+    // Adjacent SVG elements may display a gap, so we add `epsilon` overlap in some
+    // places
+    epsilon: f64,
+
+    color_width: f64,
+    image_height_x: f64,
+    image_width_y: f64,
+    box_width: f64,
+}
+
+impl Default for SVGConfig {
+    fn default() -> Self {
+        Self {
+            epsilon: 0.01,
+            color_width: 0.2,
+            image_height_x: 6.9,
+            image_width_y: 6.9,
+            box_width: 1.4,
+        }
+    }
+}
+
+pub fn create_svg(
+    x_values: &[Partner],
+    y_values: &[Partner],
+    decks: &IndexMap<(String, String), u64>,
+    x_images: &[String],
+    y_images: &[String],
+    flip: bool,
+    below_diagonal: bool,
+) -> impl svg::Node {
+    let config = SVGConfig::default();
+
+    create_svg_from_config(
+        x_values,
+        y_values,
+        decks,
+        x_images,
+        y_images,
+        flip,
+        below_diagonal,
+        &config,
+    )
+}
+
+fn create_svg_from_config<'a>(
+    x_values: &'a [Partner],
+    y_values: &'a [Partner],
+    decks: &'a IndexMap<(String, String), u64>,
+    x_images: &'a [String],
+    y_images: &'a [String],
+    flip: bool,
+    below_diagonal: bool,
+    config: &SVGConfig,
+) -> element::SVG {
     let scale = 30.0;
-    let x_len = data.x_values.len();
-    let y_len = data.y_values.len();
+    let x_len = x_values.len();
+    let y_len = y_values.len();
     let mut min = u64::MAX;
     let mut max = u64::MIN;
-    for &x in data.decks.values() {
+    for &x in decks.values() {
         if x < min {
             min = x;
         }
@@ -123,8 +169,8 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
         }
     }
 
-    let width = x_len as f64 * box_width + IMAGE_WIDTH_Y + COLOR_WIDTH;
-    let height = y_len as f64 + IMAGE_HEIGHT_X + COLOR_WIDTH;
+    let width = x_len as f64 * config.box_width + config.image_width_y + config.color_width;
+    let height = y_len as f64 + config.image_height_x + config.color_width;
 
     let mut document = Document::new()
         .set("width", scale * width)
@@ -134,31 +180,39 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
     let mut definitions = element::Definitions::new();
 
     // Add images
-    for (i, image) in x_images.iter().enumerate() {
+    for (i, (image, label)) in (x_images.iter().zip(x_values.iter())).enumerate() {
         let id = format!("x-{i}");
 
-        let x = i as f64 * box_width + IMAGE_WIDTH_Y + COLOR_WIDTH;
+        let mut label_g = element::Group::new();
 
         let params = ImageParams {
-            x,
+            x: 0.0,
             y: 0.0,
-            height: IMAGE_HEIGHT_X + EPSILON,
-            width: box_width,
+            height: config.box_width + config.epsilon,
+            width: config.image_height_x,
             x_padding: 0.5,
             y_padding: 0.0,
             id: &id,
             image,
         };
 
-        add_image(&mut document, &mut definitions, params);
+        add_image(&mut label_g, &mut definitions, params);
 
-        let info = &data.x_values[i];
+        let info = &x_values[i];
+        let name = &label.name;
+        let text = outlined_text("start", 0.2, config.box_width * 0.5, name, 0.55, "serif");
+        text.add(&mut label_g);
+
+        let x = i as f64 * config.box_width + config.image_width_y + config.color_width;
+        let y = config.image_height_x;
+        label_g.assign("transform", format!("translate({}, {}) rotate(-90)", x, y));
+        document.append(label_g);
 
         let params = BoxParams {
             x,
-            y: IMAGE_HEIGHT_X,
-            width: box_width + EPSILON,
-            height: COLOR_WIDTH + EPSILON,
+            y: config.image_height_x,
+            width: config.box_width + config.epsilon,
+            height: config.color_width + config.epsilon,
             color_id: &info.color_id,
             rotated: false,
         };
@@ -167,23 +221,29 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
         color_id_box(&mut document, &mut definitions, params, &gradient_id);
     }
 
-    for (j, image) in y_images.iter().enumerate() {
-        let info = &data.y_values[j];
+    let mut y_paddings: Vec<f64> = Vec::with_capacity(y_len);
+
+    for y in y_values {
+        let mut out = 2.8;
+        if let Some(y_offset_offset) = y.offset_y {
+            out -= y_offset_offset;
+        }
+        y_paddings.push(out);
+    }
+
+    for (j, (image, info)) in (y_images.iter()).zip(y_values.iter()).enumerate() {
         let id = format!("y-{j}");
 
-        let inner_y = IMAGE_HEIGHT_X + COLOR_WIDTH + j as f64;
-        let mut y_offset = 2.8;
+        let inner_y = config.image_height_x + config.color_width + j as f64;
+        let y_padding = y_paddings[j];
 
-        if let Some(y_offset_offset) = info.offset_y {
-            y_offset -= y_offset_offset;
-        }
         let params = ImageParams {
             x: 0.0,
-            y: IMAGE_HEIGHT_X + COLOR_WIDTH + j as f64,
-            height: 1.0 + EPSILON,
-            width: IMAGE_WIDTH_Y + EPSILON,
+            y: config.image_height_x + config.color_width + j as f64,
+            height: 1.0 + config.epsilon,
+            width: config.image_width_y + config.epsilon,
             x_padding: 0.5,
-            y_padding: y_offset,
+            y_padding,
             id: &id,
             image,
         };
@@ -192,10 +252,10 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
 
         // Add color
         let params = BoxParams {
-            x: IMAGE_WIDTH_Y,
+            x: config.image_width_y,
             y: inner_y,
-            width: COLOR_WIDTH + EPSILON,
-            height: 1.0 + EPSILON,
+            width: config.color_width + config.epsilon,
+            height: 1.0 + config.epsilon,
             color_id: &info.color_id,
             rotated: true,
         };
@@ -206,80 +266,106 @@ pub fn create_svg(data: &Data, x_images: &[String], y_images: &[String]) -> impl
 
     document.append(definitions);
 
-    for (j, label) in data.y_values.iter().enumerate() {
+    for (j, label) in y_values.iter().enumerate() {
         let name = &label.name;
-        outlined_text(
-            &mut document,
+        let text = outlined_text(
             "end",
-            IMAGE_WIDTH_Y - 0.2,
-            IMAGE_HEIGHT_X + COLOR_WIDTH + j as f64 + 0.5,
+            config.image_width_y - 0.2,
+            config.image_height_x + config.color_width + j as f64 + 0.5,
             name,
             0.55,
             "serif",
         );
+        text.add(&mut document);
     }
 
-    for (i, label) in data.x_values.iter().enumerate() {
-        let name = match label.short.as_ref() {
-            Some(x) => x,
-            None => &label.name.chars().next().unwrap().to_string(),
-        };
-        outlined_text(
-            &mut document,
-            "middle",
-            IMAGE_WIDTH_Y + COLOR_WIDTH + (0.5 + i as f64) * box_width,
-            IMAGE_HEIGHT_X / 2.0,
-            name,
-            0.9,
-            "serif",
-        );
-    }
+    let mut texts: Vec<TextOutlined> = Vec::new();
 
     // Draw boxes
-    for (j, y) in data.y_values.iter().enumerate() {
-        for (i, x) in data.x_values.iter().enumerate() {
-            let (color, number) =
-                if let Some(&x) = data.decks.get(&(x.name.clone(), y.name.clone())) {
-                    let ratio = (x - min) as f64 / (max - min) as f64;
-                    let scaled = 1.0 - (1.0 - ratio).powi(15);
-                    (VIRIDIS.eval_continuous(scaled), x.to_string())
-                } else {
-                    (MISSING_COLOR, "0".to_string())
-                };
-            let x_pos = i as f64 * box_width + IMAGE_WIDTH_Y + COLOR_WIDTH;
-            let y_pos = j as f64 + IMAGE_HEIGHT_X + COLOR_WIDTH;
-            let r = Rectangle::new()
-                .set("x", x_pos)
-                .set("y", y_pos)
-                .set("width", box_width * (1.0 + EPSILON))
-                .set("height", 1.0 + EPSILON)
-                .set("fill", format!("rgb({}, {}, {})", color.r, color.g, color.b));
+    for (j, y) in y_values.iter().enumerate() {
+        for (i, x) in x_values.iter().enumerate() {
+            if !below_diagonal && y.name == x.name {
+                break;
+            }
+            let value = if flip {
+                decks.get(&(y.name.clone(), x.name.clone()))
+            } else {
+                decks.get(&(x.name.clone(), y.name.clone()))
+            };
+            let x_pos = i as f64 * config.box_width + config.image_width_y + config.color_width;
+            let y_pos = j as f64 + config.image_height_x + config.color_width;
+            add_color_cell(&mut document, config, min, max, x_pos, y_pos, value);
 
-            document.append(r);
-            outlined_text(
-                &mut document,
+            let number = value.unwrap_or(&0);
+
+            let text = outlined_text(
                 "middle",
-                x_pos + 0.5 * box_width,
+                x_pos + 0.5 * config.box_width,
                 y_pos + 0.5,
-                &number,
+                &number.to_string(),
                 0.5,
                 "sans-serif",
             );
+            texts.push(text);
         }
+    }
+
+    for text in texts {
+        text.add(&mut document);
     }
 
     document
 }
 
+fn add_color_cell(
+    document: &mut element::SVG,
+    config: &SVGConfig,
+    min: u64,
+    max: u64,
+    x_pos: f64,
+    y_pos: f64,
+    value: Option<&u64>,
+) {
+    let color = if let Some(&x) = value {
+        let ratio = (x - min) as f64 / (max - min) as f64;
+        let scaled = 1.0 - (1.0 - ratio).powi(15);
+        VIRIDIS.eval_continuous(scaled)
+    } else {
+        MISSING_COLOR
+    };
+    let r = Rectangle::new()
+        .set("x", x_pos)
+        .set("y", y_pos)
+        .set("width", config.box_width * (1.0 + config.epsilon))
+        .set("height", 1.0 + config.epsilon)
+        .set("fill", format!("rgb({}, {}, {})", color.r, color.g, color.b));
+
+    document.append(r);
+}
+
+struct TextOutlined {
+    text: element::Text,
+
+    // We add two outlines to prevent gaps between the outline
+    outline: (element::Text, element::Text),
+}
+
+impl TextOutlined {
+    fn add(self, svg: &mut impl svg::Node) {
+        svg.append(self.outline.0);
+        svg.append(self.outline.1);
+        svg.append(self.text);
+    }
+}
+
 fn outlined_text(
-    output: &mut impl svg::Node,
     text_anchor: &str,
     x: f64,
     y: f64,
     text: &str,
     font_size: f64,
     font_family: &str,
-) {
+) -> TextOutlined {
     let text = element::Text::new(text)
         .set("x", x)
         .set("y", y)
@@ -290,18 +376,13 @@ fn outlined_text(
 
     let text_inner = text.clone().set("fill", "white");
 
-    // We add two outlines to prevent gaps between the outline
-    text_outline(output, font_family, 0.2, &text);
-    text_outline(output, font_family, 0.1, &text);
-    output.append(text_inner);
+    TextOutlined {
+        text: text_inner,
+        outline: (text_outline(font_family, 0.2, &text), text_outline(font_family, 0.1, &text)),
+    }
 }
 
-fn text_outline(
-    output: &mut impl svg::Node,
-    font_family: &str,
-    stroke_width: f64,
-    text: &element::Text,
-) {
+fn text_outline(font_family: &str, stroke_width: f64, text: &element::Text) -> element::Text {
     let style = format!(
         concat!(
             "font-family:{};",
@@ -310,10 +391,10 @@ fn text_outline(
             "stroke-width: {};",
             "stroke-linecap: butt;",
             "stroke-linejoin: round;",
-            "fill-rule: nonzero;"
+            "fill-rule: nonzero;",
+            "user-select: none;",
         ),
         font_family, stroke_width
     );
-    let text_outline = text.clone().set("fill", "black").set("style", style);
-    output.append(text_outline);
+    text.clone().set("fill", "black").set("style", style)
 }

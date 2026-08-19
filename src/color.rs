@@ -37,7 +37,7 @@ pub const MISSING_COLOR: colorous::Color = colorous::Color { r: 30, g: 25, b: 30
 pub const COLORLESS_COLOR: &str = "rgb(204.0, 194.0, 192.0)";
 
 impl Color {
-    pub fn as_str(&self) -> &str {
+    pub const fn as_str(&self) -> &str {
         match self {
             Self::White => "rgb(245, 241, 237)",
             Self::Blue => "rgb(0, 107, 167)",

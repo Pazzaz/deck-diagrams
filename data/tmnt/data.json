@@ -1,47 +1,5 @@
 {
-    "x_values": [
-        {
-            "name": "April O'Neil, Live on the Scene",
-            "color_id": [
-                "U"
-            ]
-        },
-        {
-            "name": "Donatello, the Brains",
-            "color_id": [
-                "U"
-            ]
-        },
-        {
-            "name": "Leonardo, the Balance",
-            "color_id": [
-                "W",
-                "U",
-                "B",
-                "R",
-                "G"
-            ]
-        },
-        {
-            "name": "Michelangelo, the Heart",
-            "color_id": [
-                "G"
-            ]
-        },
-        {
-            "name": "Raphael, the Muscle",
-            "color_id": [
-                "R"
-            ]
-        },
-        {
-            "name": "Splinter, the Mentor",
-            "color_id": [
-                "B"
-            ]
-        }
-    ],
-    "y_values": [
+    "values": [
         {
             "name": "April O'Neil, Live on the Scene",
             "color_id": [
@@ -87,12 +45,17 @@
         [
             "April O'Neil, Live on the Scene",
             "Donatello, the Brains",
-            98
+            100
         ],
         [
             "April O'Neil, Live on the Scene",
             "Leonardo, the Balance",
-            1310
+            1313
+        ],
+        [
+            "Donatello, the Brains",
+            "Leonardo, the Balance",
+            1025
         ],
         [
             "April O'Neil, Live on the Scene",
@@ -100,9 +63,34 @@
             21
         ],
         [
+            "Donatello, the Brains",
+            "Michelangelo, the Heart",
+            972
+        ],
+        [
+            "Leonardo, the Balance",
+            "Michelangelo, the Heart",
+            8770
+        ],
+        [
             "April O'Neil, Live on the Scene",
             "Raphael, the Muscle",
             5
+        ],
+        [
+            "Donatello, the Brains",
+            "Raphael, the Muscle",
+            176
+        ],
+        [
+            "Leonardo, the Balance",
+            "Raphael, the Muscle",
+            1653
+        ],
+        [
+            "Michelangelo, the Heart",
+            "Raphael, the Muscle",
+            648
         ],
         [
             "April O'Neil, Live on the Scene",
@@ -111,73 +99,13 @@
         ],
         [
             "Donatello, the Brains",
-            "April O'Neil, Live on the Scene",
-            98
-        ],
-        [
-            "Donatello, the Brains",
-            "Leonardo, the Balance",
-            1023
-        ],
-        [
-            "Donatello, the Brains",
-            "Michelangelo, the Heart",
-            969
-        ],
-        [
-            "Donatello, the Brains",
-            "Raphael, the Muscle",
-            176
-        ],
-        [
-            "Donatello, the Brains",
             "Splinter, the Mentor",
             176
         ],
         [
             "Leonardo, the Balance",
-            "April O'Neil, Live on the Scene",
-            1310
-        ],
-        [
-            "Leonardo, the Balance",
-            "Donatello, the Brains",
-            1023
-        ],
-        [
-            "Leonardo, the Balance",
-            "Michelangelo, the Heart",
-            8745
-        ],
-        [
-            "Leonardo, the Balance",
-            "Raphael, the Muscle",
-            1650
-        ],
-        [
-            "Leonardo, the Balance",
             "Splinter, the Mentor",
-            302
-        ],
-        [
-            "Michelangelo, the Heart",
-            "April O'Neil, Live on the Scene",
-            21
-        ],
-        [
-            "Michelangelo, the Heart",
-            "Donatello, the Brains",
-            969
-        ],
-        [
-            "Michelangelo, the Heart",
-            "Leonardo, the Balance",
-            8745
-        ],
-        [
-            "Michelangelo, the Heart",
-            "Raphael, the Muscle",
-            647
+            304
         ],
         [
             "Michelangelo, the Heart",
@@ -186,53 +114,8 @@
         ],
         [
             "Raphael, the Muscle",
-            "April O'Neil, Live on the Scene",
-            5
-        ],
-        [
-            "Raphael, the Muscle",
-            "Donatello, the Brains",
-            176
-        ],
-        [
-            "Raphael, the Muscle",
-            "Leonardo, the Balance",
-            1650
-        ],
-        [
-            "Raphael, the Muscle",
-            "Michelangelo, the Heart",
-            647
-        ],
-        [
-            "Raphael, the Muscle",
             "Splinter, the Mentor",
-            66
-        ],
-        [
-            "Splinter, the Mentor",
-            "April O'Neil, Live on the Scene",
-            36
-        ],
-        [
-            "Splinter, the Mentor",
-            "Donatello, the Brains",
-            176
-        ],
-        [
-            "Splinter, the Mentor",
-            "Leonardo, the Balance",
-            302
-        ],
-        [
-            "Splinter, the Mentor",
-            "Michelangelo, the Heart",
-            88
-        ],
-        [
-            "Splinter, the Mentor",
-            "Raphael, the Muscle",
-            66
+            67
         ]
     ]
 }

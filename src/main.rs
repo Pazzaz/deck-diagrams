@@ -17,7 +17,7 @@ mod partner_data;
 mod web;
 
 fn main() {
-    let data_folder = PathBuf::from_str("./data/friends_forever").unwrap();
+    let data_folder = PathBuf::from_str("./data/partner").unwrap();
     let download_counts: bool = false;
     let download_color_ids: bool = false;
     let download_images: bool = false;
@@ -42,12 +42,37 @@ fn main() {
         data.serialize(&mut ser).unwrap();
     }
 
-    let x_images = get_images(&data_folder.join("images"), &data.x_values);
-    let y_images = get_images(&data_folder.join("images"), &data.y_values);
+    let svg = match data {
+        Data::Single(data_single) => {
+            let mut images_y = get_images(&data_folder.join("images"), &data_single.values);
+            let mut images_x = images_y.clone();
+            let mut values_x = data_single.values.clone();
+            images_x.reverse();
+            values_x.reverse();
 
-    let svg = create_svg(&data, &x_images, &y_images);
+            images_x.pop();
+            images_y.pop();
+            values_x.pop();
+            let values_y = data_single.values.split_last().unwrap().1;
 
-    svg::save("./out4.svg", &svg).unwrap();
+            create_svg(&values_x, values_y, &data_single.decks, &images_x, &images_y, true, false)
+        }
+        Data::Double(data_double) => {
+            let x_images = get_images(&data_folder.join("images"), &data_double.x_values);
+            let y_images = get_images(&data_folder.join("images"), &data_double.y_values);
+            create_svg(
+                &data_double.x_values,
+                &data_double.y_values,
+                &data_double.decks,
+                &x_images,
+                &y_images,
+                false,
+                true,
+            )
+        }
+    };
+
+    svg::save("./out7.svg", &svg).unwrap();
 }
 
 fn get_images(folder: &Path, labels: &[Partner]) -> Vec<String> {

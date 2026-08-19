@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::color::Color;
 
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct Partner {
     pub name: String,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -41,9 +41,25 @@ mod decks_format {
     }
 }
 
-#[derive(Deserialize, Serialize)]
-pub struct Data {
+#[derive(Debug, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum Data {
+    Single(DataSingle),
+    Double(DataDouble),
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct DataSingle {
+    pub values: Vec<Partner>,
+
+    #[serde(with = "decks_format")]
+    pub decks: IndexMap<(String, String), u64>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct DataDouble {
     pub x_values: Vec<Partner>,
+
     pub y_values: Vec<Partner>,
 
     #[serde(with = "decks_format")]
