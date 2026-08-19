@@ -133,13 +133,23 @@ pub fn create_svg(
 ) -> impl svg::Node {
     let config = SVGConfig::default();
 
+    let mut x_order: Vec<usize> = (0..x_values.len()).collect();
+    let mut y_order: Vec<usize> = (0..y_values.len()).collect();
+
+    if flip {
+        x_order.reverse();
+        x_order.pop();
+        y_order.pop();
+    }
+
     create_svg_from_config(
         x_values,
         y_values,
+        &x_order,
+        &y_order,
         decks,
         x_images,
         y_images,
-        flip,
         below_diagonal,
         &config,
     )
@@ -148,16 +158,17 @@ pub fn create_svg(
 fn create_svg_from_config<'a>(
     x_values: &'a [Partner],
     y_values: &'a [Partner],
+    x_order: &[usize],
+    y_order: &[usize],
     decks: &'a IndexMap<(String, String), u64>,
     x_images: &'a [String],
     y_images: &'a [String],
-    flip: bool,
     below_diagonal: bool,
     config: &SVGConfig,
 ) -> element::SVG {
     let scale = 30.0;
-    let x_len = x_values.len();
-    let y_len = y_values.len();
+    let x_len = x_order.len();
+    let y_len = y_order.len();
     let mut min = u64::MAX;
     let mut max = u64::MIN;
     for &x in decks.values() {
@@ -180,7 +191,7 @@ fn create_svg_from_config<'a>(
     let mut definitions = element::Definitions::new();
 
     // Add images
-    for (i, (image, label)) in (x_images.iter().zip(x_values.iter())).enumerate() {
+    for (i, &label_i) in x_order.iter().enumerate() {
         let id = format!("x-{i}");
 
         let mut label_g = element::Group::new();
@@ -193,13 +204,12 @@ fn create_svg_from_config<'a>(
             x_padding: 0.5,
             y_padding: 0.0,
             id: &id,
-            image,
+            image: &x_images[label_i],
         };
 
         add_image(&mut label_g, &mut definitions, params);
 
-        let info = &x_values[i];
-        let name = &label.name;
+        let name = &x_values[label_i].name;
         let text = outlined_text("start", 0.2, config.box_width * 0.5, name, 0.55, "serif");
         text.add(&mut label_g);
 
@@ -213,7 +223,7 @@ fn create_svg_from_config<'a>(
             y: config.image_height_x,
             width: config.box_width + config.epsilon,
             height: config.color_width + config.epsilon,
-            color_id: &info.color_id,
+            color_id: &x_values[label_i].color_id,
             rotated: false,
         };
 
@@ -221,7 +231,7 @@ fn create_svg_from_config<'a>(
         color_id_box(&mut document, &mut definitions, params, &gradient_id);
     }
 
-    let mut y_paddings: Vec<f64> = Vec::with_capacity(y_len);
+    let mut y_paddings: Vec<f64> = Vec::with_capacity(y_values.len());
 
     for y in y_values {
         let mut out = 2.8;
@@ -231,11 +241,10 @@ fn create_svg_from_config<'a>(
         y_paddings.push(out);
     }
 
-    for (j, (image, info)) in (y_images.iter()).zip(y_values.iter()).enumerate() {
+    for (j, &label_j) in y_order.iter().enumerate() {
         let id = format!("y-{j}");
 
         let inner_y = config.image_height_x + config.color_width + j as f64;
-        let y_padding = y_paddings[j];
 
         let params = ImageParams {
             x: 0.0,
@@ -243,9 +252,9 @@ fn create_svg_from_config<'a>(
             height: 1.0 + config.epsilon,
             width: config.image_width_y + config.epsilon,
             x_padding: 0.5,
-            y_padding,
+            y_padding: y_paddings[label_j],
             id: &id,
-            image,
+            image: &y_images[label_j],
         };
 
         add_image(&mut document, &mut definitions, params);
@@ -256,42 +265,39 @@ fn create_svg_from_config<'a>(
             y: inner_y,
             width: config.color_width + config.epsilon,
             height: 1.0 + config.epsilon,
-            color_id: &info.color_id,
+            color_id: &y_values[label_j].color_id,
             rotated: true,
         };
 
         let gradient_id = format!("y-gradient-{}", j);
         color_id_box(&mut document, &mut definitions, params, &gradient_id);
-    }
 
-    document.append(definitions);
-
-    for (j, label) in y_values.iter().enumerate() {
-        let name = &label.name;
         let text = outlined_text(
             "end",
             config.image_width_y - 0.2,
             config.image_height_x + config.color_width + j as f64 + 0.5,
-            name,
+            &y_values[label_j].name,
             0.55,
             "serif",
         );
         text.add(&mut document);
     }
 
+    document.append(definitions);
+
     let mut texts: Vec<TextOutlined> = Vec::new();
 
     // Draw boxes
-    for (j, y) in y_values.iter().enumerate() {
-        for (i, x) in x_values.iter().enumerate() {
+    for (j, &label_j) in y_order.iter().enumerate() {
+        let y = &y_values[label_j];
+        for (i, &label_i) in x_order.iter().enumerate() {
+            let x = &x_values[label_i];
             if !below_diagonal && y.name == x.name {
                 break;
             }
-            let value = if flip {
-                decks.get(&(y.name.clone(), x.name.clone()))
-            } else {
-                decks.get(&(x.name.clone(), y.name.clone()))
-            };
+            let value = decks
+                .get(&(x.name.clone(), y.name.clone()))
+                .or_else(|| decks.get(&(y.name.clone(), x.name.clone())));
             let x_pos = i as f64 * config.box_width + config.image_width_y + config.color_width;
             let y_pos = j as f64 + config.image_height_x + config.color_width;
             add_color_cell(&mut document, config, min, max, x_pos, y_pos, value);

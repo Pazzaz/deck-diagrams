@@ -44,18 +44,10 @@ fn main() {
 
     let svg = match data {
         Data::Single(data_single) => {
-            let mut images_y = get_images(&data_folder.join("images"), &data_single.values);
-            let mut images_x = images_y.clone();
-            let mut values_x = data_single.values.clone();
-            images_x.reverse();
-            values_x.reverse();
+            let images = get_images(&data_folder.join("images"), &data_single.values);
+            let values = &data_single.values;
 
-            images_x.pop();
-            images_y.pop();
-            values_x.pop();
-            let values_y = data_single.values.split_last().unwrap().1;
-
-            create_svg(&values_x, values_y, &data_single.decks, &images_x, &images_y, true, false)
+            create_svg(values, values, &data_single.decks, &images, &images, true, false)
         }
         Data::Double(data_double) => {
             let x_images = get_images(&data_folder.join("images"), &data_double.x_values);
