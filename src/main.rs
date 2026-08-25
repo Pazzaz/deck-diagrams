@@ -1,4 +1,5 @@
 use std::{
+    collections::HashMap,
     fs, io,
     path::{Path, PathBuf},
     str::FromStr,
@@ -6,6 +7,7 @@ use std::{
 
 use base64::prelude::*;
 use draw::create_svg;
+use indexmap::IndexMap;
 use serde::Serialize as _;
 use web::{WebParameters, update_data};
 
@@ -45,26 +47,79 @@ fn main() {
     let svg = match data {
         Data::Single(data_single) => {
             let images = get_images(&data_folder.join("images"), &data_single.values);
-            let values = &data_single.values;
+            let order = get_order(&data_single.values, &data_single.decks, Counting::Both);
 
-            create_svg(values, values, &data_single.decks, &images, &images, true, false)
+            create_svg(
+                &data_single.values,
+                &data_single.values,
+                &order,
+                &order,
+                &data_single.decks,
+                &images,
+                &images,
+            )
         }
         Data::Double(data_double) => {
             let x_images = get_images(&data_folder.join("images"), &data_double.x_values);
             let y_images = get_images(&data_folder.join("images"), &data_double.y_values);
+
+            let x_order = get_order(&data_double.x_values, &data_double.decks, Counting::X);
+            let y_order = get_order(&data_double.y_values, &data_double.decks, Counting::Y);
+
             create_svg(
                 &data_double.x_values,
                 &data_double.y_values,
+                &x_order,
+                &y_order,
                 &data_double.decks,
                 &x_images,
                 &y_images,
-                false,
-                true,
             )
         }
     };
 
     svg::save("./out7.svg", &svg).unwrap();
+}
+
+enum Counting {
+    X,
+    Y,
+    Both,
+}
+
+fn get_order(
+    values: &[Partner],
+    decks: &IndexMap<(String, String), u64>,
+    counting: Counting,
+) -> Vec<usize> {
+    let len = values.len();
+
+    let mut order: Vec<usize> = (0..len).collect();
+
+    let mut total_partner = vec![0; len];
+
+    let name_to: HashMap<String, usize> = {
+        let mut out = HashMap::new();
+        for (i, name) in values.iter().map(|x| &x.name).enumerate() {
+            out.insert(name.clone(), i);
+        }
+        out
+    };
+
+    for ((x, y), v) in decks {
+        match counting {
+            Counting::X => total_partner[name_to[x]] += v,
+            Counting::Y => total_partner[name_to[y]] += v,
+            Counting::Both => {
+                total_partner[name_to[x]] += v;
+                total_partner[name_to[y]] += v;
+            }
+        }
+    }
+
+    order.sort_by_key(|&i| std::cmp::Reverse((total_partner[i], i)));
+
+    order
 }
 
 fn get_images(folder: &Path, labels: &[Partner]) -> Vec<String> {

@@ -125,34 +125,15 @@ impl Default for SVGConfig {
 pub fn create_svg(
     x_values: &[Partner],
     y_values: &[Partner],
+    x_order: &[usize],
+    y_order: &[usize],
     decks: &IndexMap<(String, String), u64>,
     x_images: &[String],
     y_images: &[String],
-    flip: bool,
-    below_diagonal: bool,
 ) -> impl svg::Node {
     let config = SVGConfig::default();
 
-    let mut x_order: Vec<usize> = (0..x_values.len()).collect();
-    let mut y_order: Vec<usize> = (0..y_values.len()).collect();
-
-    if flip {
-        x_order.reverse();
-        x_order.pop();
-        y_order.pop();
-    }
-
-    create_svg_from_config(
-        x_values,
-        y_values,
-        &x_order,
-        &y_order,
-        decks,
-        x_images,
-        y_images,
-        below_diagonal,
-        &config,
-    )
+    create_svg_from_config(x_values, y_values, x_order, y_order, decks, x_images, y_images, &config)
 }
 
 fn create_svg_from_config<'a>(
@@ -163,7 +144,6 @@ fn create_svg_from_config<'a>(
     decks: &'a IndexMap<(String, String), u64>,
     x_images: &'a [String],
     y_images: &'a [String],
-    below_diagonal: bool,
     config: &SVGConfig,
 ) -> element::SVG {
     let scale = 30.0;
@@ -292,8 +272,8 @@ fn create_svg_from_config<'a>(
         let y = &y_values[label_j];
         for (i, &label_i) in x_order.iter().enumerate() {
             let x = &x_values[label_i];
-            if !below_diagonal && y.name == x.name {
-                break;
+            if x.name == y.name {
+                continue;
             }
             let value = decks
                 .get(&(x.name.clone(), y.name.clone()))
