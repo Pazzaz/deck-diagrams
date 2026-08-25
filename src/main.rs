@@ -11,7 +11,10 @@ use indexmap::IndexMap;
 use serde::Serialize as _;
 use web::{WebParameters, update_data};
 
-use crate::partner_data::{Data, Partner};
+use crate::{
+    draw::Labels,
+    partner_data::{Data, Partner},
+};
 
 mod color;
 mod draw;
@@ -48,16 +51,9 @@ fn main() {
         Data::Single(data_single) => {
             let images = get_images(&data_folder.join("images"), &data_single.values);
             let order = get_order(&data_single.values, &data_single.decks, Counting::Both);
+            let labels = Labels { values: &data_single.values, order: &order, images: &images };
 
-            create_svg(
-                &data_single.values,
-                &data_single.values,
-                &order,
-                &order,
-                &data_single.decks,
-                &images,
-                &images,
-            )
+            create_svg(labels, labels, &data_single.decks)
         }
         Data::Double(data_double) => {
             let x_images = get_images(&data_folder.join("images"), &data_double.x_values);
@@ -66,21 +62,20 @@ fn main() {
             let x_order = get_order(&data_double.x_values, &data_double.decks, Counting::X);
             let y_order = get_order(&data_double.y_values, &data_double.decks, Counting::Y);
 
-            create_svg(
-                &data_double.x_values,
-                &data_double.y_values,
-                &x_order,
-                &y_order,
-                &data_double.decks,
-                &x_images,
-                &y_images,
-            )
+            let x_labels =
+                Labels { values: &data_double.x_values, order: &x_order, images: &x_images };
+
+            let y_labels =
+                Labels { values: &data_double.y_values, order: &y_order, images: &y_images };
+
+            create_svg(x_labels, y_labels, &data_double.decks)
         }
     };
 
     svg::save("./out7.svg", &svg).unwrap();
 }
 
+#[derive(Debug, Clone, Copy)]
 enum Counting {
     X,
     Y,

@@ -122,33 +122,32 @@ impl Default for SVGConfig {
     }
 }
 
+#[derive(Debug, Clone, Copy)]
+pub struct Labels<'a> {
+    pub values: &'a [Partner],
+    pub order: &'a [usize],
+    pub images: &'a [String],
+}
+
 pub fn create_svg(
-    x_values: &[Partner],
-    y_values: &[Partner],
-    x_order: &[usize],
-    y_order: &[usize],
+    x_labels: Labels<'_>,
+    y_labels: Labels<'_>,
     decks: &IndexMap<(String, String), u64>,
-    x_images: &[String],
-    y_images: &[String],
 ) -> impl svg::Node {
     let config = SVGConfig::default();
 
-    create_svg_from_config(x_values, y_values, x_order, y_order, decks, x_images, y_images, &config)
+    create_svg_from_config(x_labels, y_labels, decks, &config)
 }
 
-fn create_svg_from_config<'a>(
-    x_values: &'a [Partner],
-    y_values: &'a [Partner],
-    x_order: &[usize],
-    y_order: &[usize],
-    decks: &'a IndexMap<(String, String), u64>,
-    x_images: &'a [String],
-    y_images: &'a [String],
+fn create_svg_from_config(
+    x_labels: Labels<'_>,
+    y_labels: Labels<'_>,
+    decks: &IndexMap<(String, String), u64>,
     config: &SVGConfig,
 ) -> element::SVG {
     let scale = 30.0;
-    let x_len = x_order.len();
-    let y_len = y_order.len();
+    let x_len = x_labels.order.len();
+    let y_len = x_labels.order.len();
     let mut min = u64::MAX;
     let mut max = u64::MIN;
     for &x in decks.values() {
@@ -171,7 +170,7 @@ fn create_svg_from_config<'a>(
     let mut definitions = element::Definitions::new();
 
     // Add images
-    for (i, &label_i) in x_order.iter().enumerate() {
+    for (i, &label_i) in x_labels.order.iter().enumerate() {
         let id = format!("x-{i}");
 
         let mut label_g = element::Group::new();
@@ -184,12 +183,12 @@ fn create_svg_from_config<'a>(
             x_padding: 0.5,
             y_padding: 0.0,
             id: &id,
-            image: &x_images[label_i],
+            image: &x_labels.images[label_i],
         };
 
         add_image(&mut label_g, &mut definitions, params);
 
-        let name = &x_values[label_i].name;
+        let name = &x_labels.values[label_i].name;
         let text = outlined_text("start", 0.2, config.box_width * 0.5, name, 0.55, "serif");
         text.add(&mut label_g);
 
@@ -203,7 +202,7 @@ fn create_svg_from_config<'a>(
             y: config.image_height_x,
             width: config.box_width + config.epsilon,
             height: config.color_width + config.epsilon,
-            color_id: &x_values[label_i].color_id,
+            color_id: &x_labels.values[label_i].color_id,
             rotated: false,
         };
 
@@ -211,9 +210,9 @@ fn create_svg_from_config<'a>(
         color_id_box(&mut document, &mut definitions, params, &gradient_id);
     }
 
-    let mut y_paddings: Vec<f64> = Vec::with_capacity(y_values.len());
+    let mut y_paddings: Vec<f64> = Vec::with_capacity(y_labels.values.len());
 
-    for y in y_values {
+    for y in y_labels.values {
         let mut out = 2.8;
         if let Some(y_offset_offset) = y.offset_y {
             out -= y_offset_offset;
@@ -221,7 +220,7 @@ fn create_svg_from_config<'a>(
         y_paddings.push(out);
     }
 
-    for (j, &label_j) in y_order.iter().enumerate() {
+    for (j, &label_j) in x_labels.order.iter().enumerate() {
         let id = format!("y-{j}");
 
         let inner_y = config.image_height_x + config.color_width + j as f64;
@@ -234,7 +233,7 @@ fn create_svg_from_config<'a>(
             x_padding: 0.5,
             y_padding: y_paddings[label_j],
             id: &id,
-            image: &y_images[label_j],
+            image: &y_labels.images[label_j],
         };
 
         add_image(&mut document, &mut definitions, params);
@@ -245,7 +244,7 @@ fn create_svg_from_config<'a>(
             y: inner_y,
             width: config.color_width + config.epsilon,
             height: 1.0 + config.epsilon,
-            color_id: &y_values[label_j].color_id,
+            color_id: &y_labels.values[label_j].color_id,
             rotated: true,
         };
 
@@ -256,7 +255,7 @@ fn create_svg_from_config<'a>(
             "end",
             config.image_width_y - 0.2,
             config.image_height_x + config.color_width + j as f64 + 0.5,
-            &y_values[label_j].name,
+            &y_labels.values[label_j].name,
             0.55,
             "serif",
         );
@@ -268,10 +267,10 @@ fn create_svg_from_config<'a>(
     let mut texts: Vec<TextOutlined> = Vec::new();
 
     // Draw boxes
-    for (j, &label_j) in y_order.iter().enumerate() {
-        let y = &y_values[label_j];
-        for (i, &label_i) in x_order.iter().enumerate() {
-            let x = &x_values[label_i];
+    for (j, &label_j) in x_labels.order.iter().enumerate() {
+        let y = &y_labels.values[label_j];
+        for (i, &label_i) in x_labels.order.iter().enumerate() {
+            let x = &x_labels.values[label_i];
             if x.name == y.name {
                 continue;
             }
