@@ -1,3 +1,4 @@
+use base64::prelude::*;
 use colorous::VIRIDIS;
 use indexmap::IndexMap;
 use svg::{
@@ -166,7 +167,7 @@ fn label_with_image(
         height: height * scale_factor,
         width,
         x_padding: 0.5,
-        y_padding: 0.0,
+        y_padding: 0.5,
         id,
         image,
     };
@@ -220,6 +221,16 @@ fn create_svg_from_config(
         .set("width", scale * width)
         .set("height", scale * height)
         .set("viewBox", (0, 0, width, height));
+
+    // Add background
+    document.append(
+        element::Rectangle::new()
+            .set("x", 0)
+            .set("y", 0)
+            .set("width", width)
+            .set("height", height)
+            .set("fill", "rgb(34, 2, 45)"),
+    );
 
     let mut definitions = element::Definitions::new();
 
@@ -318,30 +329,27 @@ fn create_svg_from_config(
         let y = &y_labels.values[label_j];
         for (i, &label_i) in x_labels.order.iter().enumerate() {
             let x = &x_labels.values[label_i];
-
+            if x.name == y.name {
+                continue;
+            }
             let x_pos = i as f64 * config.box_width + config.image_width_y + config.color_width;
             let y_pos = j as f64 + margin_top + config.color_width;
-            if x.name == y.name {
-                let color = colorous::Color { r: 34, g: 2, b: 45 };
-                add_color_cell(&mut document, config, color, x_pos, y_pos);
-            } else {
-                let value = decks
-                    .get(&(x.name.clone(), y.name.clone()))
-                    .or_else(|| decks.get(&(y.name.clone(), x.name.clone())))
-                    .unwrap_or(&0);
-                let color = get_color(min, max, *value);
-                add_color_cell(&mut document, config, color, x_pos, y_pos);
+            let value = decks
+                .get(&(x.name.clone(), y.name.clone()))
+                .or_else(|| decks.get(&(y.name.clone(), x.name.clone())))
+                .unwrap_or(&0);
+            let color = get_color(min, max, *value);
+            add_color_cell(&mut document, config, color, x_pos, y_pos);
 
-                let text = outlined_text(
-                    "middle",
-                    x_pos + 0.5 * config.box_width,
-                    y_pos + 0.5,
-                    &value.to_string(),
-                    0.5,
-                    "sans-serif",
-                );
-                texts.push(text);
-            }
+            let text = outlined_text(
+                "middle",
+                x_pos + 0.5 * config.box_width,
+                y_pos + 0.5,
+                &value.to_string(),
+                0.5,
+                "sans-serif",
+            );
+            texts.push(text);
         }
     }
 
@@ -349,7 +357,34 @@ fn create_svg_from_config(
         text.add(&mut document);
     }
 
+    document.append(create_info());
+
     document
+}
+
+const EDHREC_IMAGE: &[u8] = include_bytes!("../static/edhrec.png");
+
+fn create_info() -> element::Group {
+    let mut out = element::Group::new();
+    let mut image = String::new();
+    BASE64_STANDARD.encode_string(EDHREC_IMAGE, &mut image);
+
+    let edhrec_image = element::Image::new()
+        .set("x", 2.7)
+        .set("y", 4.3)
+        .set("width", 4.4)
+        .set("href", format!("data:image/jpeg;base64,{}", image));
+
+    outlined_text("start", 0.5, 1.0, "Number of Commander decks by", 0.8, "serif").add(&mut out);
+
+    outlined_text("start", 0.5, 2.2, "partner pairs. Data was collected", 0.8, "serif")
+        .add(&mut out);
+
+    outlined_text("start", 0.5, 3.4, "2026-08-26 from:", 0.8, "serif").add(&mut out);
+
+    out.append(edhrec_image);
+
+    out
 }
 
 fn get_color(min: u64, max: u64, value: u64) -> colorous::Color {
