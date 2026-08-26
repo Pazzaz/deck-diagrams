@@ -195,7 +195,7 @@ fn create_svg_from_config(
 ) -> element::SVG {
     let scale = 30.0;
     let x_len = x_labels.order.len();
-    let y_len = x_labels.order.len();
+    let y_len = y_labels.order.len();
     let mut min = u64::MAX;
     let mut max = u64::MIN;
     for &x in decks.values() {
@@ -234,7 +234,7 @@ fn create_svg_from_config(
             &mut definitions,
             x,
             y,
-            config.image_height_x,
+            config.image_height_x + config.epsilon,
             config.box_width + config.epsilon,
             &id,
             &x_labels.values[label_i].name,
@@ -267,7 +267,7 @@ fn create_svg_from_config(
         y_paddings.push(out);
     }
 
-    for (j, &label_j) in x_labels.order.iter().enumerate() {
+    for (j, &label_j) in y_labels.order.iter().enumerate() {
         let id = format!("y-{j}");
 
         let inner_y = margin_top + config.color_width + j as f64;
@@ -314,7 +314,7 @@ fn create_svg_from_config(
     let mut texts: Vec<TextOutlined> = Vec::new();
 
     // Draw boxes
-    for (j, &label_j) in x_labels.order.iter().enumerate() {
+    for (j, &label_j) in y_labels.order.iter().enumerate() {
         let y = &y_labels.values[label_j];
         for (i, &label_i) in x_labels.order.iter().enumerate() {
             let x = &x_labels.values[label_i];
