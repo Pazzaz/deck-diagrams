@@ -108,6 +108,7 @@ struct SVGConfig {
     image_height_x: f64,
     image_width_y: f64,
     box_width: f64,
+    rotation: f64,
 }
 
 impl Default for SVGConfig {
@@ -115,9 +116,10 @@ impl Default for SVGConfig {
         Self {
             epsilon: 0.01,
             color_width: 0.2,
-            image_height_x: 6.9,
-            image_width_y: 6.9,
+            image_height_x: 9.0,
+            image_width_y: 8.5,
             box_width: 1.4,
+            rotation: 37.0,
         }
     }
 }
@@ -137,6 +139,52 @@ pub fn create_svg(
     let config = SVGConfig::default();
 
     create_svg_from_config(x_labels, y_labels, decks, &config)
+}
+
+fn label_with_image(
+    definitions: &mut element::Definitions,
+    x: f64,
+    y: f64,
+    width: f64,
+    height: f64,
+    id: &str,
+    label: &str,
+    image: &str,
+    rotation: f64,
+) -> element::Group {
+    let mut label_g = element::Group::new();
+
+    let scale_factor = f64::cos(rotation.to_radians());
+
+    let push_up = f64::sin(rotation.to_radians());
+
+    let push_out = 1.0 / scale_factor;
+
+    let params = ImageParams {
+        x: 0.0,
+        y: 0.0,
+        height: height * scale_factor,
+        width,
+        x_padding: 0.5,
+        y_padding: 0.0,
+        id,
+        image,
+    };
+
+    add_image(&mut label_g, definitions, params);
+
+    let text = outlined_text(
+        "start",
+        0.2 + push_out * 0.35,
+        height * scale_factor * (0.5 - (push_up * 0.1)),
+        label,
+        0.55,
+        "serif",
+    );
+    text.add(&mut label_g);
+
+    label_g.assign("transform", format!("translate({}, {}) rotate({})", x, y, -90.0 + rotation));
+    label_g
 }
 
 fn create_svg_from_config(
@@ -159,8 +207,14 @@ fn create_svg_from_config(
         }
     }
 
-    let width = x_len as f64 * config.box_width + config.image_width_y + config.color_width;
-    let height = y_len as f64 + config.image_height_x + config.color_width;
+    let margin_right = config.rotation.to_radians().sin()
+        * (config.image_height_x - config.box_width * config.rotation.to_radians().sin());
+    let margin_top = config.rotation.to_radians().cos() * config.image_height_x
+        - config.box_width * config.rotation.to_radians().sin();
+
+    let width =
+        x_len as f64 * config.box_width + config.image_width_y + config.color_width + margin_right;
+    let height = y_len as f64 + margin_top + config.color_width;
 
     let mut document = Document::new()
         .set("width", scale * width)
@@ -173,33 +227,26 @@ fn create_svg_from_config(
     for (i, &label_i) in x_labels.order.iter().enumerate() {
         let id = format!("x-{i}");
 
-        let mut label_g = element::Group::new();
-
-        let params = ImageParams {
-            x: 0.0,
-            y: 0.0,
-            height: config.box_width + config.epsilon,
-            width: config.image_height_x,
-            x_padding: 0.5,
-            y_padding: 0.0,
-            id: &id,
-            image: &x_labels.images[label_i],
-        };
-
-        add_image(&mut label_g, &mut definitions, params);
-
-        let name = &x_labels.values[label_i].name;
-        let text = outlined_text("start", 0.2, config.box_width * 0.5, name, 0.55, "serif");
-        text.add(&mut label_g);
-
         let x = i as f64 * config.box_width + config.image_width_y + config.color_width;
-        let y = config.image_height_x;
-        label_g.assign("transform", format!("translate({}, {}) rotate(-90)", x, y));
-        document.append(label_g);
+        let y = margin_top;
+
+        let label = label_with_image(
+            &mut definitions,
+            x,
+            y,
+            config.image_height_x,
+            config.box_width + config.epsilon,
+            &id,
+            &x_labels.values[label_i].name,
+            &x_labels.images[label_i],
+            config.rotation,
+        );
+
+        document.append(label);
 
         let params = BoxParams {
             x,
-            y: config.image_height_x,
+            y,
             width: config.box_width + config.epsilon,
             height: config.color_width + config.epsilon,
             color_id: &x_labels.values[label_i].color_id,
@@ -223,11 +270,11 @@ fn create_svg_from_config(
     for (j, &label_j) in x_labels.order.iter().enumerate() {
         let id = format!("y-{j}");
 
-        let inner_y = config.image_height_x + config.color_width + j as f64;
+        let inner_y = margin_top + config.color_width + j as f64;
 
         let params = ImageParams {
             x: 0.0,
-            y: config.image_height_x + config.color_width + j as f64,
+            y: margin_top + config.color_width + j as f64,
             height: 1.0 + config.epsilon,
             width: config.image_width_y + config.epsilon,
             x_padding: 0.5,
@@ -254,7 +301,7 @@ fn create_svg_from_config(
         let text = outlined_text(
             "end",
             config.image_width_y - 0.2,
-            config.image_height_x + config.color_width + j as f64 + 0.5,
+            margin_top + config.color_width + j as f64 + 0.5,
             &y_labels.values[label_j].name,
             0.55,
             "serif",
@@ -271,27 +318,30 @@ fn create_svg_from_config(
         let y = &y_labels.values[label_j];
         for (i, &label_i) in x_labels.order.iter().enumerate() {
             let x = &x_labels.values[label_i];
-            if x.name == y.name {
-                continue;
-            }
-            let value = decks
-                .get(&(x.name.clone(), y.name.clone()))
-                .or_else(|| decks.get(&(y.name.clone(), x.name.clone())));
+
             let x_pos = i as f64 * config.box_width + config.image_width_y + config.color_width;
-            let y_pos = j as f64 + config.image_height_x + config.color_width;
-            add_color_cell(&mut document, config, min, max, x_pos, y_pos, value);
+            let y_pos = j as f64 + margin_top + config.color_width;
+            if x.name == y.name {
+                let color = colorous::Color { r: 34, g: 2, b: 45 };
+                add_color_cell(&mut document, config, color, x_pos, y_pos);
+            } else {
+                let value = decks
+                    .get(&(x.name.clone(), y.name.clone()))
+                    .or_else(|| decks.get(&(y.name.clone(), x.name.clone())))
+                    .unwrap_or(&0);
+                let color = get_color(min, max, *value);
+                add_color_cell(&mut document, config, color, x_pos, y_pos);
 
-            let number = value.unwrap_or(&0);
-
-            let text = outlined_text(
-                "middle",
-                x_pos + 0.5 * config.box_width,
-                y_pos + 0.5,
-                &number.to_string(),
-                0.5,
-                "sans-serif",
-            );
-            texts.push(text);
+                let text = outlined_text(
+                    "middle",
+                    x_pos + 0.5 * config.box_width,
+                    y_pos + 0.5,
+                    &value.to_string(),
+                    0.5,
+                    "sans-serif",
+                );
+                texts.push(text);
+            }
         }
     }
 
@@ -302,22 +352,23 @@ fn create_svg_from_config(
     document
 }
 
-fn add_color_cell(
-    document: &mut element::SVG,
-    config: &SVGConfig,
-    min: u64,
-    max: u64,
-    x_pos: f64,
-    y_pos: f64,
-    value: Option<&u64>,
-) {
-    let color = if let Some(&x) = value {
-        let ratio = (x - min) as f64 / (max - min) as f64;
+fn get_color(min: u64, max: u64, value: u64) -> colorous::Color {
+    if value != 0 {
+        let ratio = (value - min) as f64 / (max - min) as f64;
         let scaled = 1.0 - (1.0 - ratio).powi(15);
         VIRIDIS.eval_continuous(scaled)
     } else {
         MISSING_COLOR
-    };
+    }
+}
+
+fn add_color_cell(
+    document: &mut element::SVG,
+    config: &SVGConfig,
+    color: colorous::Color,
+    x_pos: f64,
+    y_pos: f64,
+) {
     let r = Rectangle::new()
         .set("x", x_pos)
         .set("y", y_pos)
