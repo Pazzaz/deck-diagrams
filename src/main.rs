@@ -15,11 +15,13 @@ use web::{WebParameters, update_data};
 use crate::{
     draw::Labels,
     partner_data::{Data, Partner},
+    render::svg_to_png,
 };
 
 mod color;
 mod draw;
 mod partner_data;
+mod render;
 mod web;
 
 use clap::{Args, Parser, Subcommand};
@@ -125,7 +127,7 @@ fn main() {
                 }
             };
 
-            svg::save(output_path, &svg).unwrap();
+            svg_to_png(&svg, &output_path);
         }
     }
 }

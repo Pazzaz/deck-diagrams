@@ -179,7 +179,7 @@ fn label_with_image(
         0.2 + push_out * 0.35,
         height * scale_factor * (0.5 - (push_up * 0.1)),
         label,
-        0.55,
+        0.65,
         "Times New Roman",
     );
     text.add(&mut label_g);
@@ -194,7 +194,7 @@ fn create_svg_from_config(
     decks: &IndexMap<(String, String), u64>,
     config: &SVGConfig,
 ) -> element::SVG {
-    let scale = 30.0;
+    let scale = 150.0;
     let x_len = x_labels.order.len();
     let y_len = y_labels.order.len();
     let mut min = u64::MAX;
@@ -314,7 +314,7 @@ fn create_svg_from_config(
             config.image_width_y - 0.2,
             margin_top + config.color_width + j as f64 + 0.5,
             &y_labels.values[label_j].name,
-            0.55,
+            0.65,
             "Times New Roman",
         );
         text.add(&mut document);
@@ -375,9 +375,9 @@ fn create_info() -> element::Group {
         .set("x", 4.3)
         .set("y", 3.15)
         .set("width", 4.4)
-        .set("href", format!("data:image/jpeg;base64,{}", image));
+        .set("href", format!("data:image/png;base64,{}", image));
 
-    let text = ["Number of Commander decks by", "partner pairs.", "", "Data from:"];
+    let text = ["Number of Commander decks", "by partner pairs.", "", "Data from:"];
 
     write_paragraph(&mut out, 0.5, 1.0, 1.0, 0.8, &text);
 
@@ -463,6 +463,7 @@ fn outlined_text(
         .set("x", x)
         .set("y", y)
         .set("text-anchor", text_anchor)
+        .set("font-weight", "bold")
         .set("dominant-baseline", "central")
         .set("font-size", font_size)
         .set("style", format!("font-family:{font_family};"));
