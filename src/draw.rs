@@ -180,7 +180,7 @@ fn label_with_image(
         height * scale_factor * (0.5 - (push_up * 0.1)),
         label,
         0.55,
-        "serif",
+        "Times New Roman",
     );
     text.add(&mut label_g);
 
@@ -315,7 +315,7 @@ fn create_svg_from_config(
             margin_top + config.color_width + j as f64 + 0.5,
             &y_labels.values[label_j].name,
             0.55,
-            "serif",
+            "Times New Roman",
         );
         text.add(&mut document);
     }
@@ -329,27 +329,29 @@ fn create_svg_from_config(
         let y = &y_labels.values[label_j];
         for (i, &label_i) in x_labels.order.iter().enumerate() {
             let x = &x_labels.values[label_i];
-            if x.name == y.name {
-                continue;
-            }
             let x_pos = i as f64 * config.box_width + config.image_width_y + config.color_width;
             let y_pos = j as f64 + margin_top + config.color_width;
-            let value = decks
-                .get(&(x.name.clone(), y.name.clone()))
-                .or_else(|| decks.get(&(y.name.clone(), x.name.clone())))
-                .unwrap_or(&0);
-            let color = get_color(min, max, *value);
-            add_color_cell(&mut document, config, color, x_pos, y_pos);
+            if x.name == y.name {
+                let color = colorous::Color { r: 34, g: 2, b: 45 };
+                add_color_cell(&mut document, config, color, x_pos, y_pos);
+            } else {
+                let value = decks
+                    .get(&(x.name.clone(), y.name.clone()))
+                    .or_else(|| decks.get(&(y.name.clone(), x.name.clone())))
+                    .unwrap_or(&0);
+                let color = get_color(min, max, *value);
+                add_color_cell(&mut document, config, color, x_pos, y_pos);
 
-            let text = outlined_text(
-                "middle",
-                x_pos + 0.5 * config.box_width,
-                y_pos + 0.5,
-                &value.to_string(),
-                0.5,
-                "sans-serif",
-            );
-            texts.push(text);
+                let text = outlined_text(
+                    "middle",
+                    x_pos + 0.5 * config.box_width,
+                    y_pos + 0.5,
+                    &value.to_string(),
+                    0.5,
+                    "sans-serif",
+                );
+                texts.push(text);
+            }
         }
     }
 
@@ -375,12 +377,13 @@ fn create_info() -> element::Group {
         .set("width", 4.4)
         .set("href", format!("data:image/jpeg;base64,{}", image));
 
-    outlined_text("start", 0.5, 1.0, "Number of Commander decks by", 0.8, "serif").add(&mut out);
-
-    outlined_text("start", 0.5, 2.2, "partner pairs. Data was collected", 0.8, "serif")
+    outlined_text("start", 0.5, 1.0, "Number of Commander decks by", 0.8, "Times New Roman")
         .add(&mut out);
 
-    outlined_text("start", 0.5, 3.4, "2026-08-26 from:", 0.8, "serif").add(&mut out);
+    outlined_text("start", 0.5, 2.2, "partner pairs. Data was collected", 0.8, "Times New Roman")
+        .add(&mut out);
+
+    outlined_text("start", 0.5, 3.4, "2026-08-26 from:", 0.8, "Times New Roman").add(&mut out);
 
     out.append(edhrec_image);
 
