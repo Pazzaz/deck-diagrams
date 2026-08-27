@@ -1,0 +1,63 @@
+{
+    "values": [
+        {
+            "name": "Abby, Merciless Soldier",
+            "color_id": [
+                "R",
+                "G"
+            ]
+        },
+        {
+            "name": "Ellie, Brick Master",
+            "color_id": [
+                "R"
+            ]
+        },
+        {
+            "name": "Ellie, Vengeful Hunter",
+            "color_id": [
+                "B",
+                "R"
+            ]
+        },
+        {
+            "name": "Joel, Resolute Survivor",
+            "color_id": [
+                "B",
+                "G"
+            ]
+        }
+    ],
+    "decks": [
+        [
+            "Abby, Merciless Soldier",
+            "Ellie, Brick Master",
+            105
+        ],
+        [
+            "Abby, Merciless Soldier",
+            "Ellie, Vengeful Hunter",
+            1095
+        ],
+        [
+            "Ellie, Brick Master",
+            "Ellie, Vengeful Hunter",
+            241
+        ],
+        [
+            "Abby, Merciless Soldier",
+            "Joel, Resolute Survivor",
+            612
+        ],
+        [
+            "Ellie, Brick Master",
+            "Joel, Resolute Survivor",
+            3819
+        ],
+        [
+            "Ellie, Vengeful Hunter",
+            "Joel, Resolute Survivor",
+            950
+        ]
+    ]
+}
