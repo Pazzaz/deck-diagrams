@@ -215,14 +215,18 @@ pub fn update_data_single(
     debug_assert!(to_download.any());
     let client = reqwest::blocking::Client::new();
 
+    // When downloading images, we only download the first run we see them
+    let mut unvisited = vec![true; data.values.len()];
+
     for j in 1..data.values.len() {
         let (lower, upper) = data.values.split_at_mut(j);
         let y = &mut upper[0];
 
-        // When downloading images, we only download the first run through
-        let mut new = true;
-        for x in lower {
-            if !(to_download.deck_count || new) {
+        for (i, x) in lower.into_iter().enumerate() {
+            let x_unvisited = unvisited[i];
+            let y_unvisited = unvisited[j];
+
+            if !(to_download.deck_count || x_unvisited || y_unvisited) {
                 break;
             }
             let deck_count = if to_download.deck_count {
@@ -231,17 +235,22 @@ pub fn update_data_single(
                 None
             };
             let x_color_id =
-                if new && to_download.color_id_0 { Some(&x.color_id[..]) } else { None };
+                if x_unvisited && to_download.color_id_0 { Some(&x.color_id[..]) } else { None };
+            let y_color_id =
+                if y_unvisited && to_download.color_id_1 { Some(&y.color_id[..]) } else { None };
 
             let entry = EntryDownload {
                 x_name: &x.name,
                 y_name: &y.name,
-                x_image: new,
-                y_image: false,
+                x_image: x_unvisited,
+                y_image: y_unvisited,
                 deck_count,
                 x_color_id,
-                y_color_id: None,
+                y_color_id,
             };
+
+            unvisited[i] = false;
+            unvisited[j] = false;
 
             let downloaded = download_entry(entry, image_folder, &client);
 
@@ -253,7 +262,9 @@ pub fn update_data_single(
                 x.color_id = new_x_color_id;
             }
 
-            new = false;
+            if let Some(new_y_color_id) = downloaded.y_color_id {
+                y.color_id = new_y_color_id;
+            }
         }
     }
 }
