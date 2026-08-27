@@ -372,22 +372,41 @@ fn create_info() -> element::Group {
     BASE64_STANDARD.encode_string(EDHREC_IMAGE, &mut image);
 
     let edhrec_image = element::Image::new()
-        .set("x", 2.7)
-        .set("y", 4.3)
+        .set("x", 4.3)
+        .set("y", 3.15)
         .set("width", 4.4)
         .set("href", format!("data:image/jpeg;base64,{}", image));
 
-    outlined_text("start", 0.5, 1.0, "Number of Commander decks by", 0.8, "Times New Roman")
-        .add(&mut out);
+    let text = ["Number of Commander decks by", "partner pairs.", "", "Data from:"];
 
-    outlined_text("start", 0.5, 2.2, "partner pairs. Data was collected", 0.8, "Times New Roman")
-        .add(&mut out);
-
-    outlined_text("start", 0.5, 3.4, "2026-08-26 from:", 0.8, "Times New Roman").add(&mut out);
+    write_paragraph(&mut out, 0.5, 1.0, 1.0, 0.8, &text);
 
     out.append(edhrec_image);
 
     out
+}
+
+fn write_paragraph(
+    out: &mut impl svg::Node,
+    x: f64,
+    y: f64,
+    line_height: f64,
+    font_size: f64,
+    rows: &[&str],
+) {
+    for (i, row) in rows.iter().enumerate() {
+        if !row.is_empty() {
+            outlined_text(
+                "start",
+                x,
+                y + i as f64 * line_height,
+                row,
+                font_size,
+                "Times New Roman",
+            )
+            .add(out);
+        }
+    }
 }
 
 fn get_color(min: u64, max: u64, value: u64) -> colorous::Color {
