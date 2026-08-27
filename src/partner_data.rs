@@ -50,6 +50,8 @@ pub enum Data {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DataSingle {
+    pub x_image_size: Option<f64>,
+    pub y_image_size: Option<f64>,
     pub values: Vec<Partner>,
 
     #[serde(with = "decks_format")]
@@ -58,6 +60,8 @@ pub struct DataSingle {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DataDouble {
+    pub x_image_size: Option<f64>,
+    pub y_image_size: Option<f64>,
     pub x_values: Vec<Partner>,
 
     pub y_values: Vec<Partner>,

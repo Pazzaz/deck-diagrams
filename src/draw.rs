@@ -136,8 +136,18 @@ pub fn create_svg(
     x_labels: Labels<'_>,
     y_labels: Labels<'_>,
     decks: &IndexMap<(String, String), u64>,
+    x_image_size: Option<f64>,
+    y_image_size: Option<f64>,
 ) -> impl svg::Node {
-    let config = SVGConfig::default();
+    let mut config = SVGConfig::default();
+
+    if let Some(x_image_size) = x_image_size {
+        config.image_height_x = x_image_size;
+    }
+
+    if let Some(y_image_size) = y_image_size {
+        config.image_width_y = y_image_size;
+    }
 
     create_svg_from_config(x_labels, y_labels, decks, &config)
 }

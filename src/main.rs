@@ -102,7 +102,13 @@ fn main() {
                     let labels =
                         Labels { values: &data_single.values, order: &order, images: &images };
 
-                    create_svg(labels, labels, &data_single.decks)
+                    create_svg(
+                        labels,
+                        labels,
+                        &data_single.decks,
+                        data_single.x_image_size,
+                        data_single.y_image_size,
+                    )
                 }
                 Data::Double(data_double) => {
                     let x_images = get_images(&data_folder.join("images"), &data_double.x_values);
@@ -123,11 +129,21 @@ fn main() {
                         images: &y_images,
                     };
 
-                    create_svg(x_labels, y_labels, &data_double.decks)
+                    create_svg(
+                        x_labels,
+                        y_labels,
+                        &data_double.decks,
+                        data_double.x_image_size,
+                        data_double.y_image_size,
+                    )
                 }
             };
-
-            svg_to_png(&svg, &output_path);
+            let filetype = output_path.extension().unwrap();
+            match filetype.to_str().unwrap() {
+                "png" => svg_to_png(&svg, &output_path),
+                "svg" => svg::save(&output_path, &svg).unwrap(),
+                _ => panic!("Invalid output filetype"),
+            }
         }
     }
 }
