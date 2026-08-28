@@ -9,7 +9,7 @@ Output of `deck-diagrams --help`:
 ```
 CLI to download statistics from EDHREC and generate diagrams
 
-Usage: deck-diagrams.exe <DATA> <COMMAND>
+Usage: deck-diagrams <DATA> <COMMAND>
 
 Commands:
   download  Download statistics
